@@ -29,7 +29,6 @@ Change path to *anaconda* and home of the dotfiles repo depending on the setup.
 
 - VSCode
 - IntelliJ
-- Fork/Sublime Merge
 - anaconda
 - tex-live
 - pandoc
@@ -53,9 +52,6 @@ Change path to *anaconda* and home of the dotfiles repo depending on the setup.
 - pass. man.
 - VLC
 - Telegram
-- TweetDeck
 - Office
-- Mathpix
 - Magnet
-- Spotify
 - Things 3
