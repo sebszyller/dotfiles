@@ -22,6 +22,7 @@ alias ttt="tree -L 3"
 alias shrug="echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/¯\" | clpb"
 alias today="date -u +"%Y%m%d""
 alias vi=vim
+alias yeet="rm -fr"
 alias ytdl="youtube-dl"
 alias ytdlb="ytdl -f best"
 

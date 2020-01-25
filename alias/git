@@ -21,4 +21,4 @@ alias gfetch="git fetch"
 alias gmerge="gmerge"
 alias gdiff="git diff"
 alias gdiffc="git diff --cached"
-
+alias gcl="git clean"
