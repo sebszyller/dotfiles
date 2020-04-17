@@ -2,8 +2,6 @@
 # alias open="xdg-open"
 # alias here="nautilus . &"
 # alias clpb="xclip -selection clipboard"
-# alias gdzie="ps aux"
-alias gdzie="ps -jef"
 alias clpb=pbcopy
 alias cl=clear
 alias d='dirs -v | head -10'
@@ -49,3 +47,8 @@ function colored_cat() {
 	pygmentize -g ${1}
 }
 alias ccat="colored_cat"
+
+function psaux_grep() {
+	ps aux | grep -i ${1}
+}
+alias gdzie="psaux_grep"

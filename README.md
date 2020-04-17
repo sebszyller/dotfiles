@@ -18,6 +18,8 @@ One file for custom keybindings and one with user settings.
 - LaTeX Workshop by James Yu
 - vscode-icons
 - One Dark Pro
+- Bracket Pair Colorizer
+- Remote Development
 
 ## zsh
 
@@ -25,33 +27,55 @@ Change path to *anaconda* and home of the dotfiles repo depending on the setup.
 
 ## Apps
 
-### Dev
+### brew
 
-- VSCode
-- IntelliJ
 - anaconda
 - tex-live
 - pandoc
 - jq
 - git
-- brew
 - wget
 - coreutils
 - htop
 - docker
 - devtools
 - tldr
-- VM manager
-- SnippetsLab
 - tree
+- sqlite
+- bat
+- ripgrep
+- neofetch
+- speedtest-cli
+- ffmpeg
+- streamlink
+- youtube-dl
+- m-cli
 
-### Misc.
+### media
 
-- neoftech
-- Slack
+- VLC and IINA
+- Sketch
+- Affinity Photo
+
+### dev
+
+- Xcode
+- IntelliJ
+- VSCode
+- SnippetsLab
+- Vagrant
+
+### utils
+
 - pass. man.
-- VLC
-- Telegram
-- Office
 - Magnet
+- Karabiner
+- QMK
+- Logitech Options
+
+### productivity and comms
+
+- Telegram
+- Skype
+- Office (with Teams)
 - Things 3
