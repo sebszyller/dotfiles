@@ -50,6 +50,8 @@ Change path to *anaconda* and home of the dotfiles repo depending on the setup.
 - streamlink
 - youtube-dl
 - m-cli
+- fd
+- fzf
 
 ### media
 
