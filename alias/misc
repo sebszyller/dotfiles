@@ -4,9 +4,11 @@
 # alias clpb="xclip -selection clipboard"
 alias clpb=pbcopy
 alias cl=clear
+alias cp="cp -v"
 alias d='dirs -v | head -10'
 alias grep="grep --color=always"
 alias g=grep
+alias gi="g -i"
 alias l="ls"
 alias l1="l -1"
 alias la="ls -a"
@@ -21,34 +23,20 @@ alias tt="tree -L 2"
 alias ttt="tree -L 3"
 alias shrug="echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/¯\" | clpb"
 alias today="date -u +"%Y%m%d""
-alias vi=vim
+alias v=vim
 alias yeet="rm -fr"
 alias ytdl="youtube-dl"
 alias ytdlb="ytdl -f best"
 
-function log_entry_ {
-	local=$(today)
-	echo "# $(today)" > $(today).md
-	echo "Created."
-}
-alias logentry="log_entry_"
-
-function latcomp_withpdf {
-	pdflatex -synctex=1 -interaction=nonstopmode --shell-escape ${1}
-}
-alias latcomp="latcomp_withpdf"
+texcomp() { pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $1 }
 
 function cd_overwrite() {
 	\cd $1 && ls
 }
 alias cd="cd_overwrite"
 
-function colored_cat() {
-	pygmentize -g ${1}
-}
-alias ccat="colored_cat"
+ccat() { pygmentize -g $1 }
 
-function psaux_grep() {
-	ps aux | grep -i ${1}
-}
-alias gdzie="psaux_grep"
+gdzie() { ps aux | fzf | awk '{ print $2 }' | tr -d "\n" | clpb }
+
+hf() { history | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf | tr -d "\n" | clpb }
