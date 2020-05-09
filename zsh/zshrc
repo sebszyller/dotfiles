@@ -4,9 +4,12 @@ export PATH=~/--PATH--TO--CONDA--/bin:$PATH
 
 ZSH_THEME="materialshelloceanic"
 
+export FZF_DEFAULT_OPTS="--height 50% --no-info --layout=reverse"
+
 source $ZSH/oh-my-zsh.sh
 source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $DOTFILES/alias/aalto
-source $DOTFILES/alias/git
-source $DOTFILES/alias/misc
+source $DOTFILES/alias/git.rc
+source $DOTFILES/alias/misc.rc
+
+eval `ssh-agent`

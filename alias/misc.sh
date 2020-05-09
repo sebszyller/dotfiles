@@ -6,9 +6,7 @@ alias clpb=pbcopy
 alias cl=clear
 alias cp="cp -v"
 alias d='dirs -v | head -10'
-alias grep="grep --color=always"
-alias g=grep
-alias gi="g -i"
+alias g="rg --color=always -i"
 alias l="ls"
 alias l1="l -1"
 alias la="ls -a"
@@ -28,15 +26,17 @@ alias yeet="rm -fr"
 alias ytdl="youtube-dl"
 alias ytdlb="ytdl -f best"
 
-texcomp() { pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $1 }
+ccat() { pygmentize -g $1 }
 
 function cd_overwrite() {
 	\cd $1 && ls
 }
 alias cd="cd_overwrite"
 
-ccat() { pygmentize -g $1 }
+psf() { ps aux | fzf | awk '{ print $2 }' | tr -d "\n" | clpb }
 
-gdzie() { ps aux | fzf | awk '{ print $2 }' | tr -d "\n" | clpb }
+hist() { fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf | tr -d "\n" | clpb }
 
-hf() { history | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf | tr -d "\n" | clpb }
+ff() { greadlink -f $(rg --color=never --line-number . | fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}" | awk -F: '{ print $1 }') | tr -d "\n" | clpb }
+
+texcomp() { pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $1 }

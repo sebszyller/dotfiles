@@ -4,9 +4,12 @@ This repo contains a set of dotfiles and profile configs.
 
 ## Alias
 
-### Misc.
+### Post Installation TODO
 
-Change the `open` alias depending what OS you're using - `xdg-open` vs `open`.
+- Change the `open` alias.
+- Change the `clpb` alias.
+- Change `readlink` in `ff` and prompt.
+- Change anaconda path.
 
 ## Code
 
@@ -20,10 +23,6 @@ One file for custom keybindings and one with user settings.
 - One Dark Pro
 - Bracket Pair Colorizer
 - Remote Development
-
-## zsh
-
-Change path to *anaconda* and home of the dotfiles repo depending on the setup.
 
 ## Apps
 
