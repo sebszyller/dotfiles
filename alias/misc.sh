@@ -7,6 +7,7 @@ alias cl=clear
 alias cp="cp -v"
 alias d='dirs -v | head -10'
 alias g="rg --color=always -i"
+alias kb="cd ~/Documents/knowledge-base"
 alias l="ls"
 alias l1="l -1"
 alias la="ls -a"
