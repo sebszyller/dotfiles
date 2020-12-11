@@ -16,9 +16,6 @@ alias ll="ls -al"
 alias nrs="npm run serve"
 alias nrb="npm run build"
 alias py=python3
-alias scr="screen -r"
-alias scx="screen -XS"
-alias scls="screen -ls"
 alias t="tree -L 1"
 alias tt="tree -L 2"
 alias ttt="tree -L 3"
@@ -36,10 +33,20 @@ function cd_overwrite() {
 }
 alias cd="cd_overwrite"
 
+cenv() { source activate $(conda env list | fzf | awk '{ print $1 }') }
+
 psf() { ps aux | fzf | awk '{ print $2 }' | tr -d "\n" | clpb }
 
 hist() { fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf | tr -d "\n" | clpb }
 
 ff() { greadlink -f $(rg --color=never --line-number . | fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}" | awk -F: '{ print $1 }') | tr -d "\n" | clpb }
+
+scr() { screen -r $(screen -ls | fzf | awk '{ print $1 }' | cut -f1 -d".") }
+
+scx() {
+    local sid=$(screen -ls | fzf | awk '{ print $1 }' | cut -f1 -d".")
+    screen -XS $sid quit
+    echo "Killed session $sid."
+}
 
 texcomp() { pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $1 }
