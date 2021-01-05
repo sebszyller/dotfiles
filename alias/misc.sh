@@ -33,7 +33,7 @@ function cd_overwrite() {
 }
 alias cd="cd_overwrite"
 
-cenv() { source activate $(conda env list | fzf | awk '{ print $1 }') }
+cenv() { conda activate $(conda env list | fzf | awk '{ print $1 }') }
 
 psf() { ps aux | fzf | awk '{ print $2 }' | tr -d "\n" | clpb }
 

@@ -1,0 +1,25 @@
+name: default
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3
+  - jupyter
+  - matplotlib
+  - plotly
+  - pandas
+  - mypy
+  - pip
+  - pytorch
+  - requests
+  - scipy
+  - scikit-learn
+  - torchvision
+  - tensorboard
+  - rich
+  - tqdm
+  - pip:
+    - wget
+    - einops
+
