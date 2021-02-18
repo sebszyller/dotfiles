@@ -35,11 +35,11 @@ alias cd="cd_overwrite"
 
 cenv() { conda activate $(conda env list | fzf | awk '{ print $1 }') }
 
-psf() { ps aux | fzf | awk '{ print $2 }' | tr -d "\n" | clpb }
+ff() { greadlink -f $(rg --color=never --line-number . | fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}" | awk -F: '{ print $1 }') | tr -d "\n" | clpb }
 
 hist() { fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf | tr -d "\n" | clpb }
 
-ff() { greadlink -f $(rg --color=never --line-number . | fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}" | awk -F: '{ print $1 }') | tr -d "\n" | clpb }
+psf() { ps aux | fzf | awk '{ print $2 }' | tr -d "\n" | clpb }
 
 scr() { screen -r $(screen -ls | fzf | awk '{ print $1 }' | cut -f1 -d".") }
 
@@ -47,6 +47,17 @@ scx() {
     local sid=$(screen -ls | fzf | awk '{ print $1 }' | cut -f1 -d".")
     screen -XS $sid quit
     echo "Killed session $sid."
+}
+
+sitecheck() {
+    echo "Pinging..."
+    ping -c 5 sebszyller.com
+
+    echo "Digging apex..."
+    dig sebszyller.com +nostats +nocomments +nocmd
+
+    echo "Digging www..."
+    dig www.sebszyller.com +nostats +nocomments +nocmd
 }
 
 texcomp() { pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $1 }
