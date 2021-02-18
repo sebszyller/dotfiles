@@ -22,4 +22,5 @@ dependencies:
   - pip:
     - wget
     - einops
+    - pytorch-lightning
 
