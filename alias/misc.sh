@@ -1,8 +1,17 @@
-# Linux-specific
-# alias open="xdg-open"
-# alias here="nautilus . &"
-# alias clpb="xclip -selection clipboard"
-alias clpb=pbcopy
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # Linux-specific
+    echo "Initialising aliases for Linux."
+    alias open="xdg-open"
+    alias here="nautilus . &"
+    alias clpb="xclip -selection clipboard"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # Mac OSX
+    echo "Initialising aliases for MacOS."
+    alias clpb=pbcopy
+else
+    echo ">>>>>>>> WARN: Shell initialised on an unexpected OS type: $($OSTYPE)"
+fi
+
 alias cl=clear
 alias cp="cp -v"
 alias d='dirs -v | head -10'
@@ -32,7 +41,7 @@ function cd_overwrite() {
 }
 alias cd="cd_overwrite"
 
-cenv() { conda activate $(conda env list | fzf | awk '{ print $1 }') }
+cenv() { conda activate $(cat ~/.conda/environments.txt | fzf) }
 
 ff() { greadlink -f $(rg --color=never --line-number . | fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}" | awk -F: '{ print $1 }') | tr -d "\n" | clpb }
 
