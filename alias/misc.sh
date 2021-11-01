@@ -71,3 +71,6 @@ sitecheck() {
 }
 
 texcomp() { pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $1 }
+
+tspf() { cat $(tsp | fzf | awk '{print $3}') }
+
