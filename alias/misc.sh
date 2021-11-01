@@ -34,6 +34,8 @@ alias yeet="rm -fr"
 alias ytdl="youtube-dl"
 alias ytdlb="ytdl -f best"
 
+hash -d downl=~/Downloads
+
 ccat() { pygmentize -g $1 }
 
 function cd_overwrite() {

@@ -11,6 +11,7 @@ dependencies:
   - pandas
   - mypy
   - pip
+  - pylint
   - pytorch
   - requests
   - scipy
@@ -23,4 +24,8 @@ dependencies:
     - wget
     - einops
     - pytorch-lightning
+    - manim
+    - hydra-core
+    - omegaconf
+    - wandb
 

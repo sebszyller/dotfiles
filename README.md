@@ -17,9 +17,13 @@ One file for custom keybindings and one with user settings.
 
 ### Extensions
 - Python by Microsoft
+- Pylance
+- Python Docstring Generator
+- Python Indent
 - C/C++ by Microsoft
 - LaTeX Workshop by James Yu
 - vscode-icons
+- Better Comments
 - One Dark Pro
 - Bracket Pair Colorizer
 - Remote Development
@@ -80,3 +84,4 @@ One file for custom keybindings and one with user settings.
 - Skype
 - Office (with Teams)
 - Things 3
+- Obsidian.md
