@@ -35,8 +35,8 @@ alias ytdl="youtube-dl"
 alias ytdlb="ytdl -f best"
 
 hash -d downl=~/Downloads
-
-ccat() { pygmentize -g $1 }
+hash -d desk=~/Desktop
+hash -d dot=~/dotfiles
 
 function cd_overwrite() {
 	\cd $1 && ls
