@@ -30,8 +30,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$grey%}("
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$grey%}) %{$reset_color%}"
 
 function git_dirty() {
-  echo "%{$red%} +$(git status --short | gwc -l)%{$reset_color%}"
-  # echo "%{$red%} +$(git status --short | wc -l)%{$reset_color%}"
+  echo "%{$red%} +$(git status --short | wcorgwc -l)%{$reset_color%}"
 }
 
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$green%}%{$reset_color%}"

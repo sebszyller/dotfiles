@@ -4,13 +4,26 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias open="xdg-open"
     alias here="nautilus . &"
     alias clpb="xclip -selection clipboard"
+    alias readlinkorgreadlink=readlink
+    alias wcorgwc=wc
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     echo "Initialising aliases for MacOS."
     alias clpb=pbcopy
+    alias readlinkorgreadlink=greadlink
+    alias wcorgwc=gwc
 else
     echo ">>>>>>>> WARN: Shell initialised on an unexpected OS type: $($OSTYPE)"
 fi
+
+cmd_exists() { type $1 &> /dev/null || { echo "WARN: $1 not found" } }
+
+cmds=(bat conda fd fzf npm rg tree)
+echo "Checking if commands exist."
+for c in $cmds
+do
+    cmd_exists $c
+done
 
 alias cl=clear
 alias cp="cp -v"
@@ -31,8 +44,6 @@ alias shrug="echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/
 alias today="date -u +"%Y%m%d""
 alias v=vim
 alias yeet="rm -fr"
-alias ytdl="youtube-dl"
-alias ytdlb="ytdl -f best"
 
 hash -d downl=~/Downloads
 hash -d desk=~/Desktop
@@ -45,9 +56,14 @@ alias cd="cd_overwrite"
 
 cenv() { conda activate $(cat ~/.conda/environments.txt | fzf) }
 
-ff() { greadlink -f $(rg --color=never --line-number . | fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}" | awk -F: '{ print $1 }') | tr -d "\n" | clpb }
+ff() { readlinkorgreadlink -f $(rg --color=never --line-number . | fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}" | awk -F: '{ print $1 }') | tr -d "\n" | clpb }
 
 hist() { fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf | tr -d "\n" | clpb }
+
+me() {
+    echo "Hostname: $(hostname)"
+    echo "Id: $(whoami)$"
+}
 
 psf() { ps aux | fzf | awk '{ print $2 }' | tr -d "\n" | clpb }
 
