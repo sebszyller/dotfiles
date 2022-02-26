@@ -12,6 +12,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     alias clpb=pbcopy
     alias readlinkorgreadlink=greadlink
     alias wcorgwc=gwc
+    alias zzz="m sleep"
 else
     echo ">>>>>>>> WARN: Shell initialised on an unexpected OS type: $($OSTYPE)"
 fi
