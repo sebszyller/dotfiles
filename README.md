@@ -2,73 +2,100 @@
 
 This repo contains a set of dotfiles and profile configs.
 
-## Alias
+## Shell
 
 ### Post Installation TODO
 
-- Change the `open` alias.
-- Change the `clpb` alias.
-- Change `readlink` in `ff` and prompt.
 - Change anaconda path.
+- Add keychain key loading.
+- Move wezterm config to `~/.config/wezterm/`
+- Modify `~/.ssh/config`:
+
+```
+IdentityFile ~/.ssh/X
+IdentityFile ~/.ssh/Y
+IdentityFile ~/.ssh/Z
+
+Host *
+        AddKeysToAgent yes
+        UseKeychain yes
+        IdentitiesOnly yes
+
+Host X.com
+        HostName X.com
+        IdentityFile ~/.ssh/X
+
+Host Y.com
+        HostName Y.com
+        IdentityFile ~/.ssh/Y
+
+Host Z.com
+        HostName Z.com
+        IdentityFile ~/.ssh/Z
+```
 
 ## Code
 
 One file for custom keybindings and one with user settings.
 
 ### Extensions
+
+- autoDocstring
+- C/C++ by Microsoft
+- Better Comments
+- LaTeX Workshop by James Yu
 - Python by Microsoft
-- Pylance
 - Python Docstring Generator
 - Python Indent
-- C/C++ by Microsoft
-- LaTeX Workshop by James Yu
-- vscode-icons
-- Better Comments
-- One Dark Pro
-- Bracket Pair Colorizer
+- Pylance
 - Remote Development
+- vscode-icons
 
 ## Apps
 
 ### brew
 
 - anaconda
-- tex-live
-- pandoc
-- jq
-- git
-- wget
+- bat
 - coreutils
-- htop
-- docker
 - devtools
+- docker
+- fd
+- ffmpeg
+- fzf
+- git
+- jc
+- jq
+- htop
+- httpie
+- m-cli
+- neofetch
+- pandoc
+- ripgrep
+- speedtest-cli
+- sqlite
+- tex-live
 - tldr
 - tree
-- sqlite
-- bat
-- ripgrep
-- neofetch
-- speedtest-cli
-- ffmpeg
-- streamlink
-- youtube-dl
-- m-cli
-- fd
-- fzf
+- wget
 
 ### media
 
-- VLC and IINA
-- Sketch
 - Affinity Photo
+- DaVinci Resolve
+- Capture One
+- OBS
+- Sketch
+- VLC and IINA
 
 ### dev
 
-- Xcode
-- IntelliJ
-- VSCode
+- ProxyMan
 - SnippetsLab
 - Vagrant
+- VSCode
+- WezTerm
+- Xcode
 
 ### utils
 

@@ -19,7 +19,7 @@ fi
 
 cmd_exists() { type $1 &> /dev/null || { echo "WARN: $1 not found" } }
 
-cmds=(bat conda fd fzf npm rg tree)
+cmds=(bat conda fd fzf jc jq npm rg tree)
 echo "Checking if commands exist."
 for c in $cmds
 do
@@ -31,7 +31,7 @@ alias cp="cp -v"
 alias d='dirs -v | head -10'
 alias g="rg --color=always -i"
 alias l="ls"
-alias l1="l -1"
+alias l1="ls -1"
 alias la="ls -a"
 alias lah="ls -lah"
 alias ll="ls -al"
@@ -46,20 +46,15 @@ alias today="date -u +"%Y%m%d""
 alias v=vim
 alias yeet="rm -fr"
 
-hash -d downl=~/Downloads
-hash -d desk=~/Desktop
-hash -d dot=~/dotfiles
-
-function cd_overwrite() {
-	\cd $1 && ls
-}
-alias cd="cd_overwrite"
+hash -d desk=~/Desktop/
+hash -d docs=~/Documents/
+hash -d down=~/Downloads/
 
 cenv() { conda activate $(cat ~/.conda/environments.txt | fzf) }
 
 ff() { readlinkorgreadlink -f $(rg --color=never --line-number . | fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}" | awk -F: '{ print $1 }') | tr -d "\n" | clpb }
 
-hist() { fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf | tr -d "\n" | clpb }
+hf() { fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf | tr -d "\n" | clpb }
 
 me() {
     echo "Hostname: $(hostname)"
@@ -90,4 +85,3 @@ sitecheck() {
 texcomp() { pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $1 }
 
 tspf() { cat $(tsp | fzf | awk '{print $3}') }
-
