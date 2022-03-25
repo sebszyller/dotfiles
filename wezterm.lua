@@ -11,4 +11,11 @@ return {
   harfbuzz_features = {"calt=0", "clig=0", "liga=0"},
   font_size = 14,
   default_cursor_style = "SteadyBar",
+
+  keys = {
+    -- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word
+    {key="LeftArrow", mods="ALT", action=wezterm.action{SendString="\x1bb"}},
+    -- Make Option-Right equivalent to Alt-f; forward-word
+    {key="RightArrow", mods="ALT", action=wezterm.action{SendString="\x1bf"}},
+  },
 }
