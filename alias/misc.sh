@@ -52,7 +52,7 @@ hash -d down=~/Downloads/
 
 cenv() { conda activate $(cat ~/.conda/environments.txt | fzf) }
 
-df() { cd $(dirs -p | fzf | sed "s|~|${HOME}|") }
+sf() { cd $(dirs -p | fzf | sed "s|~|${HOME}|") }
 
 ff() { readlinkorgreadlink -f $(rg --color=never --line-number . | fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}" | awk -F: '{ print $1 }') | tr -d "\n" | clpb }
 
