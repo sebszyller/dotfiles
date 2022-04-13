@@ -58,6 +58,7 @@ One file for custom keybindings and one with user settings.
 - anaconda
 - bat
 - coreutils
+- delta
 - devtools
 - docker
 - fd
@@ -72,7 +73,6 @@ One file for custom keybindings and one with user settings.
 - neofetch
 - pandoc
 - ripgrep
-- speedtest-cli
 - sqlite
 - tex-live
 - tldr

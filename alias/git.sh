@@ -8,8 +8,8 @@ alias gclone="git clone"
 alias gpull="git pull"
 alias gcm="git commit -m"
 alias gl='clear; git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
-alias gls="gl --stat"
-alias glp="gl -p"
+alias gls='clear; git log --stat --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
+alias glp='clear; git log -p --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
 alias gr="git reset"
 alias grs="git reset --soft"
 alias grh="git reset --hard"
