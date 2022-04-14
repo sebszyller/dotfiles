@@ -65,6 +65,7 @@ One file for custom keybindings and one with user settings.
 - ffmpeg
 - fzf
 - git
+- glow
 - jc
 - jq
 - htop
@@ -112,3 +113,4 @@ One file for custom keybindings and one with user settings.
 - Office (with Teams)
 - Things 3
 - Obsidian.md
+
