@@ -54,16 +54,32 @@ cenv() { conda activate $(cat ~/.conda/environments.txt | fzf) }
 
 sf() { cd $(dirs -p | fzf | sed "s|~|${HOME}|") }
 
-ff() { readlinkorgreadlink -f $(rg --color=never --line-number . | fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}" | awk -F: '{ print $1 }') | tr -d "\n" | clpb }
+ff() {
+    local choice=$(
+        rg --color=never --line-number . |
+        fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}" |
+        awk -F: '{ print $1 }')
+    local fullpath=$(readlinkorgreadlink -f $choice)
+    echo $fullpath
+    echo -n $fullpath | clpb
+}
 
-hf() { fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf | tr -d "\n" | clpb }
+hf() {
+    local choice=$(fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf)
+    echo $choice
+    echo -n $choice | clpb
+}
 
 me() {
     echo "Hostname: $(hostname)"
     echo "Id: $(whoami)$"
 }
 
-psf() { ps aux | fzf | awk '{ print $2 }' | tr -d "\n" | clpb }
+psf() {
+    local choice=$(ps aux | fzf | awk '{ print $2 }')
+    echo $choice
+    echo -n $choice | clpb
+}
 
 scr() { screen -r $(screen -ls | fzf | awk '{ print $1 }' | cut -f1 -d".") }
 
