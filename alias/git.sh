@@ -27,7 +27,7 @@ alias gdiff="git diff"
 alias gdiffc="git diff --cached"
 alias gcl="git clean"
 
-gsf() {
+gshf() {
     clear
     local sha=$(eval "git log --oneline $fmt --color=always" | fzf --ansi --no-sort | awk '{print $1}')
     gsh --color=always --decorate $sha
