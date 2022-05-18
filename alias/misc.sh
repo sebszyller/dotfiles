@@ -3,13 +3,13 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "Initialising aliases for Linux."
     alias open="xdg-open"
     alias here="nautilus . &"
-    alias clpb="xclip -selection clipboard"
+    alias clip="xclip -selection clipboard"
     alias readlinkorgreadlink=readlink
     alias wcorgwc=wc
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     echo "Initialising aliases for MacOS."
-    alias clpb=pbcopy
+    alias clip=pbcopy
     alias readlinkorgreadlink=greadlink
     alias wcorgwc=gwc
     alias zzz="m sleep"
@@ -19,14 +19,13 @@ fi
 
 cmd_exists() { type $1 &> /dev/null || { echo "WARN: $1 not found" } }
 
-cmds=(bat conda delta fd fzf jc jq npm pdflatex rg tree)
+cmds=(bat conda delta fd fzf jc jq npm nvim pdflatex rg tree)
 echo "Checking if commands exist."
 for c in $cmds
 do
     cmd_exists $c
 done
 
-alias cl=clear
 alias cp="cp -v"
 alias d='dirs -v | head -10'
 alias g="rg --color=always -i"
@@ -37,13 +36,12 @@ alias lah="ls -lah"
 alias ll="ls -al"
 alias nrs="npm run serve"
 alias nrb="npm run build"
-alias py=python3
 alias t="tree -L 1"
 alias tt="tree -L 2"
 alias ttt="tree -L 3"
-alias shrug="echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/¯\" | clpb"
+alias shrug="echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/¯\" | clip"
 alias today="date -u +"%Y%m%d""
-alias v=vim
+alias v=nvim
 alias yeet="rm -fr"
 
 hash -d desk=~/Desktop/
@@ -52,8 +50,6 @@ hash -d down=~/Downloads/
 
 cenv() { conda activate $(cat ~/.conda/environments.txt | fzf) }
 
-sf() { cd $(dirs -p | fzf | sed "s|~|${HOME}|") }
-
 ff() {
     local choice=$(
         rg --color=never --line-number . |
@@ -61,13 +57,13 @@ ff() {
         awk -F: '{ print $1 }')
     local fullpath=$(readlinkorgreadlink -f $choice)
     echo $fullpath
-    echo -n $fullpath | clpb
+    echo -n $fullpath | clip
 }
 
 hf() {
     local choice=$(fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf)
     echo $choice
-    echo -n $choice | clpb
+    echo -n $choice | clip
 }
 
 me() {
@@ -78,7 +74,7 @@ me() {
 psf() {
     local choice=$(ps aux | fzf | awk '{ print $2 }')
     echo $choice
-    echo -n $choice | clpb
+    echo -n $choice | clip
 }
 
 scr() { screen -r $(screen -ls | fzf | awk '{ print $1 }' | cut -f1 -d".") }
@@ -88,6 +84,8 @@ scx() {
     screen -XS $sid quit
     echo "Killed session $sid."
 }
+
+sf() { cd $(dirs -p | fzf | sed "s|~|${HOME}|") }
 
 sitecheck() {
     echo "Pinging..."

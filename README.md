@@ -6,10 +6,11 @@ This repo contains a set of dotfiles and profile configs.
 
 ### Post Installation TODO
 
-- Change anaconda path.
-- Add keychain key loading.
-- Move wezterm config to `~/.config/wezterm/`
-- Modify `~/.ssh/config`:
+- [] Change anaconda path.
+- [] Add keychain key loading.
+- [] Move wezterm config to `~/.config/wezterm/`
+- [] Move neovim confit to `~/.config/nvim/`
+- [] Modify `~/.ssh/config`:
 
 ```
 IdentityFile ~/.ssh/X
@@ -40,77 +41,44 @@ One file for custom keybindings and one with user settings.
 
 ### Extensions
 
-- autoDocstring
+- autoDocstring - Python Docstring Generator
 - C/C++ by Microsoft
 - Better Comments
+- GitHub Theme
+- GitLens
+- Jupyter by Microsoft
 - LaTeX Workshop by James Yu
 - Python by Microsoft
-- Python Docstring Generator
 - Python Indent
 - Pylance
 - Remote Development
+- Vetur (for Vue)
 - vscode-icons
 
 ## Apps
 
-### brew
+### Homebrew
 
-- anaconda
-- bat
-- coreutils
-- delta
-- devtools
-- docker
-- fd
-- ffmpeg
-- fzf
-- git
-- glow
-- jc
-- jq
-- htop
-- httpie
-- m-cli
-- neofetch
-- pandoc
-- ripgrep
-- sqlite
-- tex-live
-- tldr
-- tree
-- wget
+See `Brewfile`. Install everything with `brew bundle --file=~/dotfiles/Brewfile`.
 
-### media
+Apps not included in the `Brewfile`.
 
-- Affinity Photo
-- DaVinci Resolve
-- Capture One
-- OBS
-- Sketch
-- VLC and IINA
+### App Store
 
-### dev
-
-- ProxyMan
+- Magnet
+- Notability
+- pass. man.
 - SnippetsLab
-- Vagrant
-- VSCode
-- WezTerm
+- Telegram
+- Things 3
 - Xcode
 
-### utils
+### Other
 
-- pass. man.
-- Magnet
-- Karabiner
-- QMK
-- Logitech Options
+- [Affinity Photo](https://affinity.serif.com/en-us/photo/)
+- [Capture One](https://www.captureone.com/en)
+- [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/)
+- [Sketch](https://www.sketch.com)
 
-### productivity and comms
-
-- Telegram
-- Skype
+- [Logitech Options](https://support.logi.com/hc/en-us/articles/360024361233)
 - Office (with Teams)
-- Things 3
-- Obsidian.md
-

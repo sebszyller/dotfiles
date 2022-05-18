@@ -1,5 +1,5 @@
 export DOTFILES=~/dotfiles
-export ZSH=$DOTFILES/zsh/oh-my-zsh
+export ZSH=$DOTFILES/oh-my-zsh
 export CONDA=~/miniconda3
 export PATH=~/CONDA/bin:$PATH
 

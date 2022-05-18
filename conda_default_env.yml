@@ -17,7 +17,6 @@ dependencies:
   - scipy
   - scikit-learn
   - torchvision
-  - tensorboard
   - rich
   - tqdm
   - pip:
@@ -28,4 +27,3 @@ dependencies:
     - hydra-core
     - omegaconf
     - wandb
-
