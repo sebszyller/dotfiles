@@ -6,11 +6,11 @@ This repo contains a set of dotfiles and profile configs.
 
 ### Post Installation TODO
 
-- [] Change anaconda path.
-- [] Add keychain key loading.
-- [] Move wezterm config to `~/.config/wezterm/`
-- [] Move neovim confit to `~/.config/nvim/`
-- [] Modify `~/.ssh/config`:
+- [ ] Change anaconda path.
+- [ ] Add keychain key loading.
+- [ ] Move wezterm config to `~/.config/wezterm/`
+- [ ] Move neovim confit to `~/.config/nvim/`
+- [ ] Modify `~/.ssh/config`:
 
 ```
 IdentityFile ~/.ssh/X

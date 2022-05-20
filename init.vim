@@ -14,3 +14,8 @@ set tabstop=4               " number of columns occupied by a tab character
 set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
+set noswapfile              " disable the swap file
+
+inoremap jk <ESC>
+let mapleader = "'"
+
