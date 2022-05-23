@@ -1,7 +1,6 @@
 export DOTFILES=~/dotfiles
 export ZSH=$DOTFILES/oh-my-zsh
 export CONDA=~/miniconda3
-export PATH=~/CONDA/bin:$PATH
 
 export FZF_DEFAULT_OPTS="--height 40% --no-info --layout=reverse"
 
