@@ -8,6 +8,7 @@ tap "buo/cask-upgrade"
 
 cask "iterm2"
 cask "karabiner-elements"
+cask "macs-fan-control"
 cask "obs"
 cask "obsidian"
 cask "proxyman"
