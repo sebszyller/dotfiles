@@ -26,5 +26,5 @@ alias gti=git
 gsh() {
     clear
     local sha=$(eval "git log --oneline $fmt --color=always" | fzf --ansi --no-sort | awk '{print $1}')
-    gsh --color=always --decorate $sha
+    git show $fmt --color=always --decorate $sha
 }
