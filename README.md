@@ -8,31 +8,28 @@ This repo contains a set of dotfiles and profile configs.
 
 - [ ] Change anaconda path.
 - [ ] Add keychain key loading.
-- [ ] Move wezterm config to `~/.config/wezterm/`
-- [ ] Move neovim confit to `~/.config/nvim/`
+- [ ] Move neovim config to `~/.config/nvim/`
 - [ ] Modify `~/.ssh/config`:
 
 ```
 IdentityFile ~/.ssh/X
 IdentityFile ~/.ssh/Y
-IdentityFile ~/.ssh/Z
 
 Host *
         AddKeysToAgent yes
         UseKeychain yes
         IdentitiesOnly yes
+        PasswordAuthentication no
+        VisualHostKey yes
+        ServerAliveInterval 240
 
-Host X.com
+Host X X.com
         HostName X.com
         IdentityFile ~/.ssh/X
 
 Host Y.com
         HostName Y.com
         IdentityFile ~/.ssh/Y
-
-Host Z.com
-        HostName Z.com
-        IdentityFile ~/.ssh/Z
 ```
 
 ## Code
