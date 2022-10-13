@@ -30,3 +30,6 @@ unset __conda_setup
 
 source $DOTFILES/alias/git.sh
 source $DOTFILES/alias/misc.sh
+
+setopt SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_ALL_DUPS
+

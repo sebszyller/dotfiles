@@ -49,6 +49,11 @@ hash -d desk=~/Desktop/
 hash -d docs=~/Documents/
 hash -d down=~/Downloads/
 
+alias history="history 1"
+HISTSIZE=99999
+HISTFILESIZE=99999
+SAVEHIST=$HISTSIZE
+
 cenv() { conda activate $(cat ~/.conda/environments.txt | fzf) }
 
 ff() {
