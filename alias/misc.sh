@@ -45,10 +45,6 @@ alias today="date -u +"%Y%m%d""
 alias v=nvim
 alias yeet="rm -fr"
 
-hash -d desk=~/Desktop/
-hash -d docs=~/Documents/
-hash -d down=~/Downloads/
-
 alias history="history 1"
 HISTSIZE=99999
 HISTFILESIZE=99999
