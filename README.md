@@ -10,7 +10,8 @@ This repo contains a set of dotfiles and profile configs.
 - [ ] Add keychain key loading.
 - [ ] Move neovim config to `~/.config/nvim/`
 - [ ] Modify `~/.ssh/config`:
-- [ ] `defaults write com.apple.Dock autohide-delay -float 0.0001; killall Dock`
+- [ ] `defaults write com.apple.Dock autohide-delay -float 0.0; killall Dock`
+- [ ] `defaults write com.apple.dock autohide-time-modifier -float 0.5; killall Dock`
 - [ ] Change screenshot save folder.
 
 ```
