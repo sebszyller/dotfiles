@@ -12,6 +12,9 @@ This repo contains a set of dotfiles and profile configs.
 - [ ] Modify `~/.ssh/config`:
 - [ ] `defaults write com.apple.Dock autohide-delay -float 0.0; killall Dock`
 - [ ] `defaults write com.apple.dock autohide-time-modifier -float 0.5; killall Dock`
+- [ ] `defaults write -g NSWindowShouldDragOnGesture -bool true`
+- [ ] `defaults write - InitialkeyRepeat -int 13`
+- [ ] `defaults write -g KeyRepeat -int 1`
 - [ ] Change screenshot save folder.
 
 ```
@@ -81,4 +84,3 @@ Apps not included in the `Brewfile`.
 - [Sketch](https://www.sketch.com)
 
 - [Logitech Options](https://support.logi.com/hc/en-us/articles/360024361233)
-- Office (with Teams)
