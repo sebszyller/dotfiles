@@ -12,14 +12,13 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     alias clip=pbcopy
     alias readlinkorgreadlink=greadlink
     alias wcorgwc=gwc
-    alias zzz="m sleep"
 else
     echo ">>>>>>>> WARN: Shell initialised on an unexpected OS type: $($OSTYPE)"
 fi
 
 cmd_exists() { type $1 &> /dev/null || { echo "WARN: $1 not found" } }
 
-cmds=(bat conda delta fd fzf jc jq npm nvim pdflatex rg tree)
+cmds=(bat conda delta fd fzf jc jq npm nvim poetry pdflatex rg tree)
 echo "Checking if commands exist."
 for c in $cmds
 do
@@ -51,16 +50,6 @@ HISTFILESIZE=99999
 SAVEHIST=$HISTSIZE
 
 cenv() { conda activate $(cat ~/.conda/environments.txt | fzf) }
-
-ff() {
-    local choice=$(
-        rg --color=never --line-number . |
-        fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}" |
-        awk -F: '{ print $1 }')
-    local fullpath=$(readlinkorgreadlink -f $choice)
-    echo $fullpath
-    echo -n $fullpath | clip
-}
 
 hf() {
     local choice=$(fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf)

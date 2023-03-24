@@ -1,7 +1,7 @@
 export DOTFILES=~/dotfiles
 export ZSH=$DOTFILES/oh-my-zsh
 export CONDA=~/miniconda3
-# export PATH=~/CONDA/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 export FZF_DEFAULT_OPTS="--height 40% --no-info --layout=reverse"
 
@@ -13,6 +13,10 @@ source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/plugins/ls-after-cd/ls-after-cd.zsh
 
 eval `ssh-agent`
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -33,4 +37,3 @@ source $DOTFILES/alias/git.sh
 source $DOTFILES/alias/misc.sh
 
 setopt SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_ALL_DUPS
-
