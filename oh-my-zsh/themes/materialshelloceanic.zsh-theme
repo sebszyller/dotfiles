@@ -7,7 +7,7 @@ eval cyan='$FG[037]'
 eval white='$FG[231]'
 eval grey='$FG[145]'
 
-PROMPT='%{$white%}in%{$reset_color%} ${_current_dir}$(git_prompt_info)%{$white%}$%{$reset_color%} '
+PROMPT='%{$white%}in%{$reset_color%} ${_current_dir}$(git_prompt_info)%{$white%}%Bλ%b%{$reset_color%} '
 # PROMPT='%{$white%}%m %{$reset_color%}${_current_dir}$(git_prompt_info)%{$white%}$%{$reset_color%} '
 
 PROMPT2='%{$white%}◀%{$reset_color%} '
