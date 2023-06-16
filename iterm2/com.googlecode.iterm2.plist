@@ -363,6 +363,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>A5280612-45DA-4A2C-BC5B-8C0E973607C8</string>
+	<key>DimInactiveSplitPanes</key>
+	<false/>
 	<key>HTMLTabTitles</key>
 	<false/>
 	<key>HapticFeedbackForEsc</key>
