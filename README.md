@@ -82,5 +82,5 @@ Apps not included in the `Brewfile`.
 - [Capture One](https://www.captureone.com/en)
 - [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/)
 - [Sketch](https://www.sketch.com)
-
+- [Poetry](https://python-poetry.org/docs/)
 - [Logitech Options](https://support.logi.com/hc/en-us/articles/360024361233)
