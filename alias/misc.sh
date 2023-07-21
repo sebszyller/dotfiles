@@ -18,7 +18,7 @@ fi
 
 cmd_exists() { type $1 &> /dev/null || { echo "WARN: $1 not found" } }
 
-cmds=(bat conda delta fd fzf jc jq npm nvim poetry pdflatex rg tree)
+cmds=(bat delta fd fzf jc jq npm nvim pdflatex poetry pyenv rg tree)
 echo "Checking if commands exist."
 for c in $cmds
 do
