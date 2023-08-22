@@ -68,6 +68,8 @@ Apps not included in the `Brewfile`.
 
 ### App Store
 
+Rectangle.app is preferred over Magnet right now.
+
 - Magnet
 - Notability
 - pass. man.

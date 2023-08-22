@@ -59,7 +59,7 @@ hf() {
 
 me() {
     echo "Hostname: $(hostname)"
-    echo "Id: $(whoami)$"
+    echo "ID: $(whoami)$"
 }
 
 psf() {
@@ -68,10 +68,10 @@ psf() {
     echo -n $choice | clip
 }
 
-scr() { screen -r $(screen -ls | fzf | awk '{ print $1 }' | cut -f1 -d".") }
+scr() { screen -r $(screen -ls | tail -n +2 | sed -e '$d' | sed -e '$d' | fzf | awk '{ print $1 }' | cut -f1 -d".") }
 
 scx() {
-    local sid=$(screen -ls | fzf | awk '{ print $1 }' | cut -f1 -d".")
+    local sid=$(screen -ls | tail -n +2 | sed -e '$d' | sed -e '$d' | fzf | awk '{ print $1 }' | cut -f1 -d".")
     screen -XS $sid quit
     echo "Killed session $sid."
 }
