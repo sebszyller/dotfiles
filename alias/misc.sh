@@ -6,12 +6,14 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias clip="xclip -selection clipboard"
     alias readlinkorgreadlink=readlink
     alias wcorgwc=wc
+    alias sedorgsed=sed
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     echo "Initialising aliases for MacOS."
     alias clip=pbcopy
     alias readlinkorgreadlink=greadlink
     alias wcorgwc=gwc
+    alias sedorgsed=gsed
 else
     echo ">>>>>>>> WARN: Shell initialised on an unexpected OS type: $($OSTYPE)"
 fi
@@ -54,7 +56,7 @@ cenv() { conda activate $(cat ~/.conda/environments.txt | __fzfselectorexit) }
 check_port() { lsof -Pi :$1 -sTCP:LISTEN }
 
 hf() {
-    local choice=$(fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | __fzfselectorexit)
+    local choice=$(fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sedorgsed "s/^ //" | __fzfselectorexit)
     echo $choice
     echo -n $choice | clip
 }
@@ -70,15 +72,15 @@ psf() {
     echo -n $choice | clip
 }
 
-scr() { screen -r $(screen -ls | tail -n +2 | sed -e '$d' | sed -e '$d' | __fzfselectorexit | awk '{ print $1 }' | cut -f1 -d".") }
+scr() { screen -r $(screen -ls | tail -n +2 | sedorgsed -e '$d' | sedorgsed -e '$d' | __fzfselectorexit | awk '{ print $1 }' | cut -f1 -d".") }
 
 scx() {
-    local sid=$(screen -ls | tail -n +2 | sed -e '$d' | sed -e '$d' | __fzfselectorexit | awk '{ print $1 }' | cut -f1 -d".")
+    local sid=$(screen -ls | tail -n +2 | sedorgsed -e '$d' | sedorgsed -e '$d' | __fzfselectorexit | awk '{ print $1 }' | cut -f1 -d".")
     screen -XS $sid quit
     echo "Killed session $sid."
 }
 
-sf() { cd "$(dirs -p | __fzfselectorexit | sed "s|~|${HOME}|")" }
+sf() { cd "$(dirs -p | __fzfselectorexit | sedorgsed "s|~|${HOME}|")" }
 
 sitecheck() {
     echo "Pinging..."
@@ -126,12 +128,12 @@ Options:
         case $1 in
         -h) echo "$usage" ;
             break ;;
-        -a) local resolved=$(readlink -f $2)
+        -a) local resolved=$(greadlink -f $2)
             echo $resolved >> $tabfile ;
             sort -o $tabfile $tabfile ;
             break ;;
         -d) local line="$(cat $tabfile | __fzfselectorexit)" ;
-            sed -i '' "\|${line}$|d" $tabfile ;
+            sedorgsed -i "\|${line}$|d" $tabfile ;
             break ;;
         *) break;
         esac;
