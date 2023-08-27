@@ -49,12 +49,12 @@ HISTSIZE=99999
 HISTFILESIZE=99999
 SAVEHIST=$HISTSIZE
 
-cenv() { conda activate $(cat ~/.conda/environments.txt | fzf) }
+cenv() { conda activate $(cat ~/.conda/environments.txt | __fzfselectorexit) }
 
 check_port() { lsof -Pi :$1 -sTCP:LISTEN }
 
 hf() {
-    local choice=$(fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf)
+    local choice=$(fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | __fzfselectorexit)
     echo $choice
     echo -n $choice | clip
 }
@@ -65,20 +65,20 @@ me() {
 }
 
 psf() {
-    local choice=$(ps aux | fzf | awk '{ print $2 }')
+    local choice=$(ps aux | __fzfselectorexit | awk '{ print $2 }')
     echo $choice
     echo -n $choice | clip
 }
 
-scr() { screen -r $(screen -ls | tail -n +2 | sed -e '$d' | sed -e '$d' | fzf | awk '{ print $1 }' | cut -f1 -d".") }
+scr() { screen -r $(screen -ls | tail -n +2 | sed -e '$d' | sed -e '$d' | __fzfselectorexit | awk '{ print $1 }' | cut -f1 -d".") }
 
 scx() {
-    local sid=$(screen -ls | tail -n +2 | sed -e '$d' | sed -e '$d' | fzf | awk '{ print $1 }' | cut -f1 -d".")
+    local sid=$(screen -ls | tail -n +2 | sed -e '$d' | sed -e '$d' | __fzfselectorexit | awk '{ print $1 }' | cut -f1 -d".")
     screen -XS $sid quit
     echo "Killed session $sid."
 }
 
-sf() { cd $(dirs -p | fzf | sed "s|~|${HOME}|") }
+sf() { cd "$(dirs -p | __fzfselectorexit | sed "s|~|${HOME}|")" }
 
 sitecheck() {
     echo "Pinging..."
@@ -93,4 +93,59 @@ sitecheck() {
 
 texcomp() { pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $1 }
 
-tspf() { cat $(tsp | fzf | awk '{print $3}') }
+tspf() { cat $(tsp | __fzfselectorexit | awk '{print $3}') }
+
+tab() {
+    local tabfile="${HOME}/.tab/tablist"
+    local usage="tab [-h] [-a path] [-d] -- simple tab keeping util.
+    By default, tab list is stored in $tabfile
+
+Options:
+  -h        Show this help text.
+  -a path   Add tab.
+  -d        Remove tab."
+
+    # Create tab file if it doesn't exist yet
+    if [ ! -e "$tabfile" ] ; then
+        echo "Tab file doesn't exist. Creating in $tabfile"
+        mkdir -p ${HOME}/.tab/ && touch $tabfile
+        return 0
+    fi
+
+    # Find tab if no argument provided
+    if (($# == 0)); then
+        if [ -s "$tabfile" ]; then
+            cd "$(cat $tabfile | __fzfselectorexit)"
+        else
+            echo "$tabfile is empty..."
+        fi
+    fi
+
+    # -a to add a new tab; -d to remove one
+    while (( $# >= 1 )); do
+        case $1 in
+        -h) echo "$usage" ;
+            break ;;
+        -a) local resolved=$(readlink -f $2)
+            echo $resolved >> $tabfile ;
+            sort -o $tabfile $tabfile ;
+            break ;;
+        -d) local line="$(cat $tabfile | __fzfselectorexit)" ;
+            sed -i '' "\|${line}$|d" $tabfile ;
+            break ;;
+        *) break;
+        esac;
+        shift
+    done
+}
+
+__fzfselectorexit() {
+    local input="$([[ -p /dev/stdin ]] && cat - || echo "$@")"
+    local selected=$(echo "$input" | fzf)
+
+    if [[ "$selected" == "" ]]; then
+        kill -INT $$
+    else
+        echo $selected
+    fi
+}
