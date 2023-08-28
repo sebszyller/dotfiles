@@ -128,7 +128,7 @@ Options:
         case $1 in
         -h) echo "$usage" ;
             break ;;
-        -a) local resolved=$(greadlink -f $2)
+        -a) local resolved=$(readlinkorgreadlink -f $2) ;
             echo $resolved >> $tabfile ;
             sort -o $tabfile $tabfile ;
             break ;;
