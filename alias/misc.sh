@@ -51,6 +51,8 @@ SAVEHIST=$HISTSIZE
 
 cenv() { conda activate $(cat ~/.conda/environments.txt | fzf) }
 
+check_port() { lsof -Pi :$1 -sTCP:LISTEN }
+
 hf() {
     local choice=$(fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sed "s/^ //" | fzf)
     echo $choice
