@@ -6,6 +6,6 @@ fi
 function chpwd_cdls() {
     if [[ -o interactive ]]; then
         emulate -L zsh
-        ls
+        eza
     fi
 }

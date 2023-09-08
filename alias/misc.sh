@@ -20,12 +20,16 @@ fi
 
 cmd_exists() { type $1 &> /dev/null || { echo "WARN: $1 not found" } }
 
-cmds=(bat delta fd fzf jc jq npm nvim pdflatex poetry pyenv rg tree)
+cmds=(bat delta eza fd fzf jc jq npm nvim pdflatex poetry pyenv rg)
 echo "Checking if commands exist."
 for c in $cmds
 do
     cmd_exists $c
 done
+
+if type eza &> /dev/null; then
+    alias ls=eza
+fi
 
 alias cp="cp -v"
 alias d='dirs -v | head -10'
@@ -33,18 +37,16 @@ alias g="rg --color=always -i"
 alias l="ls"
 alias l1="ls -1"
 alias la="ls -a"
-alias lah="ls -lah"
 alias ll="ls -al"
 alias nrs="npm run serve"
 alias nrb="npm run build"
 alias obsidian="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/knowledge-base"
-alias t="tree -L 1"
-alias tt="tree -L 2"
-alias ttt="tree -L 3"
+alias t="eza --tree -L 1"
+alias tt="eza --tree -L 2"
+alias ttt="eza --tree -L 3"
 alias shrug="echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/¯\" | clip"
 alias today="date -u +"%Y%m%d""
 alias v=nvim
-alias yeet="rm -fr"
 
 alias history="history 1"
 HISTSIZE=99999
