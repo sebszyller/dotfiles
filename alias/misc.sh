@@ -62,21 +62,6 @@ cenv() { conda activate $(cat ~/.conda/environments.txt | __fzfselectorexit) }
 # Check if/what is listening on the port
 chport() { lsof -Pi :$1 -sTCP:LISTEN }
 
-# Look up stuff in cheat.sh
-chsh() {
-    languages=$(echo "python3 js html latex cpp git" | tr ' ' '\n')
-    libs=$(echo "rg fd du df xargs sed awk zip tar" | tr ' ' '\n')
-
-    selected=$(printf "$languages\n$libs" | __fzfselectorexit)
-    read "query?Query: "
-
-    if echo $languages | g -qs $selected; then
-        curl cht.sh/$selected/$(echo $query | tr ' ' '+')
-    else
-        curl cht.sh/$selected~$query
-    fi
-}
-
 # Fuzzy-find history
 hf() {
     local choice=$(fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sedorgsed "s/^ //" | __fzfselectorexit)
