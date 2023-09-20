@@ -1,3 +1,4 @@
+# OS-specific inits.
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux-specific
     echo "Initialising aliases for Linux."
@@ -18,15 +19,16 @@ else
     echo ">>>>>>>> WARN: Shell initialised on an unexpected OS type: $($OSTYPE)"
 fi
 
+# Check if commands exist
 cmd_exists() { type $1 &> /dev/null || { echo "WARN: $1 not found" } }
 
 cmds=(bat delta eza fd fzf jc jq npm nvim pdflatex poetry pyenv rg)
-echo "Checking if commands exist."
 for c in $cmds
 do
     cmd_exists $c
 done
 
+# Aliases
 if type eza &> /dev/null; then
     alias ls=eza
 fi
@@ -53,52 +55,68 @@ HISTSIZE=99999
 HISTFILESIZE=99999
 SAVEHIST=$HISTSIZE
 
+# Scripts & functions
+# Fuzzy-find conda environemnts
 cenv() { conda activate $(cat ~/.conda/environments.txt | __fzfselectorexit) }
 
-check_port() { lsof -Pi :$1 -sTCP:LISTEN }
+# Check if/what is listening on the port
+chport() { lsof -Pi :$1 -sTCP:LISTEN }
 
+# Look up stuff in cheat.sh
+chsh() {
+    languages=$(echo "python3 js html latex cpp git" | tr ' ' '\n')
+    libs=$(echo "rg fd du df xargs sed awk zip tar" | tr ' ' '\n')
+
+    selected=$(printf "$languages\n$libs" | __fzfselectorexit)
+    read "query?Query: "
+
+    if echo $languages | g -qs $selected; then
+        curl cht.sh/$selected/$(echo $query | tr ' ' '+')
+    else
+        curl cht.sh/$selected~$query
+    fi
+}
+
+# Fuzzy-find history
 hf() {
     local choice=$(fc -l 1 | sort -rn | awk '{ $1=""; print $0 }' | sedorgsed "s/^ //" | __fzfselectorexit)
     echo $choice
     echo -n $choice | clip
 }
 
+# Lookip hostname and id.
 me() {
     echo "Hostname: $(hostname)"
     echo "ID: $(whoami)$"
 }
 
+# Fuzzy-find from psf aux
 psf() {
     local choice=$(ps aux | __fzfselectorexit | awk '{ print $2 }')
     echo $choice
     echo -n $choice | clip
 }
 
+# Fuzzy-find for reconnecting to a screen session
 scr() { screen -r $(screen -ls | tail -n +2 | sedorgsed -e '$d' | sedorgsed -e '$d' | __fzfselectorexit | awk '{ print $1 }' | cut -f1 -d".") }
 
+# Fuzzy-find for killing a screen session
 scx() {
     local sid=$(screen -ls | tail -n +2 | sedorgsed -e '$d' | sedorgsed -e '$d' | __fzfselectorexit | awk '{ print $1 }' | cut -f1 -d".")
     screen -XS $sid quit
     echo "Killed session $sid."
 }
 
+# Fuzzy-find directories on the stack
 sf() { cd "$(dirs -p | __fzfselectorexit | sedorgsed "s|~|${HOME}|")" }
 
-sitecheck() {
-    echo "Pinging..."
-    ping -c 5 sebszyller.com
-
-    echo "Digging apex..."
-    dig sebszyller.com +nostats +nocomments +nocmd
-
-    echo "Digging www..."
-    dig www.sebszyller.com +nostats +nocomments +nocmd
-}
-
+# Compile latex file
 texcomp() { pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $1 }
 
+# Fuzzy-find for tsp outputs
 tspf() { cat $(tsp | __fzfselectorexit | awk '{print $3}') }
 
+# Create and manage directory tabs (with fuzzy finding)
 tab() {
     local tabfile="${HOME}/.tab/tablist"
     local usage="tab [-h] [-a path] [-d] -- simple tab keeping util.
