@@ -48,6 +48,7 @@ alias tt="eza --tree -L 2"
 alias ttt="eza --tree -L 3"
 alias shrug="echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/¯\" | clip"
 alias today="date -u +"%Y%m%d""
+alias tmls="tmux ls"
 alias v=nvim
 
 alias history="history 1"
@@ -82,14 +83,20 @@ psf() {
     echo -n $choice | clip
 }
 
-# Fuzzy-find for reconnecting to a screen session
-scr() { screen -r $(screen -ls | tail -n +2 | sedorgsed -e '$d' | sedorgsed -e '$d' | __fzfselectorexit | awk '{ print $1 }' | cut -f1 -d".") }
+# Fuzzy-find for reconnecting to a tmux session
+tma() { tmux attach -t $(tmux ls | __fzfselectorexit | awk '{ print $1 }' | tr -d ':') }
 
-# Fuzzy-find for killing a screen session
-scx() {
-    local sid=$(screen -ls | tail -n +2 | sedorgsed -e '$d' | sedorgsed -e '$d' | __fzfselectorexit | awk '{ print $1 }' | cut -f1 -d".")
-    screen -XS $sid quit
-    echo "Killed session $sid."
+# Create a new named tmux session
+tmnew() {
+    read "sname?Session name: "
+    tmux new -s $sname
+}
+
+# Fuzzy-find for killing a tmux session
+tmx() {
+    local sname=$(tmux ls | __fzfselectorexit | awk '{ print $1 }' | tr -d ':')
+    tmux kill-session -t $sname
+    echo "Killed session $sname."
 }
 
 # Fuzzy-find directories on the stack

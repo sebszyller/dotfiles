@@ -9,7 +9,8 @@ This repo contains a set of dotfiles and profile configs.
 - [ ] Change anaconda path.
 - [ ] Add keychain key loading.
 - [ ] Move neovim config to `~/.config/nvim/`
-- [ ] Modify `~/.ssh/config`:
+- [ ] Move tmux config to `~/.config/tmux/`
+- [ ] Modify ssh config
 - [ ] `defaults write com.apple.Dock autohide-delay -float 0.0; killall Dock`
 - [ ] `defaults write com.apple.dock autohide-time-modifier -float 0.5; killall Dock`
 - [ ] `defaults write -g NSWindowShouldDragOnGesture -bool true`
@@ -17,26 +18,6 @@ This repo contains a set of dotfiles and profile configs.
 - [ ] `defaults write -g KeyRepeat -int 1`
 - [ ] Change screenshot save folder.
 
-```
-IdentityFile ~/.ssh/X
-IdentityFile ~/.ssh/Y
-
-Host *
-        AddKeysToAgent yes
-        UseKeychain yes
-        IdentitiesOnly yes
-        PasswordAuthentication no
-        VisualHostKey yes
-        ServerAliveInterval 240
-
-Host X X.com
-        HostName X.com
-        IdentityFile ~/.ssh/X
-
-Host Y.com
-        HostName Y.com
-        IdentityFile ~/.ssh/Y
-```
 
 ## Code
 
@@ -57,7 +38,6 @@ One file for custom keybindings and one with user settings.
 - Remote Development
 - Vetur (for Vue)
 - vscode-icons
-
 ## Apps
 
 ### Homebrew
