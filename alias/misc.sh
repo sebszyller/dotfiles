@@ -58,7 +58,7 @@ SAVEHIST=$HISTSIZE
 
 # Scripts & functions
 # Fuzzy-find conda environemnts
-cenv() { conda activate $(cat ~/.conda/environments.txt | __fzfselectorexit) }
+cenv() { conda activate $(ls -1 $CONDA/envs/ | __fzfselectorexit) }
 
 # Check if/what is listening on the port
 chport() { lsof -Pi :$1 -sTCP:LISTEN }
@@ -84,7 +84,14 @@ psf() {
 }
 
 # Fuzzy-find for reconnecting to a tmux session
-tma() { tmux attach -t $(tmux ls | __fzfselectorexit | awk '{ print $1 }' | tr -d ':') }
+tma() {
+    local sessions=$(tmux ls)
+    if (($(echo $sessions | wc -l) == 1)); then
+        tmux attach
+    else
+        tmux attach -t $(echo $sessions | __fzfselectorexit | awk '{ print $1 }' | tr -d ':')
+    fi
+}
 
 # Create a new named tmux session
 tmnew() {

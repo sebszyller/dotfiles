@@ -12,7 +12,7 @@ source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/plugins/ls-after-cd/ls-after-cd.zsh
 
-eval `ssh-agent`
+eval `ssh-agent` >/dev/null
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
