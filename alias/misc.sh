@@ -50,6 +50,7 @@ alias shrug="echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/
 alias today="date -u +"%Y%m%d""
 alias tmls="tmux ls"
 alias v=nvim
+alias xx=xargs
 
 alias history="history 1"
 HISTSIZE=99999
@@ -62,6 +63,19 @@ cenv() { conda activate $(ls -1 $CONDA/envs/ | __fzfselectorexit) }
 
 # Check if/what is listening on the port
 chport() { lsof -Pi :$1 -sTCP:LISTEN }
+
+# Fuzzy finder for file names
+ff() {
+    local pathtosearch
+
+    if (($# == 0)); then
+        pathtosearch=$(pwd)
+    else
+        pathtosearch=$1
+    fi
+
+    fd -tf -tl -a "" $pathtosearch | __fzfselectorexit
+}
 
 # Fuzzy-find history
 hf() {
