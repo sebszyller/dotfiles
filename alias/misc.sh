@@ -1,7 +1,6 @@
 # OS-specific inits.
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    # Linux-specific
-    echo "Initialising aliases for Linux."
+    # echo "Initialising aliases for Linux."
     alias open="xdg-open"
     alias here="nautilus . &"
     alias clip="xclip -selection clipboard"
@@ -9,8 +8,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias wcorgwc=wc
     alias sedorgsed=sed
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    # Mac OSX
-    echo "Initialising aliases for MacOS."
+    # echo "Initialising aliases for MacOS."
     alias clip=pbcopy
     alias readlinkorgreadlink=greadlink
     alias wcorgwc=gwc
@@ -22,7 +20,7 @@ fi
 # Check if commands exist
 cmd_exists() { type $1 &> /dev/null || { echo "WARN: $1 not found" } }
 
-cmds=(bat delta eza fd fzf jc jq npm nvim pdflatex poetry pyenv rg)
+local cmds=(bat delta eza fd fzf jc jq npm nvim pdflatex poetry pyenv rg)
 for c in $cmds
 do
     cmd_exists $c
@@ -67,7 +65,6 @@ chport() { lsof -Pi :$1 -sTCP:LISTEN }
 # Fuzzy finder for file names
 ff() {
     local pathtosearch
-
     if (($# == 0)); then
         pathtosearch=$(pwd)
     else
@@ -84,7 +81,7 @@ hf() {
     echo -n $choice | clip
 }
 
-# Lookip hostname and id.
+# Lookup hostname and id.
 me() {
     echo "Hostname: $(hostname)"
     echo "ID: $(whoami)$"
@@ -109,7 +106,11 @@ tma() {
 
 # Create a new named tmux session
 tmnew() {
-    read "sname?Session name: "
+    if (($# == 0)); then
+        read "sname?Session name: "
+    else
+        local sname=$1
+    fi
     tmux new -s $sname
 }
 
