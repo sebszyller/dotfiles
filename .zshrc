@@ -3,6 +3,10 @@ export ZSH=$DOTFILES/oh-my-zsh
 export CONDA=~/miniconda3
 export PATH="$HOME/.local/bin:$PATH"
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
+
 export FZF_DEFAULT_OPTS="--height 40% --no-info --layout=reverse"
 
 ZSH_THEME="materialshelloceanic"
