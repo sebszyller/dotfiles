@@ -9,7 +9,7 @@ fi
 
 export FZF_DEFAULT_OPTS="--height 40% --no-info --layout=reverse"
 
-ZSH_THEME="materialshelloceanic"
+ZSH_THEME="seb"
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
