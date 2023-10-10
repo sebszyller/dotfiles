@@ -177,7 +177,7 @@ Options:
 
 __fzfselectorexit() {
     local input="$([[ -p /dev/stdin ]] && cat - || echo "$@")"
-    local selected=$(echo "$input" | fzf --ansi --no-sort)
+    local selected=$(echo "$input" | fzf --ansi)
 
     if [[ "$selected" == "" ]]; then
         kill -INT $$
