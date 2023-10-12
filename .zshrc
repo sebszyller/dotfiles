@@ -1,12 +1,19 @@
-export DOTFILES=~/dotfiles
+# Dotfiles
+export DOTFILES="$HOME/dotfiles"
 export ZSH=$DOTFILES/oh-my-zsh
-export CONDA=~/miniconda3
+
+# Code/dev specific
+export CONDA="$HOME/miniconda3"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# OS specific
 export PATH="$HOME/.local/bin:$PATH"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="/opt/homebrew/bin:$PATH"
 fi
 
+# Opts, flags, etc.
 export FZF_DEFAULT_OPTS="--height 40% --no-info --layout=reverse"
 
 ZSH_THEME="seb"

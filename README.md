@@ -25,19 +25,18 @@ One file for custom keybindings and one with user settings.
 
 ### Extensions
 
-- autoDocstring - Python Docstring Generator
-- C/C++ by Microsoft
+- autoDocstring
 - Better Comments
-- GitHub Theme
+- Black and Flake8
 - GitLens
 - Jupyter by Microsoft
 - LaTeX Workshop by James Yu
 - Python by Microsoft
 - Python Indent
-- Pylance
 - Remote Development
+- TODO Highlight
 - Vetur (for Vue)
-- vscode-icons
+
 ## Apps
 
 ### Homebrew
@@ -48,9 +47,6 @@ Apps not included in the `Brewfile`.
 
 ### App Store
 
-Rectangle.app is preferred over Magnet right now.
-
-- Magnet
 - Notability
 - pass. man.
 - SnippetsLab
@@ -60,9 +56,9 @@ Rectangle.app is preferred over Magnet right now.
 
 ### Other
 
-- [Affinity Photo](https://affinity.serif.com/en-us/photo/)
 - [Capture One](https://www.captureone.com/en)
 - [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/)
-- [Sketch](https://www.sketch.com)
-- [Poetry](https://python-poetry.org/docs/)
 - [Logitech Options](https://support.logi.com/hc/en-us/articles/360024361233)
+- [Poetry](https://python-poetry.org/docs/)
+- [Rectangle.app](https://rectangleapp.com)
+- [Rust & Stuff](https://www.rust-lang.org/tools/install)
