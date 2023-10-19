@@ -10,6 +10,10 @@
     "when": "editorTextFocus"
   },
   {
+    "key": "cmd+g",
+    "command": "workbench.action.gotoLine"
+  },
+  {
     "key": "cmd+1",
     "command": "workbench.action.openEditorAtIndex1"
   },

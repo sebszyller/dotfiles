@@ -106,6 +106,7 @@
   "BM Growl" : false,
   "Command" : "",
   "Description" : "Default",
+  "Smart Cursor Color" : false,
   "Mouse Reporting" : true,
   "Screen" : -1,
   "Selection Color" : {
@@ -403,7 +404,8 @@
     }
   },
   "Window Type" : 0,
-  "Cursor Type" : 1,
+  "Cursor Boost" : 0,
+  "Cursor Type" : 2,
   "Background Image Location" : "",
   "Blur" : false,
   "Badge Color" : {
@@ -429,11 +431,11 @@
   },
   "Name" : "seb",
   "Cursor Text Color" : {
-    "Red Component" : 0.54509806632995605,
+    "Red Component" : 0.0039215686274509803,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.61960786581039429,
+    "Blue Component" : 0.035294117647058823,
     "Alpha Component" : 1,
-    "Green Component" : 0.58039218187332153
+    "Green Component" : 0.015686274509803921
   },
   "Shortcut" : "",
   "Tab Color" : {
@@ -485,10 +487,10 @@
   },
   "Custom Directory" : "No",
   "Cursor Color" : {
-    "Red Component" : 0.54509806632995605,
+    "Red Component" : 0.74901960784313726,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.61960786581039429,
+    "Blue Component" : 0.77647058823529413,
     "Alpha Component" : 1,
-    "Green Component" : 0.58039218187332153
+    "Green Component" : 0.77647058823529413
   }
 }

@@ -18,25 +18,6 @@ This repo contains a set of dotfiles and profile configs.
 - [ ] `defaults write -g KeyRepeat -int 1`
 - [ ] Change screenshot save folder.
 
-
-## Code
-
-One file for custom keybindings and one with user settings.
-
-### Extensions
-
-- autoDocstring
-- Better Comments
-- Black and Flake8
-- GitLens
-- Jupyter by Microsoft
-- LaTeX Workshop by James Yu
-- Python by Microsoft
-- Python Indent
-- Remote Development
-- TODO Highlight
-- Vetur (for Vue)
-
 ## Apps
 
 ### Homebrew
@@ -47,7 +28,6 @@ Apps not included in the `Brewfile`.
 
 ### App Store
 
-- Notability
 - pass. man.
 - SnippetsLab
 - Telegram
