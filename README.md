@@ -16,6 +16,7 @@ This repo contains a set of dotfiles and profile configs.
 - [ ] `defaults write -g NSWindowShouldDragOnGesture -bool true`
 - [ ] `defaults write - InitialkeyRepeat -int 13`
 - [ ] `defaults write -g KeyRepeat -int 1`
+- [ ] `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
 - [ ] Change screenshot save folder.
 
 ## Apps

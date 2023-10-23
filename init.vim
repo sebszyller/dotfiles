@@ -2,7 +2,6 @@ set nocompatible            " disable compatibility to old-time vi
 syntax on
 set showmatch               " show matching brackets.
 set ignorecase              " case insensitive matching
-set mouse=v                 " middle-click paste with mouse
 set hlsearch                " highlight search results
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
@@ -17,5 +16,4 @@ set softtabstop=4           " see multiple spaces as tabstops so <BS> does the r
 set noswapfile              " disable the swap file
 
 inoremap jk <ESC>
-let mapleader = "'"
-
+let mapleader = " "
