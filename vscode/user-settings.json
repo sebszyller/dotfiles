@@ -31,7 +31,7 @@
     "**/*.asset-cache": true,
     "**/*.cache": true,
     "**/__pycache__": true,
-    "**/.pytest_cache": true
+    "**/.pytest_cache": true,
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -49,7 +49,7 @@
   "notebook.output.textLineLimit": 100,
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "flake8.args": [
     "--extend-ignore", "E203",
@@ -82,11 +82,17 @@
       "after": [ "<Esc>" ]
     }
   ],
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": [ "<C-p>" ],
+      "after": [ "<Esc>", "p", "a" ]
+    }
+  ],
   "vim.visualModeKeyBindings": [
     {
       "before": [ "k", "j" ],
       "after": [ "<Esc>" ]
-    }
+    },
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
@@ -116,5 +122,5 @@
   },
   "workbench.layoutControl.enabled": false,
   "workbench.statusBar.visible": true,
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
 }
