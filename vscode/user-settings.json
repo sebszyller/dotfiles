@@ -49,7 +49,7 @@
   "notebook.output.textLineLimit": 100,
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   },
   "flake8.args": [
     "--extend-ignore", "E203",
@@ -92,7 +92,13 @@
     {
       "before": [ "k", "j" ],
       "after": [ "<Esc>" ]
-    },
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
+    }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
@@ -109,18 +115,18 @@
     },
     {
       "before": [ "leader", "y" ],
-      "after": [ "0", "y", "$" ]
+      "after": [ "^", "y", "$" ]
     }
   ],
   "window.commandCenter": false,
   "window.titleBarStyle": "custom",
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {},
-  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
   "workbench.layoutControl.enabled": false,
   "workbench.statusBar.visible": true,
   "workbench.startupEditor": "newUntitledFile",
+  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
 }
