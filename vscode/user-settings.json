@@ -49,7 +49,7 @@
   "notebook.output.textLineLimit": 100,
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "flake8.args": [
     "--extend-ignore", "E203",
@@ -63,19 +63,29 @@
     "--filter-files",
     "--line-length", "160"
   ],
+  "svelte.enable-ts-plugin": true,
+  "[svelte]": {
+     "editor.defaultFormatter": "svelte.svelte-vscode",
+     "editor.formatOnSave": true
+   },
   "telemetry.telemetryLevel": "off",
   "update.mode": "start",
+  "[vue]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "Vue.volar"
+  },
   "vim.useSystemClipboard": true,
   "vim.cursorStylePerMode.insert": "line",
   "vim.cursorStylePerMode.normal": "block",
   "vim.cursorStylePerMode.replace": "block",
-  "vim.cursorStylePerMode.visual": "block",
-  "vim.cursorStylePerMode.visualblock": "block",
-  "vim.cursorStylePerMode.visualline": "block",
+  "vim.cursorStylePerMode.visual": "block-outline",
+  "vim.cursorStylePerMode.visualblock": "block-outline",
+  "vim.cursorStylePerMode.visualline": "block-outline",
   "vim.foldfix": true,
   "vim.hlsearch": true,
   "vim.incsearch": true,
   "vim.leader": "<space>",
+  // "vim.enableNeovim": true,
   "vim.insertModeKeyBindings": [
     {
       "before": [ "k", "j" ],
@@ -86,12 +96,6 @@
     {
       "before": [ "<C-p>" ],
       "after": [ "<Esc>", "p", "a" ]
-    }
-  ],
-  "vim.visualModeKeyBindings": [
-    {
-      "before": [ "k", "j" ],
-      "after": [ "<Esc>" ]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -114,19 +118,23 @@
       "after": [ "<C-u>", "z", "z" ]
     },
     {
-      "before": [ "leader", "y" ],
-      "after": [ "^", "y", "$" ]
+      "before": [ "n" ],
+      "after": ["n", "z", "z"]
+    },
+    {
+      "before": [ "N" ],
+      "after": ["N", "z", "z"]
     }
   ],
   "window.commandCenter": false,
   "window.titleBarStyle": "custom",
-  "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {},
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
   "workbench.layoutControl.enabled": false,
   "workbench.statusBar.visible": true,
+  "workbench.activityBar.location": "top",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
 }
