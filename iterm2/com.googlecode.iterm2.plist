@@ -771,13 +771,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.77647058823529413</real>
+				<real>0.9882352941176471</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.77647058823529413</real>
+				<real>0.96470588235294119</real>
 				<key>Red Component</key>
-				<real>0.74901960784313726</real>
+				<real>0.94117647058823528</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>
@@ -806,7 +806,7 @@
 				<real>0.0039215686274509803</real>
 			</dict>
 			<key>Cursor Type</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
@@ -824,13 +824,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.77972412109375</real>
+				<real>0.6321258544921875</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.77729156112764031</real>
+				<real>0.63015374707615779</real>
 				<key>Red Component</key>
-				<real>0.75193119049072266</real>
+				<real>0.6095940005569308</real>
 			</dict>
 			<key>Guid</key>
 			<string>A5280612-45DA-4A2C-BC5B-8C0E973607C8</string>
@@ -1375,6 +1375,8 @@
 			<true/>
 			<key>Use Bright Bold</key>
 			<true/>
+			<key>Use Cursor Guide</key>
+			<false/>
 			<key>Use Italic Font</key>
 			<true/>
 			<key>Use Non-ASCII Font</key>
@@ -1405,10 +1407,12 @@
 	<integer>6</integer>
 	<key>TabsHaveCloseButton</key>
 	<false/>
+	<key>VerticalBarCursorWidth</key>
+	<real>2</real>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>kCPKSelectionViewPreferredModeKey</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
 	<false/>
 </dict>

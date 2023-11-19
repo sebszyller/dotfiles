@@ -77,6 +77,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.82745099067687988
   },
+  "Use Cursor Guide" : false,
   "Ambiguous Double Width" : false,
   "Jobs to Ignore" : [
     "rlogin",
@@ -92,11 +93,11 @@
     "Green Component" : 0.96470588445663452
   },
   "Foreground Color" : {
-    "Red Component" : 0.75193119049072266,
+    "Red Component" : 0.6095940005569308,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.77972412109375,
+    "Blue Component" : 0.6321258544921875,
     "Alpha Component" : 1,
-    "Green Component" : 0.77729156112764031
+    "Green Component" : 0.63015374707615779
   },
   "Working Directory" : "\/Users\/szylles1",
   "Blinking Cursor" : false,
@@ -405,7 +406,7 @@
   },
   "Window Type" : 0,
   "Cursor Boost" : 0,
-  "Cursor Type" : 2,
+  "Cursor Type" : 1,
   "Background Image Location" : "",
   "Blur" : false,
   "Badge Color" : {
@@ -487,10 +488,10 @@
   },
   "Custom Directory" : "No",
   "Cursor Color" : {
-    "Red Component" : 0.74901960784313726,
+    "Red Component" : 0.94117647058823528,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.77647058823529413,
+    "Blue Component" : 0.9882352941176471,
     "Alpha Component" : 1,
-    "Green Component" : 0.77647058823529413
+    "Green Component" : 0.96470588235294119
   }
 }
