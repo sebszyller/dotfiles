@@ -63,17 +63,13 @@
     "--filter-files",
     "--line-length", "160"
   ],
-  "svelte.enable-ts-plugin": true,
   "[svelte]": {
      "editor.defaultFormatter": "svelte.svelte-vscode",
      "editor.formatOnSave": true
    },
+  "svelte.enable-ts-plugin": true,
   "telemetry.telemetryLevel": "off",
   "update.mode": "start",
-  "[vue]": {
-      "editor.formatOnSave": true,
-      "editor.defaultFormatter": "Vue.volar"
-  },
   "vim.useSystemClipboard": true,
   "vim.cursorStylePerMode.insert": "line",
   "vim.cursorStylePerMode.normal": "block",
@@ -85,13 +81,6 @@
   "vim.hlsearch": true,
   "vim.incsearch": true,
   "vim.leader": "<space>",
-  // "vim.enableNeovim": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": [ "k", "j" ],
-      "after": [ "<Esc>" ]
-    }
-  ],
   "vim.insertModeKeyBindingsNonRecursive": [
     {
       "before": [ "<C-p>" ],
@@ -137,4 +126,5 @@
   "workbench.activityBar.location": "top",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+  "workbench.sideBar.location": "right"
 }
