@@ -91,6 +91,14 @@
     {
       "before": ["p"],
       "after": ["p", "g", "v", "y"]
+    },
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -113,6 +121,14 @@
     {
       "before": [ "N" ],
       "after": ["N", "z", "z"]
+    },
+    {
+      "before": ["u"],
+      "commands": ["undo"]
+    },
+    {
+      "before": ["<C-r>"],
+      "commands": ["redo"]
     }
   ],
   "window.commandCenter": false,
@@ -126,5 +142,5 @@
   "workbench.activityBar.location": "top",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
-  "workbench.sideBar.location": "right"
+  "workbench.sideBar.location": "right",
 }

@@ -3,11 +3,10 @@
 - Black Formatter = flake8 + isort
 - Jupyter by Microsoft
 - LaTeX Workshop by James Yu
-- Monokai Pro / Serendipity
+- Monokai Pro
 - Python by Microsoft
 - Python Indent
 - Remote Development
 - rust-analyzer
-- Vetur (for Vue)
-- Vim Motions
+- VSCodeVIM
 - TODO Highlight
