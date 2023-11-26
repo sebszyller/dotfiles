@@ -20,7 +20,7 @@ fi
 # Check if commands exist
 cmd_exists() { type $1 &> /dev/null || { echo "WARN: $1 not found" } }
 
-local cmds=(bat delta eza fd fzf jc jq npm nvim pdflatex poetry pyenv rg)
+local cmds=(bat delta eza fd fzf jc jq npm nvim pdflatex rg)
 for c in $cmds
 do
     cmd_exists $c
@@ -38,8 +38,6 @@ alias l="ls"
 alias l1="ls -1"
 alias la="ls -a"
 alias ll="ls -al"
-alias nrs="npm run serve"
-alias nrb="npm run build"
 alias obsidian="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/knowledge-base"
 alias t="eza --tree -L 1"
 alias tt="eza --tree -L 2"
