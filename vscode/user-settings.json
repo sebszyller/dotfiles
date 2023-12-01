@@ -136,7 +136,12 @@
       "before":["<C-c>"],
       "after":["<C-c>"],
       "commands": [ ":nohl" ]
+    },
+    {
+      "before": ["J"],
+      "after": ["m", "z", "J", "`", "z", "\"J"]
     }
+
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
