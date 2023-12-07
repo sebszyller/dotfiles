@@ -20,7 +20,7 @@ fi
 # Check if commands exist
 cmd_exists() { type $1 &> /dev/null || { echo "WARN: $1 not found" } }
 
-local cmds=(bat delta eza fd fzf jc jq npm nvim pdflatex rg)
+local cmds=(bat delta eza fd fzf jc jq npm nvim pdflatex rg zoxide)
 for c in $cmds
 do
     cmd_exists $c
@@ -120,58 +120,13 @@ tmx() {
 }
 
 # Fuzzy-find directories on the stack
-sf() { cd "$(dirs -p | __fzfselectorexit | sedorgsed "s|~|${HOME}|")" }
+sf() { z "$(dirs -p | __fzfselectorexit | sedorgsed "s|~|${HOME}|")" }
 
 # Compile latex file
 texcomp() { pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $1 }
 
 # Fuzzy-find for tsp outputs
 tspf() { cat $(tsp | __fzfselectorexit | awk '{print $3}') }
-
-# Create and manage directory tabs (with fuzzy finding)
-tab() {
-    local tabfile="${HOME}/.tab/tablist"
-    local usage="tab [-h] [-a path] [-d] -- simple tab keeping util.
-    By default, tab list is stored in $tabfile
-
-Options:
-  -h        Show this help text.
-  -a path   Add tab.
-  -d        Remove tab."
-
-    # Create tab file if it doesn't exist yet
-    if [ ! -e "$tabfile" ] ; then
-        echo "Tab file doesn't exist. Creating in $tabfile"
-        mkdir -p ${HOME}/.tab/ && touch $tabfile
-        return 0
-    fi
-
-    # Find tab if no argument provided
-    if (($# == 0)); then
-        if [ -s "$tabfile" ]; then
-            cd "$(cat $tabfile | __fzfselectorexit)"
-        else
-            echo "$tabfile is empty..."
-        fi
-    fi
-
-    # -a to add a new tab; -d to remove one
-    while (( $# >= 1 )); do
-        case $1 in
-        -h) echo "$usage" ;
-            break ;;
-        -a) local resolved=$(readlinkorgreadlink -f $2) ;
-            echo $resolved >> $tabfile ;
-            sort -o $tabfile $tabfile ;
-            break ;;
-        -d) local line="$(cat $tabfile | __fzfselectorexit)" ;
-            sedorgsed -i "\|${line}$|d" $tabfile ;
-            break ;;
-        *) break;
-        esac;
-        shift
-    done
-}
 
 __fzfselectorexit() {
     local input="$([[ -p /dev/stdin ]] && cat - || echo "$@")"

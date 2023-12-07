@@ -376,18 +376,6 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x74-0x40000-0x11</key>
-		<dict>
-			<key>Action</key>
-			<integer>12</integer>
-			<key>Label</key>
-			<string></string>
-			<key>Text</key>
-			<string>tab
-</string>
-			<key>Version</key>
-			<integer>1</integer>
-		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
 			<key>Action</key>
