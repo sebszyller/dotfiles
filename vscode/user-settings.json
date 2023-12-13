@@ -1,6 +1,10 @@
 {
   "breadcrumbs.enabled": false,
-  "cSpell.language": "en-GB",
+  "cSpell.diagnosticLevel": "Hint",
+  "cSpell.language": "en, en-GB",
+  "cSpell.userWords": [
+    "Szyller"
+  ],
   "editor.accessibilitySupport": "off",
   "editor.copyWithSyntaxHighlighting": false,
   "editor.cursorBlinking": "solid",
@@ -11,13 +15,19 @@
   "editor.fontSize": 14,
   "editor.fontWeight": "bold",
   "editor.largeFileOptimizations": false,
+  "editor.inlayHints.enabled": "offUnlessPressed",
   "editor.lineHeight": 21,
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 1,
-  "editor.renderWhitespace": "all",
+  "editor.renderWhitespace": "selection",
   "editor.smoothScrolling": true,
   "editor.wordWrap": "on",
+  "errorLens.enabledDiagnosticLevels": [
+    "error",
+    "warning",
+    "info"
+  ],
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.decorations.badges": false,
@@ -40,7 +50,6 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "never",
-  "jupyter.askForKernelRestart": false,
   "latex-workshop.latex.external.build.command": "make",
   "latex-workshop.latex.external.build.args": [
     "all",
@@ -48,24 +57,25 @@
   ],
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.autoBuild.run": "onSave",
+  "jupyter.askForKernelRestart": false,
   "notebook.output.textLineLimit": 100,
   "notebook.lineNumbers": "on",
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "flake8.args": [
-    "--extend-ignore", "E203",
-    "--max-line-length", "160"
-  ],
   "black-formatter.args": [
     "--line-length", "160"
   ],
-  "isort.args": [
-    "--profile", "black",
-    "--filter-files",
-    "--line-length", "160"
-  ],
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.inlayHints.callArgumentNames": "partial",
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.languageServer": "Pylance",
   "[svelte]": {
      "editor.defaultFormatter": "svelte.svelte-vscode",
      "editor.formatOnSave": true
@@ -141,7 +151,6 @@
       "before": ["J"],
       "after": ["m", "z", "J", "`", "z", "\"J"]
     }
-
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
@@ -167,6 +176,6 @@
   "workbench.statusBar.visible": true,
   "workbench.activityBar.location": "top",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.colorTheme": "Ayu Dark",
   "workbench.sideBar.location": "right"
 }

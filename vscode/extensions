@@ -1,12 +1,13 @@
 - autoDocstring - Python Docstring Generator
 - Better Comments
-- Black Formatter = flake8 + isort
+- Black Formatter + Pylance + Ruff
+- Error Lens
 - Jupyter by Microsoft
 - LaTeX Workshop by James Yu
-- Monokai Pro
 - Python by Microsoft
 - Python Indent
 - Remote Development
 - rust-analyzer
+- Svelte for VSCode
 - VSCodeVIM
 - TODO Highlight
