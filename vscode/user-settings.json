@@ -76,6 +76,10 @@
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
   "python.languageServer": "Pylance",
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": true
+  },
   "[svelte]": {
      "editor.defaultFormatter": "svelte.svelte-vscode",
      "editor.formatOnSave": true
@@ -106,12 +110,12 @@
       "after": [ "g", "g", "V", "G" ]
     },
     {
-      "before": [ "<C-d>" ],
-      "after": [ "<C-d>", "z", "z" ]
+      "before": [ "<C-j>" ],
+      "after": [ "1", "0", "j", "z", "z" ]
     },
     {
-      "before": [ "<C-u" ],
-      "after": [ "<C-u>", "z", "z" ]
+      "before": [ "<C-k>" ],
+      "after": [ "1", "0", "k", "z", "z" ]
     },
     {
       "before": [ "n" ],
@@ -138,6 +142,9 @@
       "after": ["$"]
     },
     {
+      "before": ["<leader>", "c"],
+      "after": ["z", "z"]
+    },   {
       "before":["<Esc>"],
       "after":["<Esc>"],
       "commands": [ ":nohl" ]
