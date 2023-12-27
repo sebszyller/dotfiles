@@ -102,6 +102,10 @@
     {
       "before": [ "<C-p>" ],
       "after": [ "<Esc>", "p", "a" ]
+    },
+    {
+      "before": [ "<C-d>" ],
+      "after": [ "<Del>" ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
