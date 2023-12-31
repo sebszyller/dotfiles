@@ -8,8 +8,8 @@ This repo contains a set of dotfiles and profile configs.
 
 - [ ] Change anaconda path.
 - [ ] Add keychain key loading.
-- [ ] Move neovim config to `~/.config/nvim/`
-- [ ] Move tmux config to `~/.config/tmux/`
+- [ ] Link neovim config to `~/.config/nvim/`
+- [ ] Link tmux config to `~/.config/tmux/`
 - [ ] Modify ssh config
 - [ ] `defaults write com.apple.Dock autohide-delay -float 0.0; killall Dock`
 - [ ] `defaults write com.apple.dock autohide-time-modifier -float 0.5; killall Dock`
@@ -39,7 +39,6 @@ Apps not included in the `Brewfile`.
 
 - [Capture One](https://www.captureone.com/en)
 - [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/)
-- [Logitech Options](https://support.logi.com/hc/en-us/articles/360024361233)
-- [Poetry](https://python-poetry.org/docs/)
-- [Rectangle.app](https://rectangleapp.com)
+- [Logitech Options](https://support.logi.com/hc/en-us/articles/360024361233) and Logi+
+<!-- - [Poetry](https://python-poetry.org/docs/) -->
 - [Rust & Stuff](https://www.rust-lang.org/tools/install)

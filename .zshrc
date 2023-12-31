@@ -6,11 +6,11 @@ export ZSH=$DOTFILES/oh-my-zsh
 export CONDA="$HOME/miniconda3"
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# OS specific
 export PATH="$HOME/.local/bin:$PATH"
 
+# OS specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    export PATH="/opt/homebrew/bin:$PATH"
+    export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 fi
 
 # Opts, flags, etc.
