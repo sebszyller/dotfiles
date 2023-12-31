@@ -1,17 +1,12 @@
 [
   {
-    "key": "cmd+shift+up",
-    "command": "editor.action.moveLinesUpAction",
-    "when": "editorTextFocus"
+    "key": "shift+cmf+e",
+    "command": "workbench.files.action.focusFilesExplorer"
   },
   {
-    "key": "cmd+shift+down",
-    "command": "editor.action.moveLinesDownAction",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "cmd+g",
-    "command": "workbench.action.gotoLine"
+    "key": "shift+cmf+e",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "focusFilesExplorer"
   },
   {
     "key": "cmd+1",
