@@ -128,6 +128,9 @@ texcomp() { pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $1 }
 # Fuzzy-find for tsp outputs
 tspf() { cat $(tsp | __fzfselectorexit | awk '{print $3}') }
 
+# Fuzzy-find file and open with (n)vim
+vf() { v $(fd -tf --hidden --exclude '.git/' | __fzfselectorexit) }
+
 __fzfselectorexit() {
     local input="$([[ -p /dev/stdin ]] && cat - || echo "$@")"
     local selected=$(echo "$input" | fzf --ansi)
