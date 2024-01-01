@@ -24,6 +24,6 @@ vim.opt.ignorecase = true
 
 vim.opt.termguicolors = true
 
-vim.opt.signcolumn = "yes"
+-- vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
