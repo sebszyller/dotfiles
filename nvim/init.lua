@@ -43,3 +43,5 @@ require 'config.options'
 require 'config.keymaps'
 
 require('lualine').setup()
+
+vim.cmd[[autocmd VimLeave * set guicursor= | call chansend(v:stderr, "\x1b[ q")]]
