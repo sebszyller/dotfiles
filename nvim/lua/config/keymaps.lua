@@ -19,6 +19,6 @@ vim.keymap.set("n", "<Esc>", "<Esc>:nohl<CR>")
 vim.keymap.set("n", "<C-c>", "<C-c>:nohl<CR>")
 vim.keymap.set("n", "<leader>f", "/")
 vim.keymap.set("n", "<leader>e", "$")
-
 vim.keymap.set("n", "<leader>q", ":q!<CR>")
 vim.keymap.set("n", "<leader>wq", ":wq<CR>")
+vim.keymap.set("n", "<leader>w", ":w<CR>")

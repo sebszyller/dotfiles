@@ -1,11 +1,11 @@
 [
   {
-    "key": "ctrl+j",
+    "key": "ctrl+n",
     "command": "workbench.action.quickOpenNavigateNextInViewPicker",
     "when": "inQuickOpen"
   },
   {
-    "key": "ctrl+k",
+    "key": "ctrl+p",
     "command": "workbench.action.quickOpenNavigatePreviousInViewPicker",
     "when": "inQuickOpen"
   },
