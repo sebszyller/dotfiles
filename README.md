@@ -6,18 +6,23 @@ This repo contains a set of dotfiles and profile configs.
 
 ### Post Installation TODO
 
-- [ ] Change anaconda path.
-- [ ] Add keychain key loading.
-- [ ] Link neovim config to `~/.config/nvim/`
-- [ ] Link tmux config to `~/.config/tmux/`
-- [ ] Modify ssh config
-- [ ] `defaults write com.apple.Dock autohide-delay -float 0.0; killall Dock`
-- [ ] `defaults write com.apple.dock autohide-time-modifier -float 0.5; killall Dock`
-- [ ] `defaults write -g NSWindowShouldDragOnGesture -bool true`
-- [ ] `defaults write - InitialkeyRepeat -int 13`
-- [ ] `defaults write -g KeyRepeat -int 1`
-- [ ] `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
-- [ ] Change screenshot save folder.
+
+- System
+    - [ ] `defaults write com.apple.dock autohide-time-modifier -float 0.5; killall Dock`
+    - [ ] `defaults write com.apple.Dock autohide-delay -float 0.0; killall Dock`
+    - [ ] Add keychain key loading.
+    - [ ] Modify ssh config
+    - [ ] Change screenshot save folder.
+- Dev
+    - [ ] Change anaconda path.
+    - [ ] Link neovim config to `~/.config/nvim/`
+    - [ ] Link tmux config to `~/.config/tmux/`
+    - [ ] `defaults write -g NSWindowShouldDragOnGesture -bool true`
+    - [ ] `defaults write - InitialkeyRepeat -int 13`
+    - [ ] `defaults write -g KeyRepeat -int 1`
+    - [ ] `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
+    - [ ] Link vscode settings to `dotfiles`:
+        - `ln -s /Users/seb/Library/Application Support/Code/User/x.json x.json`
 
 ## Apps
 

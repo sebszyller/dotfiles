@@ -1,5 +1,15 @@
 [
   {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenNavigateNextInViewPicker",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenNavigatePreviousInViewPicker",
+    "when": "inQuickOpen"
+  },
+  {
     "key": "shift+cmf+e",
     "command": "workbench.files.action.focusFilesExplorer"
   },
