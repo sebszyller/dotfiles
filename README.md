@@ -22,7 +22,7 @@ This repo contains a set of dotfiles and profile configs.
     - [ ] `defaults write -g KeyRepeat -int 1`
     - [ ] `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
     - [ ] Link vscode settings to `dotfiles`:
-        - `ln -s /Users/seb/Library/Application Support/Code/User/x.json x.json`
+        - `ln -s ~/Library/Application Support/Code/User/x.json x.json`
 
 ## Apps
 
