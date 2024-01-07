@@ -1,5 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     lazy = false,
     build = ":TSUpdate",
     config = function () 
