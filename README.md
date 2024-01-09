@@ -15,14 +15,21 @@ This repo contains a set of dotfiles and profile configs.
     - [ ] Change screenshot save folder.
 - Dev
     - [ ] Change anaconda path.
-    - [ ] Link neovim config to `~/.config/nvim/`
-    - [ ] Link tmux config to `~/.config/tmux/`
     - [ ] `defaults write -g NSWindowShouldDragOnGesture -bool true`
     - [ ] `defaults write - InitialkeyRepeat -int 13`
     - [ ] `defaults write -g KeyRepeat -int 1`
     - [ ] `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
+    - [ ] Symlink configs if they don't require changes:
+        - `.gitconfig.`
+        - neovim config to `~/.config/nvim/`
+        - tmux config to `~/.config/tmux/` or `~/.tmux.conf` on Linux
     - [ ] Link vscode settings to `dotfiles`:
-        - `ln -s ~/Library/Application Support/Code/User/x.json x.json`
+        - `ln -s $DOTFILES/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json`
+        - `ln -s $DOTFILES/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json`
+
+### NeoVim
+
+It should install all plugins automatically if the config is symlinked properly.
 
 ## Apps
 
