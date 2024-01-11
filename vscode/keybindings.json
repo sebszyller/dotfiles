@@ -10,6 +10,38 @@
     "when": "inQuickOpen"
   },
   {
+    "key": "ctrl+o",
+    "command": "vim.remap",
+    "when": "inputFocus && vim.mode == 'Normal'",
+    "args": {
+      "after": ["m", "z", "o", "<Esc>", "`", "z"]
+    }
+  },
+  {
+    "key": "ctrl+shift+o",
+    "command": "vim.remap",
+    "when": "inputFocus && vim.mode == 'Normal'",
+    "args": {
+      "after": ["m", "z", "O", "<Esc>", "`", "z"]
+    }
+  },
+  {
+    "key": "ctrl+o",
+    "command": "vim.remap",
+    "when": "inputFocus && vim.mode == 'Insert'",
+    "args": {
+      "after": ["<Esc>", "m", "z", "o", "<Esc>", "`", "z", "a"]
+    }
+  },
+  {
+    "key": "ctrl+shift+o",
+    "command": "vim.remap",
+    "when": "inputFocus && vim.mode == 'Insert'",
+    "args": {
+      "after": ["<Esc>", "m", "z", "O", "<Esc>", "`", "z", "a"]
+    }
+  },
+  {
     "key": "shift+cmf+e",
     "command": "workbench.files.action.focusFilesExplorer"
   },
@@ -17,6 +49,30 @@
     "key": "shift+cmf+e",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "focusFilesExplorer"
+  },
+  {
+    "key": "shift+left",
+    "command": "workbench.action.decreaseViewSize"
+  },
+  {
+    "key": "shift+right",
+    "command": "workbench.action.increaseViewSize"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight"
   },
   {
     "key": "cmd+1",

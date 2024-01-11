@@ -87,6 +87,7 @@
   "svelte.enable-ts-plugin": true,
   "telemetry.telemetryLevel": "off",
   "update.mode": "start",
+  "vim.timeout": 250,
   "vim.useSystemClipboard": true,
   "vim.cursorStylePerMode.insert": "line",
   "vim.cursorStylePerMode.normal": "block",
@@ -114,11 +115,11 @@
       "after": [ "g", "g", "V", "G" ]
     },
     {
-      "before": [ "<C-j>" ],
+      "before": [ "<C-d>" ],
       "after": [ "1", "0", "j", "z", "z" ]
     },
     {
-      "before": [ "<C-k>" ],
+      "before": [ "<C-u>" ],
       "after": [ "1", "0", "k", "z", "z" ]
     },
     {
@@ -157,7 +158,7 @@
     },
     {
       "before": ["J"],
-      "after": ["m", "z", "J", "`", "z", "\"J"]
+      "after": ["m", "z", "J", "`", "z"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -172,6 +173,14 @@
     {
       "before": ["K"],
       "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["<"],
+      "after": ["<", "g", "v"]
+    },
+    {
+      "before": [">"],
+      "after": [">", "g", "v"]
     }
   ],
   "window.commandCenter": false,
