@@ -30,8 +30,8 @@ vim.keymap.set("n", "<C-S-o>", "mzO<Esc>`z", opts)
 
 -- Convenience for navigation
 vim.keymap.set("n", "<C-a>", "ggVG", opts)
-vim.keymap.set("n", "<C-d>", "10jzz", opts)
-vim.keymap.set("n", "<C-u>", "10kzz", opts)
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 vim.keymap.set("n", "n", "nzz", opts)
 vim.keymap.set("n", "N", "Nzz", opts)
 vim.keymap.set("n", "J", "mzJ`z", opts)
