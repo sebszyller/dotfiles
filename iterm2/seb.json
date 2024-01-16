@@ -70,6 +70,7 @@
   },
   "Non-ASCII Anti Aliased" : true,
   "Use Bright Bold" : true,
+  "Show Mark Indicators" : false,
   "Ansi 10 Color" : {
     "Red Component" : 0.33725491166114807,
     "Color Space" : "sRGB",
@@ -404,8 +405,8 @@
       "Action" : 10
     }
   },
-  "Window Type" : 0,
   "Cursor Boost" : 0,
+  "Window Type" : 0,
   "Cursor Type" : 1,
   "Background Image Location" : "",
   "Blur" : false,

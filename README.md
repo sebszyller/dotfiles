@@ -12,6 +12,9 @@ This repo contains a set of dotfiles and profile configs.
     - [ ] `defaults write com.apple.Dock autohide-delay -float 0.0; killall Dock`
     - [ ] Add keychain key loading.
     - [ ] Modify ssh config
+    - [ ] Change shell to fish:
+        - modify `/etc/shells` and point to the fish installation
+        - `chsh -s /path/to/fish`
     - [ ] Change screenshot save folder.
 - Dev
     - [ ] Change anaconda path.

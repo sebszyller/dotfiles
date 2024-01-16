@@ -8,7 +8,7 @@ return {
 
       configs.setup({
           ensure_installed = {
-                "bash",
+                "bash", "fish",
                 "html", "css", "scss",
                 "javascript", "typescript",
                 "json",
