@@ -123,6 +123,10 @@
       "after": [ "<C-u>" , "z", "z" ]
     },
     {
+      "before": [ "<C-i>" ],
+      "commands": ["workbench.action.navigateBack"]
+    },
+    {
       "before": [ "n" ],
       "after": ["n", "z", "z"]
     },
