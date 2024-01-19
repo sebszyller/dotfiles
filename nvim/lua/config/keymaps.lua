@@ -35,6 +35,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 vim.keymap.set("n", "n", "nzz", opts)
 vim.keymap.set("n", "N", "Nzz", opts)
 vim.keymap.set("n", "J", "mzJ`z", opts)
+vim.keymap.set("n", "<C-i>", "``", opts)
 
 -- Pane navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
