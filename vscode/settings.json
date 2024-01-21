@@ -26,7 +26,8 @@
   "errorLens.enabledDiagnosticLevels": [
     "error",
     "warning",
-    "info"
+    "info",
+    "hint"
   ],
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -51,10 +52,7 @@
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "never",
   "latex-workshop.latex.external.build.command": "make",
-  "latex-workshop.latex.external.build.args": [
-    "all",
-    "sweep"
-  ],
+  "latex-workshop.latex.external.build.args": [ "all", "sweep" ],
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.autoBuild.run": "onSave",
   "jupyter.askForKernelRestart": false,
@@ -68,9 +66,7 @@
     },
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "black-formatter.args": [
-    "--line-length", "160"
-  ],
+  "black-formatter.args": [ "--line-length", "160" ],
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.inlayHints.callArgumentNames": "partial",
   "python.analysis.inlayHints.functionReturnTypes": true,
@@ -100,99 +96,37 @@
   "vim.incsearch": true,
   "vim.leader": "<space>",
   "vim.insertModeKeyBindingsNonRecursive": [
-    {
-      "before": [ "<C-p>" ],
-      "after": [ "<Esc>", "p", "a" ]
-    },
-    {
-      "before": [ "<C-d>" ],
-      "after": [ "<Del>" ]
-    }
+    { "before": [ "<C-p>" ], "after": [ "<Esc>", "p", "a" ] },
+    { "before": [ "<C-d>" ], "after": [ "<Del>" ] }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": [ "<C-a>" ],
-      "after": [ "g", "g", "V", "G" ]
-    },
-    {
-      "before": [ "<C-d>" ],
-      "after": [ "<C-d>", "z", "z" ]
-    },
-    {
-      "before": [ "<C-u>" ],
-      "after": [ "<C-u>" , "z", "z" ]
-    },
-    {
-      "before": [ "<C-i>" ],
-      "commands": ["workbench.action.navigateBack"]
-    },
-    {
-      "before": [ "n" ],
-      "after": ["n", "z", "z"]
-    },
-    {
-      "before": [ "N" ],
-      "after": ["N", "z", "z"]
-    },
-    {
-      "before": ["u"],
-      "commands": ["undo"]
-    },
-    {
-      "before": ["<C-r>"],
-      "commands": ["redo"]
-    },
-    {
-      "before": ["<leader>", "f"],
-      "after": ["/"]
-    },
-    {
-      "before": ["<leader>", "e"],
-      "after": ["$"]
-    },
-    {
-      "before":["<Esc>"],
-      "after":["<Esc>"],
-      "commands": [ ":nohl" ]
-    },
-    {
-      "before":["<C-c>"],
-      "after":["<C-c>"],
-      "commands": [ ":nohl" ]
-    },
-    {
-      "before": ["J"],
-      "after": ["m", "z", "J", "`", "z"]
-    }
+    { "before": [ "<C-a>" ], "after": [ "g", "g", "V", "G" ] },
+    { "before": [ "<C-d>" ], "after": [ "<C-d>", "z", "z" ] },
+    { "before": [ "<C-u>" ], "after": [ "<C-u>" , "z", "z" ] },
+    { "before": [ "n" ], "after": ["n", "z", "z"] },
+    { "before": [ "N" ], "after": ["N", "z", "z"] },
+    { "before": [ "<C-i>" ], "commands": ["workbench.action.navigateBack"] },
+    { "before": ["J"], "after": ["m", "z", "J", "`", "z"] },
+    { "before": ["u"], "commands": ["undo"] },
+    { "before": ["<C-r>"], "commands": ["redo"] },
+    { "before": ["<leader>", "f"], "after": ["/"] },
+    { "before": ["<leader>", "e"], "after": ["$"] },
+    { "before": ["<leader>", "s", "v"], "commands": ["workbench.action.splitEditor"] },
+    { "before": ["<leader>", "s", "h"], "commands": ["workbench.action.splitEditorDown"] },
+    { "before":["<Esc>"], "after":["<Esc>"], "commands": [ ":nohl" ] },
+    { "before":["<C-c>"], "after":["<C-c>"], "commands": [ ":nohl" ] }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": ["p"],
-      "after": ["p", "g", "v", "y"]
-    },
-    {
-      "before": ["J"],
-      "commands": ["editor.action.moveLinesDownAction"]
-    },
-    {
-      "before": ["K"],
-      "commands": ["editor.action.moveLinesUpAction"]
-    },
-    {
-      "before": ["<"],
-      "after": ["<", "g", "v"]
-    },
-    {
-      "before": [">"],
-      "after": [">", "g", "v"]
-    }
+    { "before": ["p"], "after": ["p", "g", "v", "y"] },
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+    { "before": ["<"], "after": ["<", "g", "v"] },
+    { "before": [">"], "after": [">", "g", "v"] }
   ],
   "window.commandCenter": false,
   "window.titleBarStyle": "custom",
   "workbench.colorCustomizations": {},
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
+  "workbench.editorAssociations": { "*.ipynb": "jupyter-notebook" },
   "workbench.layoutControl.enabled": false,
   "workbench.statusBar.visible": true,
   "workbench.activityBar.location": "top",
