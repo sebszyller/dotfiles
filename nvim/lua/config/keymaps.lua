@@ -29,7 +29,6 @@ vim.keymap.set("n", "<C-o>", "mzo<Esc>`z", opts)
 vim.keymap.set("n", "<C-S-o>", "mzO<Esc>`z", opts)
 
 -- Convenience for navigation
-vim.keymap.set("n", "<C-a>", "ggVG", opts)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 vim.keymap.set("n", "n", "nzz", opts)
@@ -55,7 +54,7 @@ vim.keymap.set('n', '<S-Right>', ':vertical resize +2<CR>', opts)
 vim.keymap.set("n", "<Esc>", "<Esc>:nohl<CR>", opts)
 vim.keymap.set("n", "<C-c>", "<C-c>:nohl<CR>", opts)
 
-vim.keymap.set("n", "<leader>f", "/", opts)
+vim.keymap.set("n", "<leader>F", "/", opts)
 vim.keymap.set("n", "<leader>e", "$", opts)
 vim.keymap.set("n", "<leader>q", ":q<CR>", opts)
 vim.keymap.set("n", "<leader>wq", ":wq<CR>", opts)

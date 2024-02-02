@@ -100,7 +100,6 @@
     { "before": [ "<C-d>" ], "after": [ "<Del>" ] }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
-    { "before": [ "<C-a>" ], "after": [ "g", "g", "V", "G" ] },
     { "before": [ "<C-d>" ], "after": [ "<C-d>", "z", "z" ] },
     { "before": [ "<C-u>" ], "after": [ "<C-u>" , "z", "z" ] },
     { "before": [ "n" ], "after": ["n", "z", "z"] },
@@ -109,7 +108,7 @@
     { "before": ["J"], "after": ["m", "z", "J", "`", "z"] },
     { "before": ["u"], "commands": ["undo"] },
     { "before": ["<C-r>"], "commands": ["redo"] },
-    { "before": ["<leader>", "f"], "after": ["/"] },
+    { "before": ["<leader>", "F"], "after": ["/"] },
     { "before": ["<leader>", "e"], "after": ["$"] },
     { "before": ["<leader>", "s", "v"], "commands": ["workbench.action.splitEditor"] },
     { "before": ["<leader>", "s", "h"], "commands": ["workbench.action.splitEditorDown"] },
