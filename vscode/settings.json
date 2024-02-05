@@ -94,6 +94,7 @@
   "vim.foldfix": true,
   "vim.hlsearch": true,
   "vim.incsearch": true,
+  "vim.highlightedyank.enable": true,
   "vim.leader": "<space>",
   "vim.insertModeKeyBindingsNonRecursive": [
     { "before": [ "<C-p>" ], "after": [ "<Esc>", "p", "a" ] },

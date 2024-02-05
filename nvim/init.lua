@@ -45,3 +45,4 @@ require "config.keymaps"
 require("lualine").setup()
 require("telescope").load_extension("fzf")
 vim.cmd[[autocmd VimLeave * set guicursor= | call chansend(v:stderr, "\x1b[ q")]]
+vim.cmd[[autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn['hlexists']('HighlightedyankRegion') > 0 and 'HighlightedyankRegion' or 'IncSearch'), timeout=500}]]
