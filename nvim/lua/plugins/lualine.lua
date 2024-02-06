@@ -1,7 +1,7 @@
 return {
     {
         "nvim-lualine/lualine.nvim",
-        config = function()
+        init = function()
             require("lualine").setup({
                 options = {
                     component_separators = "|",

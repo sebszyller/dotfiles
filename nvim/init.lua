@@ -3,7 +3,6 @@ vim.g.mapleader = [[ ]]
 vim.g.maplocalleader = [[,]]
 
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
--- print(lazypath)
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
     "git",
@@ -15,7 +14,6 @@ if not vim.loop.fs_stat(lazypath) then
   }
 end
 
--- vim.loader.enable()
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup("plugins", {
@@ -42,7 +40,6 @@ require("lazy").setup("plugins", {
 require "config.options"
 require "config.keymaps"
 
-require("lualine").setup()
 require("telescope").load_extension("fzf")
 vim.cmd[[autocmd VimLeave * set guicursor= | call chansend(v:stderr, "\x1b[ q")]]
-vim.cmd[[autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn['hlexists']('HighlightedyankRegion') > 0 and 'HighlightedyankRegion' or 'IncSearch'), timeout=500}]]
+vim.cmd[[autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn["hlexists"]("HighlightedyankRegion") > 0 and "HighlightedyankRegion" or "IncSearch"), timeout=500}]]
