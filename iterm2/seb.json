@@ -155,13 +155,19 @@
     "Alpha Component" : 1,
     "Green Component" : 0.778135539523646
   },
-  "Thin Strokes" : 0,
+  "Thin Strokes" : 1,
   "Use Italic Font" : true,
   "Unlimited Scrollback" : false,
   "Keyboard Map" : {
     "0xf728-0x80000" : {
       "Text" : "d",
       "Action" : 10
+    },
+    "0x6b-0x40000-0x28" : {
+      "Version" : 1,
+      "Action" : 10,
+      "Text" : "[1;2A",
+      "Label" : ""
     },
     "0xf702-0x280000" : {
       "Text" : "b",
