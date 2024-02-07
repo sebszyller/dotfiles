@@ -3,7 +3,7 @@ return {
     dependencies = { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     lazy = false,
     build = ":TSUpdate",
-    config = function () 
+    config = function() 
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
@@ -11,7 +11,7 @@ return {
                 "bash",
                 "html", "css", "scss",
                 "javascript", "typescript",
-                "json",
+                "json", "yaml", "toml", "csv",
                 "lua",
                 "markdown", "markdown_inline",
                 "python",
@@ -23,7 +23,6 @@ return {
           auto_install = false,
           highlight = { enable = true },
           indent = { enable = true },  
-          additional_vim_regex_highlighting = false,
         })
     end
- }
+}
