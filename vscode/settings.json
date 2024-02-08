@@ -99,6 +99,7 @@
   "vim.insertModeKeyBindingsNonRecursive": [
     { "before": [ "<C-p>" ], "after": [ "<Esc>", "p", "a" ] },
     { "before": [ "<C-d>" ], "after": [ "<Del>" ] }
+    { "before": [ "<C-c>" ], "after": [ "<Esc>" ] }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     { "before": [ "<C-d>" ], "after": [ "<C-d>", "z", "z" ] },
@@ -114,9 +115,9 @@
     { "before": ["<leader>", "s", "v"], "commands": ["workbench.action.splitEditor"] },
     { "before": ["<leader>", "s", "h"], "commands": ["workbench.action.splitEditorDown"] },
     { "before":["<Esc>"], "after":["<Esc>"], "commands": [ ":nohl" ] },
-    { "before":["<C-c>"], "after":["<C-c>"], "commands": [ ":nohl" ] }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
+    { "before": [ "<C-c>" ], "after": [ "<Esc>" ] }
     { "before": ["p"], "after": ["p", "g", "v", "y"] },
     { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
     { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },

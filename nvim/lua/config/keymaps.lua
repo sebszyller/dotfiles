@@ -5,6 +5,11 @@ local opts = {
 
 vim.g.mapleader = " "
 
+-- Power <Esc>
+vim.keymap.set("n", "<Esc>", "<Esc>:nohl<CR>", opts)
+vim.keymap.set("i", "<C-c>", "<Esc>", opts)
+vim.keymap.set("v", "<C-c>", "<Esc>", opts)
+
 -- Move blocks around
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
@@ -50,9 +55,6 @@ vim.keymap.set('n', '<S-Down>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<S-Left>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<S-Right>', ':vertical resize +2<CR>', opts)
 
--- Remove highlights
-vim.keymap.set("n", "<Esc>", "<Esc>:nohl<CR>", opts)
-vim.keymap.set("n", "<C-c>", "<C-c>:nohl<CR>", opts)
 
 vim.keymap.set("n", "<leader>F", "/", opts)
 vim.keymap.set("n", "<leader>e", "$", opts)
