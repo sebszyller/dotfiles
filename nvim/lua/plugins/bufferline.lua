@@ -12,7 +12,7 @@ return {
                 style_preset = bufferline.style_preset.minimal,
             }
         })
-        vim.keymap.set("n", "<leader>bl", ":BufferLinePick<CR>", { silent = true })
-        vim.keymap.set("n", "<leader>bo", ":BufferLineCloseOthers<CR>", { silent = true })
+        vim.keymap.set("n", "bl", ":BufferLinePick<CR>", { silent = true })
+        vim.keymap.set("n", "bo", ":BufferLineCloseOthers<CR>", { silent = true })
     end
 }
