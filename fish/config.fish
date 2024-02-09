@@ -37,7 +37,7 @@ function __conda_add_prompt; end
 # Source functions
 source $FISH/functions/git.fish
 source $FISH/functions/misc.fish
-source $FISH/functions/ls_after_cd.fish
+source $FISH/functions/hooks.fish
 
 fish_config theme choose "rose-pine"
 
