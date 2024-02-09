@@ -13,6 +13,7 @@ This repo contains a set of dotfiles and profile configs.
     - [ ] Add keychain key loading.
     - [ ] Modify ssh config
     - [ ] Change screenshot save folder.
+    - [ ] Patch the dev font with [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 - Dev
     - [ ] Change anaconda path.
     - [ ] `defaults write -g NSWindowShouldDragOnGesture -bool true`
