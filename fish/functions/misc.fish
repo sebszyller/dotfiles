@@ -124,6 +124,11 @@ function sf
     j (printf %s\n $dirprev | __fzfselectorexit)
 end
 
+function take
+    mkdir $argv[1]
+    j $argv[1]
+end
+
 # Compile latex file
 function texcomp
     pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $argv[1]

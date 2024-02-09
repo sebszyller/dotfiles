@@ -39,5 +39,7 @@ source $FISH/functions/git.fish
 source $FISH/functions/misc.fish
 source $FISH/functions/ls_after_cd.fish
 
+fish_config theme choose "rose-pine"
+
 # Init zoxide
 zoxide init fish --hook pwd --cmd j | source
