@@ -132,5 +132,6 @@
   "workbench.activityBar.location": "top",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Rosé Pine",
-  "workbench.sideBar.location": "right"
+  "workbench.sideBar.location": "right",
+  "editor.semanticHighlighting.enabled": true
 }
