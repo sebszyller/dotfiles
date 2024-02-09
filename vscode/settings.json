@@ -26,8 +26,7 @@
   "errorLens.enabledDiagnosticLevels": [
     "error",
     "warning",
-    "info",
-    "hint"
+    "info"
   ],
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -98,7 +97,7 @@
   "vim.leader": "<space>",
   "vim.insertModeKeyBindingsNonRecursive": [
     { "before": [ "<C-p>" ], "after": [ "<Esc>", "p", "a" ] },
-    { "before": [ "<C-d>" ], "after": [ "<Del>" ] }
+    { "before": [ "<C-d>" ], "after": [ "<Del>" ] },
     { "before": [ "<C-c>" ], "after": [ "<Esc>" ] }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -117,7 +116,7 @@
     { "before":["<Esc>"], "after":["<Esc>"], "commands": [ ":nohl" ] },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
-    { "before": [ "<C-c>" ], "after": [ "<Esc>" ] }
+    { "before": [ "<C-c>" ], "after": [ "<Esc>" ] },
     { "before": ["p"], "after": ["p", "g", "v", "y"] },
     { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
     { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
@@ -132,6 +131,6 @@
   "workbench.statusBar.visible": true,
   "workbench.activityBar.location": "top",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.colorTheme": "Ayu Dark",
+  "workbench.colorTheme": "Rosé Pine",
   "workbench.sideBar.location": "right"
 }

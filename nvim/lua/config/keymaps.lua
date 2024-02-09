@@ -7,8 +7,7 @@ vim.g.mapleader = " "
 
 -- Power <Esc>
 vim.keymap.set("n", "<Esc>", "<Esc>:nohl<CR>", opts)
-vim.keymap.set("i", "<C-c>", "<Esc>", opts)
-vim.keymap.set("v", "<C-c>", "<Esc>", opts)
+vim.keymap.set({ "i", "v" }, "<C-c>", "<Esc>", opts)
 
 -- Move blocks around
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
