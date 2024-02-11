@@ -6,8 +6,16 @@ return {
     },
     config = function()
         local builtin = require("telescope.builtin")
+        local telescope = require("telescope")
+        telescope.setup({
+            extensions = {
+                file_browser = {
+                    hijack_netrw = true,
+                },
+            },
+        })
         vim.keymap.set("n", "<leader>fd", builtin.find_files, {})
         vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-        vim.api.nvim_set_keymap("n", "<space>fb", ":Telescope file_browser<CR>", { noremap = true })
+        vim.keymap.set("n", "<leader>fb", telescope.extensions.file_browser.file_browser, {})
     end
 }
