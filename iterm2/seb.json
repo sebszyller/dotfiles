@@ -131,7 +131,7 @@
   "Custom Command" : "No",
   "ASCII Anti Aliased" : true,
   "Non Ascii Font" : "Monaco 12",
-  "Vertical Spacing" : 1,
+  "Vertical Spacing" : 1.01,
   "Use Bold Font" : true,
   "Option Key Sends" : 2,
   "Selected Text Color" : {
