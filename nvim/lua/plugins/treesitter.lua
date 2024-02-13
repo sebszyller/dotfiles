@@ -23,8 +23,7 @@ return {
         sync_install = false,
         auto_install = false,
         highlight = { enable = true },
-        indent = { enable = true },
-        additional_vim_regex_highlighting = { "markdown", "markdown_inline" }
+        indent = { enable = true }
     })
     end
 }

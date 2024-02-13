@@ -1,5 +1,6 @@
 return {
     "nvim-telescope/telescope-file-browser.nvim",
+    commit = "26b5e86cb8509a3ca2ebaa652630396c8e3396b2",
     dependencies = {
         { "nvim-lua/plenary.nvim" },
         { "nvim-telescope/telescope.nvim", tag = "0.1.5" }
