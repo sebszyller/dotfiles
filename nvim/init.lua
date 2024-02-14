@@ -37,7 +37,7 @@ autocmd({"BufWritePre"}, {
     command = [[%s/\s\+$//e]],
 })
 
-autocmd('LspAttach', {
+autocmd("LspAttach", {
     group = default_group,
     callback = function(e)
         local opts = { buffer = e.buf }
@@ -53,5 +53,21 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
     end
 })
-vim.cmd[[autocmd VimLeave * set guicursor= | call chansend(v:stderr, "\x1b[ q")]]
-vim.cmd[[autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn["hlexists"]("HighlightedyankRegion") > 0 and "HighlightedyankRegion" or "IncSearch"), timeout=500}]]
+
+autocmd({"VimLeave"}, {
+    group = default_group,
+    pattern = "*",
+    command = [[set guicursor= | call chansend(v:stderr, "\x1b[ q")]],
+})
+
+autocmd({"TextYankPost"}, {
+    group = default_group,
+    pattern = "*",
+    command = [[silent! lua vim.highlight.on_yank {higroup=(vim.fn["hlexists"]("HighlightedyankRegion") > 0 and "HighlightedyankRegion" or "IncSearch"), timeout=500}]],
+})
+
+autocmd({"FileType"}, {
+    group = default_group,
+    pattern = "markdown",
+    command = [[set conceallevel=1]],
+})
