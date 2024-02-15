@@ -5,7 +5,7 @@ return {
     ft = "markdown",
     opts = {
         workspaces = {
-            { name = "knowledge-base", path = "/Users/seb/obsidian" },
+            { name = "knowledge-base", path = "~/obsidian" },
         },
         log_level = vim.log.levels.WARN,
         disable_frontmatter = true
