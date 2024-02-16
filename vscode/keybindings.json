@@ -12,23 +12,6 @@
   {
     "key": "ctrl+o",
     "command": "vim.remap",
-    "when": "inputFocus && vim.mode == 'Normal'",
-    "args": { "after": ["m", "z", "o", "<Esc>", "`", "z"] }
-  },
-  {
-    "key": "ctrl+shift+o",
-    "command": "vim.remap",
-    "when": "inputFocus && vim.mode == 'Normal'",
-    "args": { "after": ["m", "z", "O", "<Esc>", "`", "z"] }
-  },
-  {
-    "key": "ctrl+o",
-    "command": "vim.remap",
-    "when": "inputFocus && vim.mode == 'Insert'",
-    "args": { "after": ["<Esc>", "m", "z", "o", "<Esc>", "`", "z", "a"] } },
-  {
-    "key": "ctrl+shift+o",
-    "command": "vim.remap",
     "when": "inputFocus && vim.mode == 'Insert'",
     "args": { "after": ["<Esc>", "m", "z", "O", "<Esc>", "`", "z", "a"] }
   },

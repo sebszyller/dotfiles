@@ -3,6 +3,8 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
+vim.opt.timeout = true
+vim.opt.timeoutlen = 500
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
