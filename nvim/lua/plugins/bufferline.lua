@@ -2,7 +2,7 @@ return {
     "akinsho/bufferline.nvim",
     dependencies = { { "nvim-tree/nvim-web-devicons", commit = "7f30f2da3c3641841ceb0e2c150281f624445e8f" } },
     version = "4.5.0",
-    lazy = false,
+    lazy = true,
     event = "ColorScheme",
     config = function()
         local bufferline = require("bufferline")

@@ -15,7 +15,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.runtimepath:prepend(lazypath)
-
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local default_group = augroup("DefaultGroup", {})
@@ -25,8 +24,8 @@ require("lazy").setup("plugins", {
     change_detection = { notify = false },
 })
 
-require "config.options"
-require "config.keymaps"
+require("config.options")
+require("config.keymaps")
 
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("file_browser")

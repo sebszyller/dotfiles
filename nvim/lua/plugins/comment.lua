@@ -1,8 +1,17 @@
 return {
     "numToStr/Comment.nvim",
+    dependencies = { { "folke/todo-comments.nvim", version = "1.1.0" } },
     version = "0.8.0",
-    lazy = false,
+    lazy = true,
+    event = "BufReadPre",
     config = function()
+        require("todo-comments").setup({
+            signs = false,
+            highlight = {
+                keyword = "wide_fg",
+                after = "",
+            },
+        })
         require("Comment").setup({
             -- LHS of operator-pending mapping in NORMAL + VISUAL mode
             opleader = {

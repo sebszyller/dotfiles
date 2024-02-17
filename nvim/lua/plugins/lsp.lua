@@ -29,10 +29,10 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 -- "lua_ls",
-                -- "mdx_analyzer",
                 -- "pyright",
                 -- "rust_analyzer",
                 -- "svelte",
+                -- "texlab",
                 -- "tsserver",
             },
             handlers = {
@@ -70,6 +70,7 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
                 ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+                ["<C-e>"] = cmp.mapping.abort(),
                 ["<CR>"] = cmp.mapping.confirm({ select = true }),
                 ["<C-space>"] = cmp.mapping.complete(),
             }),
