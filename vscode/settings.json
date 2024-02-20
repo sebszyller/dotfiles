@@ -21,6 +21,7 @@
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 1,
   "editor.renderWhitespace": "selection",
+  "editor.semanticHighlighting.enabled": true,
   "editor.smoothScrolling": true,
   "editor.wordWrap": "on",
   "errorLens.enabledDiagnosticLevels": [
@@ -98,9 +99,12 @@
   "vim.insertModeKeyBindingsNonRecursive": [
     { "before": [ "<C-p>" ], "after": [ "<Esc>", "p", "a" ] },
     { "before": [ "<C-d>" ], "after": [ "<Del>" ] },
-    { "before": [ "<C-c>" ], "after": [ "<Esc>" ] }
+    { "before": [ "<C-c>" ], "after": [ "<Esc>" ] },
+    { "before": [ "<C-e>" ], "commands": [ "hideSuggestWidget" ] },
+    { "before": [ "<C-h>" ], "commands": [ "editor.action.triggerParameterHints" ] },
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": [ "K" ], "commands": ["editor.action.showHover"] },
     { "before": [ "<C-d>" ], "after": [ "<C-d>", "z", "z" ] },
     { "before": [ "<C-u>" ], "after": [ "<C-u>" , "z", "z" ] },
     { "before": [ "n" ], "after": ["n", "z", "z"] },
@@ -111,7 +115,7 @@
     { "before": ["<C-r>"], "commands": ["redo"] },
     { "before": ["<leader>", "s", "v"], "commands": ["workbench.action.splitEditor"] },
     { "before": ["<leader>", "s", "h"], "commands": ["workbench.action.splitEditorDown"] },
-    { "before":["<Esc>"], "after":["<Esc>"], "commands": [ ":nohl" ] },
+    { "before":["<Esc>"], "after":["<Esc>"], "commands": [ ":nohl" ] }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     { "before": [ "<C-c>" ], "after": [ "<Esc>" ] },
@@ -131,5 +135,4 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Rosé Pine",
   "workbench.sideBar.location": "right",
-  "editor.semanticHighlighting.enabled": true
 }

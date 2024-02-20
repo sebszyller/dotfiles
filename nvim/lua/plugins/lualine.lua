@@ -13,7 +13,7 @@ return {
                 lualine_c = {"filename"},
                 lualine_x = {"encoding",},
                 lualine_y = {},
-                lualine_z = {"filetype"}
+                lualine_z = { {"filetype", icons_enabled = false} }
             }
         })
     end
