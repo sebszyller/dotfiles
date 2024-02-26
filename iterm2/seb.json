@@ -156,7 +156,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.75686275959014893
   },
-  "Thin Strokes" : 1,
+  "Thin Strokes" : 4,
   "Use Italic Font" : true,
   "Unlimited Scrollback" : false,
   "Keyboard Map" : {
@@ -485,7 +485,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.73725491762161255
   },
-  "Normal Font" : "MonacoNF 14",
+  "Normal Font" : "PragmataProMono-Regular 15",
   "Ansi 2 Color" : {
     "Red Component" : 0.61176472902297974,
     "Color Space" : "sRGB",
