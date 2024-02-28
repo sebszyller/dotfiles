@@ -132,10 +132,9 @@
   "workbench.colorCustomizations": {},
   "workbench.editorAssociations": { "*.ipynb": "jupyter-notebook" },
   "workbench.layoutControl.enabled": false,
-  "workbench.fontAliasing": "antialiased",
   "workbench.statusBar.visible": true,
   "workbench.activityBar.location": "top",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.colorTheme": "Rosé Pine",
   "workbench.sideBar.location": "right",
+  "workbench.colorTheme": "Rosé Pine Dawn",
 }

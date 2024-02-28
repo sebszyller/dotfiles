@@ -7,7 +7,7 @@ function fish_prompt
     set_color brwhite
     printf "in "
 
-    set_color bryellow
+    set_color --bold green
     printf "%s" (prompt_pwd)
     set_color normal
 

@@ -10,7 +10,7 @@
     diffFilter = delta --color-only
 
 [delta]
-    syntax-theme = ansi
+    syntax-theme = gruvbox-light
     navigate = true  # use n and N to move between diff sections
     side-by-side = true
 
