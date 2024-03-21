@@ -1,5 +1,6 @@
 return {
     "nvim-lualine/lualine.nvim",
+    commit = "b5e8bb642138f787a2c1c5aedc2a78cb2cebbd67",
     lazy = false,
     config = function()
         local lualine = require("lualine")

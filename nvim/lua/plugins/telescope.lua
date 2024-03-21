@@ -1,9 +1,9 @@
 return {
     "nvim-telescope/telescope-file-browser.nvim",
-    commit = "26b5e86cb8509a3ca2ebaa652630396c8e3396b2",
+    commit = "3bece973c5d80e7da447157822d5b0e73558d361",
     dependencies = {
         { "nvim-lua/plenary.nvim" },
-        { "nvim-telescope/telescope.nvim", tag = "0.1.5" }
+        { "nvim-telescope/telescope.nvim", tag = "0.1.6" }
     },
     config = function()
         local builtin = require("telescope.builtin")

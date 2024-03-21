@@ -1,6 +1,6 @@
 return {
     "epwalsh/obsidian.nvim",
-    tag = "v3.2.0",
+    tag = "v3.7.4",
     lazy = true,
     event = {
         "BufReadPre " .. vim.fn.expand "~" .. "/obsidian/**.md",
@@ -15,6 +15,7 @@ return {
             disable_frontmatter = true,
             ui = {
                 reference_text = {},
+                external_link_icon = { char = "" },
             },
         })
         local opts = { noremap = false, silent = true }
