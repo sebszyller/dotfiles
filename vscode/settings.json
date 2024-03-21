@@ -22,6 +22,7 @@
   "editor.renderWhitespace": "selection",
   "editor.semanticHighlighting.enabled": true,
   "editor.smoothScrolling": true,
+  "editor.stickyScroll.enabled": false,
   "editor.wordWrap": "on",
   "errorLens.enabledDiagnosticLevels": [
     "error",

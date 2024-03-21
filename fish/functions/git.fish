@@ -3,7 +3,7 @@ set --local fmt '--pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen
 alias ga "git add"
 alias gb "git branch"
 alias gc "git checkout"
-alias gcm "git commit -m"
+alias gcm "git commit"
 alias gdf "git diff"
 alias gdfc "git diff --cached"
 alias gl "clear; git log --oneline $fmt"
