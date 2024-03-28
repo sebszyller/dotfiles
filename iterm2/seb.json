@@ -165,12 +165,6 @@
       "Text" : "d",
       "Action" : 10
     },
-    "0x6b-0x40000-0x28" : {
-      "Version" : 1,
-      "Label" : "",
-      "Text" : "[1;2A",
-      "Action" : 10
-    },
     "0xf702-0x280000" : {
       "Text" : "b",
       "Action" : 10
