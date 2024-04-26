@@ -1,35 +1,53 @@
-vim.opt.clipboard = "unnamedplus"
-vim.opt.termguicolors = true
-vim.opt.signcolumn = "yes"
+local set = vim.opt
 
-vim.opt.updatetime = 50
-vim.opt.timeout = true
-vim.opt.timeoutlen = 500
+-- Misc.
+set.clipboard = "unnamedplus"
+set.completeopt = "menu,menuone,noselect"
+set.spelllang = "en_gb"
+set.termguicolors = true
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
-vim.opt.cursorline = true
+-- CMD
+set.cmdheight = 0
+set.report = 10
+set.ruler = false
+set.showcmd = false
+set.showmode = false
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+-- Line options
+set.breakindent = true
+set.smartindent = true
+set.cursorline = true
+set.cursorlineopt = "number"
+set.nu = true
+set.relativenumber = true
+set.scrolloff = 5
+set.signcolumn = "yes"
+set.wrap = false
 
-vim.opt.smartindent = true
-vim.opt.breakindent = true
+-- Search
+set.hlsearch = true
+set.ignorecase = true
+set.incsearch = true
+set.showmatch = true
+set.smartcase = true
 
-vim.opt.wrap = false
+-- Splits
+set.splitright = true
+set.splitbelow = true
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+-- Tabs
+set.expandtab = true
+set.shiftwidth = 4
+set.softtabstop = 4
+set.tabstop = 4
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.opt.showmatch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+-- Timeout
+set.timeout = true
+set.timeoutlen = 500
+set.updatetime = 50
 
-vim.opt.spelllang = "en"
-vim.opt.spell = true
+-- Undo
+set.backup = false
+set.swapfile = false
+set.undodir = os.getenv("HOME") .. "/.vim/undodir"
+set.undofile = true

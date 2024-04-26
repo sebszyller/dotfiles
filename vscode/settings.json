@@ -12,15 +12,14 @@
   "editor.cursorStyle": "block",
   "editor.formatOnSave": false,
   "editor.fontFamily": "'PragmataPro Mono', Monaco",
-  "editor.fontSize": 15,
-  "editor.lineHeight": 22,
+  "editor.fontSize": 16,
+  "editor.lineHeight": 23,
   "editor.largeFileOptimizations": false,
   "editor.inlayHints.enabled": "offUnlessPressed",
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 1,
   "editor.renderWhitespace": "selection",
-  "editor.semanticHighlighting.enabled": true,
   "editor.smoothScrolling": true,
   "editor.stickyScroll.enabled": false,
   "editor.wordWrap": "on",
@@ -64,23 +63,12 @@
       "source.fixAll": "explicit",
       "source.organizeImports": "explicit"
     },
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "charliermarsh.ruff"
   },
-  "black-formatter.args": [ "--line-length", "160" ],
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.inlayHints.callArgumentNames": "partial",
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
-  "python.languageServer": "Pylance",
-  "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer",
-    "editor.formatOnSave": true
-  },
-  "[svelte]": {
-     "editor.defaultFormatter": "svelte.svelte-vscode",
-     "editor.formatOnSave": true
-   },
-  "svelte.enable-ts-plugin": true,
   "telemetry.telemetryLevel": "off",
   "update.mode": "start",
   "vim.timeout": 500,
@@ -99,9 +87,9 @@
   "vim.insertModeKeyBindingsNonRecursive": [
     { "before": [ "<C-p>" ], "after": [ "<Esc>", "p", "a" ] },
     { "before": [ "<C-d>" ], "after": [ "<Del>" ] },
-    { "before": [ "<C-c>" ], "after": [ "<Esc>" ] },
     { "before": [ "<C-e>" ], "commands": [ "hideSuggestWidget" ] },
     { "before": [ "<C-h>" ], "commands": [ "editor.action.triggerParameterHints" ] },
+    { "before": [ "<C-l>" ], "commands": [ "editor.action.accessibleViewAcceptInlineCompletion" ] },
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     { "before": [ "<C-h>" ], "commands": ["workbench.action.navigateLeft"] },
@@ -113,7 +101,6 @@
     { "before": [ "<C-u>" ], "after": [ "<C-u>" , "z", "z" ] },
     { "before": [ "n" ], "after": ["n", "z", "z"] },
     { "before": [ "N" ], "after": ["N", "z", "z"] },
-    { "before": [ "<C-o>" ], "commands": ["workbench.action.navigateBack"] },
     { "before": ["J"], "after": ["m", "z", "J", "`", "z"] },
     { "before": ["u"], "commands": ["undo"] },
     { "before": ["<C-r>"], "commands": ["redo"] },
@@ -122,12 +109,9 @@
     { "before": ["<leader>", "w"], "commands": ["workbench.action.files.save"] },
     { "before": ["<leader>", "q"], "commands": ["workbench.action.closeActiveEditor"] },
     { "before": ["<leader>", "w", "q"], "commands": ["workbench.action.files.save", "workbench.action.closeActiveEditor"] },
-    { "before": ["<leader>", "v", "a"], "commands": ["editor.action.quickFix"]},
-    { "before": ["<leader>", "v", "r"], "commands": ["editor.action.referenceSearch.trigger"]},
     { "before":["<Esc>"], "after":["<Esc>"], "commands": [ ":nohl" ] }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
-    { "before": [ "<C-c>" ], "after": [ "<Esc>" ] },
     { "before": ["p"], "after": ["p", "g", "v", "y"] },
     { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
     { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
@@ -143,5 +127,5 @@
   "workbench.activityBar.location": "bottom",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.sideBar.location": "right",
-  "workbench.colorTheme": "Gruvbox Material Light",
+  "workbench.colorTheme": "Solarized Light",
 }

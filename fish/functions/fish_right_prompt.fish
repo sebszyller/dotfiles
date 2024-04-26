@@ -1,5 +1,5 @@
 function fish_right_prompt
-    set_color brwhite
+    set_color white
     date "+%R"
     set_color normal
 end

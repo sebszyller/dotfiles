@@ -1,108 +1,91 @@
 return {
     "neovim/nvim-lspconfig",
-    tag = "v0.1.7",
+    version = "1.7.0",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "onsails/lspkind.nvim",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "hrsh7th/nvim-cmp",
-        "L3MON4D3/LuaSnip",
-        "saadparwaiz1/cmp_luasnip",
+        { "saghen/blink.cmp", version = "1.3.0" },
+        { "williamboman/mason.nvim", version = "1.11.0" },
+        { "williamboman/mason-lspconfig.nvim", version = "1.32.0" },
     },
-
     config = function()
-        local lspkind = require("lspkind")
-        local cmp = require("cmp")
-        local cmp_lsp = require("cmp_nvim_lsp")
-        local capabilities = vim.tbl_deep_extend(
-            "force",
-            {},
-            vim.lsp.protocol.make_client_capabilities(),
-            cmp_lsp.default_capabilities())
+        local blink_cmp = require("blink.cmp")
+        local lspconfig = require("lspconfig")
 
-        require("mason").setup()
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                -- "lua_ls",
-                -- "pyright",
-                -- "rust_analyzer",
-                -- "svelte",
-                -- "texlab",
-                -- "tsserver",
+        local default_sources = { "lsp", "path", "snippets", "buffer" }
+        blink_cmp.setup({
+            keymap = {
+                preset = "super-tab",
             },
-            handlers = {
-                function(server_name) -- default handler (optional)
-
-                    require("lspconfig")[server_name].setup {
-                        capabilities = capabilities
-                    }
-                end,
-
-                ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-                                diagnostics = {
-                                    globals = { "vim", "it", "describe", "before_each", "after_each" },
-                                }
-                            }
-                        }
-                    }
-                end,
-            }
-        })
-
-        local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-        cmp.setup({
-            snippet = {
-                expand = function(args)
-                    require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-                end,
+            completion = {
+                list = { selection = { auto_insert = false } },
+                menu = { draw = { columns = { { "kind_icon", "label", "source_name", gap = 1 } } } },
             },
-            mapping = cmp.mapping.preset.insert({
-                ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-                ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-                ["<C-e>"] = cmp.mapping.abort(),
-                ["<CR>"] = cmp.mapping.confirm({ select = true }),
-                ["<C-space>"] = cmp.mapping.complete(),
-            }),
-            sources = cmp.config.sources({
-                { name = "nvim_lua" },
-                { name = "nvim_lsp" },
-                { name = "luasnip" }, -- For luasnip users.
-            }, {
-                { name = "buffer", keyword_length = 5 },
-            }),
-            formatting = {
-                format = lspkind.cmp_format {
-                    with_text = true,
+            cmdline = {
+                keymap = { preset = "inherit" },
+                completion = {
+                    list = { selection = { auto_insert = false } },
                     menu = {
-                        buffer = "[buf]",
-                        nvim_lsp = "[LSP]",
-                        nvim_lua = "[api]",
-                        path = "[path]",
-                        luasnip = "[snip]",
+                        auto_show = function(ctx)
+                            return not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype()) -- NOTE: don't show in search
+                        end,
                     },
                 },
             },
-            experimental = {
-                native_menu = false,
-                ghost_text = true,
+            fuzzy = { sorts = { "exact", "score", "sort_text" } },
+            sources = {
+                default = { "copilot", unpack(default_sources) },
+                min_keyword_length = 3,
+                providers = {
+                    copilot = {
+                        name = "copilot",
+                        module = "blink-cmp-copilot",
+                        score_offset = 100,
+                        async = true,
+                    },
+                },
+            },
+        })
+
+        local capabilities = blink_cmp.get_lsp_capabilities({
+            textDocument = { completion = { completionItem = { snippetSupport = false } } },
+        })
+        local capabilities_with_snippets = blink_cmp.get_lsp_capabilities()
+
+        require("mason").setup({ ui = { border = "rounded" } })
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                -- stylua: ignore start
+                -- "stylua", "lua-language-server",
+                -- "clangd", "clang-format",
+                -- "rust-analyzer",
+                -- "basedpyright", "ruff",
+                -- "svelte-language-server", "typescript-language-server", "prettier",
+                -- "texlab",
+                -- stylua: ignore end
+            },
+            handlers = {
+                function(server_name)
+                    lspconfig[server_name].setup({ capabilities = capabilities })
+                end,
+                ["lua_ls"] = function()
+                    lspconfig.lua_ls.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            Lua = {
+                                runtime = { version = "Lua 5.1" },
+                                diagnostics = { globals = { "vim", "it", "describe", "before_each", "after_each" } },
+                            },
+                        },
+                    })
+                end,
+                ["texlab"] = function()
+                    lspconfig.texlab.setup({ capabilities = capabilities_with_snippets })
+                end,
             },
         })
 
         vim.diagnostic.config({
-            -- update_in_insert = true,
             float = {
-                focusable = false,
                 style = "minimal",
                 border = "rounded",
                 source = "always",
@@ -110,5 +93,8 @@ return {
                 prefix = "",
             },
         })
-    end
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+        vim.lsp.handlers["textDocument/signatureHelp"] =
+            vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+    end,
 }

@@ -1,9 +1,11 @@
 return {
     "mbbill/undotree",
-    commit = "9dbbf3b7d19dda0d22ceca461818e4739ad8154d",
-    lazy = true,
+    commit = "2556c6800b210b2096b55b66e74b4cc1d9ebbe4f",
     event = "BufReadPre",
     config = function()
-        vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-    end
+        vim.g.undotree_WindowLayout = 3
+        vim.g.undotree_SplitWidth = 60
+        -- stylua: ignore
+		_map("n", "<leader>u", vim.cmd.UndotreeToggle, { noremap = true, silent = true, desc = "Undo tree" })
+    end,
 }

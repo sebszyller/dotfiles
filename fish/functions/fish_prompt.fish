@@ -4,10 +4,10 @@ function fish_prompt
         printf $CONDA_PROMPT_MODIFIER
     end
 
-    set_color brwhite
+    set_color white
     printf "in "
 
-    set_color --bold cyan
+    set_color green
     printf "%s" (prompt_pwd)
     set_color normal
 
@@ -19,11 +19,11 @@ function fish_prompt
         if test $dirty_count -eq 0
             printf " (%s)" $branch
         else
-            printf " (%s %s+%s%s)" $branch (set_color brmagenta) $dirty_count (set_color normal)
+            printf " (%s %s+%s%s)" $branch (set_color brred) $dirty_count (set_color normal)
         end
     end
 
-    set_color --bold brwhite
+    set_color white
     printf " λ "
     set_color normal
 end

@@ -1,0 +1,30 @@
+config-file = keybindings
+theme = zenbones_dark
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+mouse-hide-while-typing = true
+
+# Font
+font-family = "PragmataPro Mono"
+font-size = 16
+
+# System
+confirm-close-surface = false
+macos-option-as-alt = left
+shell-integration = fish
+shell-integration-features = no-cursor
+term = xterm-256color
+window-save-state = always
+
+# UI
+adjust-cell-height = 6
+background-blur-radius = 40
+background-opacity = 0.90
+macos-titlebar-style = hidden
+macos-window-shadow = false
+window-padding-x = 5
+window-padding-y = 3
+window-padding-balance = true
+

@@ -1,6 +1,5 @@
-- autoDocstring - Python Docstring Generator
 - Better Comments
-- Black Formatter + Pylance + Ruff
+- Black Formatter + basedpyright + Ruff
 - Code Spell Checker
 - Error Lens
 - Jupyter by Microsoft
@@ -8,7 +7,7 @@
 - Python by Microsoft
 - Python Indent
 - Remote Development
-- rust-analyzer, crates
+- rust-analyzer, dependi
 - Svelte for VSCode
 - VSCodeVIM
 - TODO Highlight
