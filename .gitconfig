@@ -1,0 +1,21 @@
+[user]
+    name = Sebastian Szyller
+    email = github@sebszyller.com
+
+[core]
+    pager = delta
+    editor = nvim
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    syntax-theme = gruvbox-light
+    navigate = true  # use n and N to move between diff sections
+    side-by-side = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default

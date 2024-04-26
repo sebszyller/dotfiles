@@ -1,0 +1,18 @@
+IdentityFile ~/.ssh/X
+IdentityFile ~/.ssh/Y
+
+Host *
+        AddKeysToAgent yes
+        UseKeychain yes
+        IdentitiesOnly yes
+        PasswordAuthentication no
+        VisualHostKey yes
+        ServerAliveInterval 240
+
+Host X X.com
+        HostName X.com
+        IdentityFile ~/.ssh/X
+
+Host Y.com
+        HostName Y.com
+        IdentityFile ~/.ssh/Y
