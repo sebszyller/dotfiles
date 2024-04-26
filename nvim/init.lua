@@ -13,9 +13,6 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   }
 end
-local a = "advertizment"
-
-print(a)
 
 vim.opt.runtimepath:prepend(lazypath)
 local augroup = vim.api.nvim_create_augroup
