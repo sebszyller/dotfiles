@@ -119,7 +119,7 @@
   "Custom Command" : "No",
   "ASCII Anti Aliased" : true,
   "Non Ascii Font" : "Monaco 12",
-  "Vertical Spacing" : 1,
+  "Vertical Spacing" : 1.0600000000000001,
   "Left Option Key Changeable" : true,
   "Use Bold Font" : true,
   "Selected Text Color" : {
