@@ -16,8 +16,8 @@ end
 
 # Opts and flags
 set -Ux FZF_DEFAULT_OPTS "
-    --color=fg:#3c3735,bg:#fbf0c6,hl:#458487
-    --color=fg+:#3c3735,bg+:#ebdbb2,hl+:#076577
+    --color=fg:#3c3735,bg:#f9f5d7,hl:#458487
+    --color=fg+:#3c3735,bg+:#f5eecb,hl+:#076577
     --color=info:#98961a,prompt:#cb231d,pointer:#b06185
     --color=marker:#b47514,spinner:#b06185,header:#689c69
     --height 40% --no-info --layout=reverse"

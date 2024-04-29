@@ -4,9 +4,12 @@ return {
     lazy = false,
     config = function()
         local lualine = require("lualine")
+        local custom_gruvbox = require("lualine.themes.gruvbox")
+        custom_gruvbox.normal.c.bg = require("gruvbox").palette.light1
+
         lualine.setup({
             options = {
-                theme = "gruvbox",
+                theme = custom_gruvbox,
             },
             sections = {
                 lualine_a = {"mode"},

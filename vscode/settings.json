@@ -20,7 +20,6 @@
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 1,
   "editor.renderWhitespace": "selection",
-  "editor.semanticHighlighting.enabled": true,
   "editor.smoothScrolling": true,
   "editor.stickyScroll.enabled": false,
   "editor.wordWrap": "on",
@@ -144,4 +143,6 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.sideBar.location": "right",
   "workbench.colorTheme": "Gruvbox Material Light",
+  "gruvboxMaterial.italicKeywords": true,
+  "gruvboxMaterial.lightContrast": "hard",
 }

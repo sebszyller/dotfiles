@@ -131,11 +131,11 @@
   },
   "Option Key Sends" : 2,
   "Background Color" : {
-    "Red Component" : 0.97939503192901611,
-    "Color Space" : "Calibrated",
-    "Blue Component" : 0.73338055610656738,
+    "Red Component" : 0.97647058823529409,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.84313725490196079,
     "Alpha Component" : 1,
-    "Green Component" : 0.93639552593231201
+    "Green Component" : 0.96078431372549022
   },
   "Ansi 11 Color" : {
     "Red Component" : 0.64596939086914062,
@@ -423,11 +423,11 @@
   },
   "Name" : "seb",
   "Cursor Text Color" : {
-    "Red Component" : 0.97939503192901611,
-    "Color Space" : "Calibrated",
-    "Blue Component" : 0.73338055610656738,
+    "Red Component" : 0.97647058823529409,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.84313725490196079,
     "Alpha Component" : 1,
-    "Green Component" : 0.93639552593231201
+    "Green Component" : 0.96078431372549022
   },
   "Shortcut" : "",
   "Cursor Color" : {
@@ -484,11 +484,11 @@
   "Normal Font" : "PragmataProMono-Regular 15",
   "Custom Directory" : "No",
   "Ansi 0 Color" : {
-    "Red Component" : 0.97939503192901611,
-    "Color Space" : "Calibrated",
-    "Blue Component" : 0.73338055610656738,
+    "Red Component" : 0.97647058823529409,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.84313725490196079,
     "Alpha Component" : 1,
-    "Green Component" : 0.93639552593231201
+    "Green Component" : 0.96078431372549022
   },
   "Guid" : "A5280612-45DA-4A2C-BC5B-8C0E973607C8"
 }
