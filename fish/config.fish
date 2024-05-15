@@ -16,10 +16,11 @@ end
 
 # Opts and flags
 set -Ux FZF_DEFAULT_OPTS "
-    --color=fg:#3c3735,bg:#f9f5d7,hl:#458487
-    --color=fg+:#3c3735,bg+:#f5eecb,hl+:#076577
-    --color=info:#98961a,prompt:#cb231d,pointer:#b06185
-    --color=marker:#b47514,spinner:#b06185,header:#689c69
+	--color=fg:#908caa,hl:#ebbcba
+	--color=fg+:#e0def4,hl+:#ebbcba
+	--color=border:#403d52,header:#31748f,gutter:#191724
+	--color=spinner:#f6c177,info:#9ccfd8,separator:#403d52
+	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
     --height 40% --no-info --layout=reverse"
 
 # Init agent
@@ -44,7 +45,7 @@ source $FISH/functions/git.fish
 source $FISH/functions/misc.fish
 source $FISH/functions/hooks.fish
 
-fish_config theme choose "gruvbox"
+fish_config theme choose "rosepine"
 
 # Init zoxide
 zoxide init fish --hook pwd --cmd j | source

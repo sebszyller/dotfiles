@@ -141,7 +141,5 @@
   "workbench.activityBar.location": "bottom",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.sideBar.location": "right",
-  "workbench.colorTheme": "Gruvbox Material Light",
-  "gruvboxMaterial.italicKeywords": true,
-  "gruvboxMaterial.lightContrast": "hard",
+  "workbench.colorTheme": "Rosé Pine",
 }

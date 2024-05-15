@@ -1,6 +1,6 @@
 local opts = {
-    noremap = true,      -- non-recursive
-    silent = true,       -- do not show message
+	noremap = true, -- non-recursive
+	silent = true, -- do not show message
 }
 local map = vim.keymap.set
 
@@ -54,6 +54,7 @@ map("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
 -- Misc. leader
 map("n", "<leader>q", ":q<CR>", opts)
+map("n", "<leader>Q", ":q!<CR>", opts)
 map("n", "<leader>wq", ":wq<CR>", opts)
 map("n", "<leader>w", ":w<CR>", opts)
 map("n", "<leader>wr", ":set wrap!<CR>", opts)

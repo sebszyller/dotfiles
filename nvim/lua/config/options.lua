@@ -1,33 +1,37 @@
-vim.opt.clipboard = "unnamedplus"
-vim.opt.termguicolors = true
-vim.opt.signcolumn = "yes"
+local vo = vim.opt
 
-vim.opt.updatetime = 50
-vim.opt.timeout = true
-vim.opt.timeoutlen = 500
+vo.clipboard = "unnamedplus"
+vo.termguicolors = true
+vo.signcolumn = "yes"
+vo.showcmd = false
+vo.cmdheight = 0
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
-vim.opt.cursorline = true
+vo.updatetime = 50
+vo.timeout = true
+vo.timeoutlen = 500
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vo.nu = true
+vo.relativenumber = true
+vo.cursorline = true
+vo.cursorlineopt = "number"
 
-vim.opt.smartindent = true
-vim.opt.breakindent = true
+vo.tabstop = 4
+vo.softtabstop = 4
+vo.shiftwidth = 4
+vo.expandtab = true
 
-vim.opt.wrap = false
+vo.smartindent = true
+vo.breakindent = true
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+vo.wrap = false
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.opt.showmatch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vo.swapfile = false
+vo.backup = false
+vo.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vo.undofile = true
 
+vo.hlsearch = true
+vo.incsearch = true
+vo.showmatch = true
+vo.ignorecase = true
+vo.smartcase = true

@@ -7,7 +7,7 @@ function fish_prompt
     set_color brwhite
     printf "in "
 
-    set_color --bold cyan
+    set_color --bold yellow
     printf "%s" (prompt_pwd)
     set_color normal
 
@@ -19,7 +19,7 @@ function fish_prompt
         if test $dirty_count -eq 0
             printf " (%s)" $branch
         else
-            printf " (%s %s+%s%s)" $branch (set_color brmagenta) $dirty_count (set_color normal)
+            printf " (%s %s+%s%s)" $branch (set_color brred) $dirty_count (set_color normal)
         end
     end
 
