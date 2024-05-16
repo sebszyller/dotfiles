@@ -113,9 +113,9 @@
     },
     "0x32-0x100000-0x13" : {
       "Version" : 1,
-      "Action" : 11,
+      "Label" : "",
       "Text" : "0x01 0x32",
-      "Label" : ""
+      "Action" : 11
     },
     "0xf708-0x20000" : {
       "Text" : "[15;2~",
@@ -155,9 +155,9 @@
     },
     "0x31-0x100000-0x12" : {
       "Version" : 1,
-      "Action" : 11,
+      "Label" : "",
       "Text" : "0x01 0x31",
-      "Label" : ""
+      "Action" : 11
     },
     "0x32-0x40000" : {
       "Text" : "0x00",
@@ -225,9 +225,9 @@
     },
     "0x35-0x100000-0x17" : {
       "Version" : 1,
-      "Action" : 11,
+      "Label" : "",
       "Text" : "0x01 0x35",
-      "Label" : ""
+      "Action" : 11
     },
     "0xf702-0x220000" : {
       "Text" : "[1;2D",
@@ -237,15 +237,15 @@
       "Text" : "0x1e",
       "Action" : 11
     },
+    "0x34-0x100000-0x15" : {
+      "Version" : 1,
+      "Label" : "",
+      "Text" : "0x01 0x34",
+      "Action" : 11
+    },
     "0xf70f-0x20000" : {
       "Text" : "[24;2~",
       "Action" : 10
-    },
-    "0x34-0x100000-0x15" : {
-      "Version" : 1,
-      "Action" : 11,
-      "Text" : "0x01 0x34",
-      "Label" : ""
     },
     "0xf701-0x220000" : {
       "Text" : "[1;2B",
@@ -327,15 +327,15 @@
       "Text" : "+",
       "Action" : 12
     },
+    "0x33-0x100000-0x14" : {
+      "Version" : 1,
+      "Label" : "",
+      "Text" : "0x01 0x33",
+      "Action" : 11
+    },
     "0xf70e-0x20000" : {
       "Text" : "[23;2~",
       "Action" : 10
-    },
-    "0x33-0x100000-0x14" : {
-      "Version" : 1,
-      "Action" : 11,
-      "Text" : "0x01 0x33",
-      "Label" : ""
     },
     "0x2e-0x200000" : {
       "Text" : ".",
@@ -454,10 +454,10 @@
     "Alpha Component" : 0.709014892578125,
     "Green Component" : 0.73725491762161255
   },
-  "Smart Cursor Color" : false,
+  "Smart Cursor Color" : true,
   "Ambiguous Double Width" : false,
   "Blur Radius" : 25,
-  "Cursor Type" : 1,
+  "Cursor Type" : 2,
   "Ansi 0 Color" : {
     "Red Component" : 0.14901961386203766,
     "Color Space" : "sRGB",
@@ -522,12 +522,12 @@
   "Columns" : 80,
   "Visual Bell" : false,
   "Custom Directory" : "No",
+  "Thin Strokes" : 0,
   "Ansi 5 Color" : {
     "Red Component" : 0.76862746477127075,
     "Color Space" : "sRGB",
     "Blue Component" : 0.90588235855102539,
     "Alpha Component" : 1,
     "Green Component" : 0.65490198135375977
-  },
-  "Thin Strokes" : 0
+  }
 }

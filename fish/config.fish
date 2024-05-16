@@ -15,6 +15,7 @@ switch (uname)
 end
 
 # Opts and flags
+set -gx EDITOR nvim
 set -Ux FZF_DEFAULT_OPTS "
 	--color=fg:#908caa,hl:#ebbcba
 	--color=fg+:#e0def4,hl+:#ebbcba
