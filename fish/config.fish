@@ -3,7 +3,9 @@ set -gx DOTFILES ~/dotfiles
 set -gx FISH $DOTFILES/fish
 
 # Dev-specific
-set -gx CONDA $HOME/miniconda3
+set -gx PYTHON_INSTALLS /Library/Frameworks/Python.framework/Versions
+set -gx PIP_REQUIRE_VIRTUALENV true
+fish_add_path $PYTHON_INSTALLS/3.11/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/bin
 
@@ -27,20 +29,6 @@ set -Ux FZF_DEFAULT_OPTS "
 # Init agent
 eval (ssh-agent -c) >/dev/null
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f $CONDA/bin/conda
-    eval $CONDA/bin/conda "shell.fish" "hook" $argv | source
-else
-    if test -f "$CONDA/etc/fish/conf.d/conda.fish"
-        . "$CONDA/etc/fish/conf.d/conda.fish"
-    else
-        set -x PATH "$CONDA/bin" $PATH
-    end
-end
-function __conda_add_prompt; end
-# <<< conda initialize <<<
-
 # Source functions
 source $FISH/functions/git.fish
 source $FISH/functions/misc.fish
@@ -50,3 +38,4 @@ fish_config theme choose "rosepine"
 
 # Init zoxide
 zoxide init fish --hook pwd --cmd j | source
+

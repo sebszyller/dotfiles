@@ -51,12 +51,10 @@ alias tmls "tmux ls"
 alias v "nvim"
 alias vv "nvim ."
 alias xx "xargs"
+alias vac ". .venv/bin/activate.fish"
+alias poetry ".venv/bin/poetry"
 
 # Scripts & functions
-# Fuzzy-find conda environemnts
-function cenv
-    conda activate (ls -1 $CONDA/envs/ | __fzfselectorexit)
-end
 
 # Check if/what is listening on the port
 function chport
