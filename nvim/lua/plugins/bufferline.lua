@@ -1,7 +1,7 @@
 return {
 	"akinsho/bufferline.nvim",
 	dependencies = { { "nvim-tree/nvim-web-devicons", commit = "7f30f2da3c3641841ceb0e2c150281f624445e8f" } },
-	version = "4.5.2",
+	commit = "73540cb95f8d95aa1af3ed57713c6720c78af915",
 	lazy = true,
 	event = "ColorScheme",
 	config = function()
