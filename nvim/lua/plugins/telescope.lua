@@ -18,6 +18,7 @@ return {
 		})
 		vim.keymap.set("n", "<leader>fd", builtin.find_files, {})
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+		vim.keymap.set("n", "<leader>fc", builtin.command_history, {})
 		vim.keymap.set("n", "<leader>fb", telescope.extensions.file_browser.file_browser, {})
 	end,
 }

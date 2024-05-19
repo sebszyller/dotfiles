@@ -4,13 +4,13 @@ switch (uname)
         # echo "Initialising aliases for Linux."
         alias open "xdg-open"
         alias here "nautilus . &"
-        alias clip "xclip -selection clipboard"
+        alias yy "xclip -selection clipboard"
         alias readlinkorgreadlink "readlink"
         alias wcorgwc "wc"
         alias sedorgsed "sed"
     case Darwin
         # echo "Initialising aliases for MacOS."
-        alias clip "pbcopy"
+        alias yy "pbcopy"
         alias readlinkorgreadlink "greadlink"
         alias wcorgwc "gwc"
         alias sedorgsed "gsed"
@@ -45,7 +45,7 @@ alias ll "ls -al"
 alias t "eza --tree -L 1"
 alias tt "eza --tree -L 2"
 alias ttt "eza --tree -L 3"
-alias shrug "echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/¯\" | clip"
+alias shrug "echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/¯\" | yy"
 alias today "date -u +"%Y%m%d""
 alias tmls "tmux ls"
 alias v "nvim"
@@ -63,20 +63,30 @@ end
 
 # Fuzzy finder for file names
 function ff
-    if count $argv > /dev/null
-        set --function pathtosearch $argv[1]
-    else
-        set --function pathtosearch (pwd)
+    argparse 'a/absolute' -- $argv
+    if set -q _flag_absolute
+        alias fd "fd -a"
     end
 
-    fd -tf -tl -a "" $pathtosearch | __fzfselectorexit
+    if count $argv > /dev/null
+        set --function pattern $argv[1]
+        set --function results (fd --full-path -tf -tl --hidden --exclude '.git' $pattern)
+        if test (count $results) -eq 1
+            set --function choice $results[1]
+        else
+            set --function choice (fd -tf -tl --hidden --exclude '.git' | __fzfselectorexit --query=$pattern)
+        end
+    else
+        set --function choice (fd -tf -tl --hidden --exclude '.git/' | __fzfselectorexit)
+    end
+    functions -e fd
+    echo -n $choice
 end
 
 # Fuzzy-find history
 function hf
     set --function choice (history | __fzfselectorexit)
-    echo $choice
-    echo -n $choice | clip
+    echo -n $choice
 end
 
 # Lookup hostname and id.
@@ -88,8 +98,7 @@ end
 # Fuzzy-find from psf aux
 function psf
     set --function choice (ps aux | __fzfselectorexit | awk '{ print $2 }')
-    echo $choice
-    echo -n $choice | clip
+    echo -n $choice
 end
 
 # Fuzzy-find for reconnecting to a tmux session
@@ -116,12 +125,7 @@ end
 function tmx
     set --function sname (tmux ls | __fzfselectorexit | awk '{ print $1 }' | tr -d ':')
     tmux kill-session -t $sname
-    echo Killed session $sname.
-end
-
-# Fuzzy-find directories on the stack
-function sf
-    j (printf %s\n $dirprev | __fzfselectorexit)
+    echo Killed session $sname
 end
 
 function take
@@ -135,22 +139,35 @@ function texcomp
 end
 
 # Fuzzy-find for tsp outputs
-function tspf
-    cat (tsp | __fzfselectorexit | awk '{print $3}')
+function tss
+    ts | __fzfselectorexit | awk '{print $1}' | tc -c
+end
+
+# Fuzzy-find for killing tsp jobs
+function tsk
+    select --function jobid (ts | __fzfselectorexit | awk '{print $1}' | ts -k)
+    echo Killed job $jobid
 end
 
 # Fuzzy-find file and open with (n)vim
 function vf
-    v (fd -tf --hidden --exclude '.git/' | __fzfselectorexit)
+    v (ff $argv)
 end
 
 function __fzfselectorexit
-    read -z -f input
-    set --local selected (printf %s $input | fzf --ansi)
+    argparse "q/query=" -- $argv
+    if set -q _flag_query
+        set --function query $_flag_query
+    else
+        set --function query
+    end
 
-    if test -z "$selected"
+    read -z -f input
+    set --local choice (printf %s $input | fzf --ansi --query=$query)
+
+    if test -z "$choice"
         kill -INT $fish_pid
     else
-        echo $selected
+        echo $choice
     end
 end
