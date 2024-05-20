@@ -140,13 +140,14 @@ end
 
 # Fuzzy-find for tsp outputs
 function tss
-    ts | __fzfselectorexit | awk '{print $1}' | tc -c
+    ts -c (ts | __fzfselectorexit | awk '{print $1}')
 end
 
 # Fuzzy-find for killing tsp jobs
 function tsk
-    select --function jobid (ts | __fzfselectorexit | awk '{print $1}' | ts -k)
-    echo Killed job $jobid
+    set --function jobid (ts | __fzfselectorexit | awk '{print $1}')
+    ts -k $jobid
+    echo Killed job id:$jobid
 end
 
 # Fuzzy-find file and open with (n)vim
