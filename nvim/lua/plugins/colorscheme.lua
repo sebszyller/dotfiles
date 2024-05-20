@@ -13,6 +13,7 @@ return {
 			highlight_groups = {
 				["@text.quote.markdown"] = { fg = palette.subtle, italic = true },
 				["@text.reference.markdown_inline"] = { fg = palette.foam, underline = true },
+				["@text.literal.markdown_inline"] = { link = "Comment" },
 			},
 		})
 		vim.o.background = "dark"

@@ -84,5 +84,5 @@ autocmd({ "TextYankPost" }, {
 autocmd({ "FileType" }, {
 	group = default_group,
 	pattern = "markdown",
-	command = [[set conceallevel=1]],
+	command = [[set conceallevel=2]],
 })
