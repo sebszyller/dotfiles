@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	tag = "v0.1.7",
+	version = "0.1.8",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"williamboman/mason.nvim",
@@ -13,9 +13,8 @@ return {
 		"hrsh7th/nvim-cmp",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
-		{ "stevearc/conform.nvim", version = "5.6.0" },
+		{ "stevearc/conform.nvim", version = "5.7.0" },
 	},
-
 	config = function()
 		local lspkind = require("lspkind")
 		local cmp = require("cmp")
@@ -33,10 +32,10 @@ return {
 				-- stylua,
 				-- lua-language-server,
 				-- rust-analyzer,
-				-- pyright,
+				-- basedpyright,
 				-- ruff,
-				-- svelte-language-server svelte,
-				-- typescript-language-server
+				-- svelte-language-server,
+				-- typescript-language-server,
 				-- prettier,
 				-- prettierd,
 				-- texlab,
@@ -47,7 +46,6 @@ return {
 						capabilities = capabilities,
 					})
 				end,
-
 				["lua_ls"] = function()
 					local lspconfig = require("lspconfig")
 					lspconfig.lua_ls.setup({
@@ -119,7 +117,7 @@ return {
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				python = { "ruff_format", "ruff_fix" },
+				python = { "ruff_fix", "ruff_format" },
 				rust = { "rustfmt" },
 				javascript = { { "prettierd", "prettier" } },
 				typescript = { { "prettierd", "prettier" } },

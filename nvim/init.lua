@@ -45,6 +45,9 @@ autocmd("LspAttach", {
 			noremap = true,
 			silent = true,
 		}
+		local function toggle_inlay_hints()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+		end
 		map("n", "gd", function()
 			vim.lsp.buf.definition()
 		end, opts)
@@ -65,6 +68,9 @@ autocmd("LspAttach", {
 		end, opts)
 		map("i", "<C-h>", function()
 			vim.lsp.buf.signature_help()
+		end, opts)
+		map("n", "H", function()
+			toggle_inlay_hints()
 		end, opts)
 	end,
 })
