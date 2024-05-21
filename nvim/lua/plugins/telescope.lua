@@ -3,7 +3,7 @@ return {
 	commit = "3bece973c5d80e7da447157822d5b0e73558d361",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
-		{ "nvim-telescope/telescope.nvim", tag = "0.1.6" },
+		{ "nvim-telescope/telescope.nvim", tag = "0.1.7" },
 	},
 	config = function()
 		local builtin = require("telescope.builtin")

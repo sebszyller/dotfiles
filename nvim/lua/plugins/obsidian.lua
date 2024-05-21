@@ -1,6 +1,6 @@
 return {
 	"epwalsh/obsidian.nvim",
-	tag = "v3.7.6",
+	tag = "v3.7.12",
 	lazy = true,
 	event = {
 		"BufReadPre " .. vim.fn.expand("~") .. "/obsidian/**.md",
