@@ -31,6 +31,8 @@ return {
 			ensure_installed = {
 				-- stylua,
 				-- lua-language-server,
+				-- clangd,
+				-- clang-format,
 				-- rust-analyzer,
 				-- basedpyright,
 				-- ruff,
@@ -103,7 +105,6 @@ return {
 		})
 
 		vim.diagnostic.config({
-			-- update_in_insert = true,
 			float = {
 				focusable = false,
 				style = "minimal",
@@ -113,9 +114,15 @@ return {
 				prefix = "",
 			},
 		})
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+		vim.lsp.handlers["textDocument/signatureHelp"] =
+			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 		require("conform").setup({
 			formatters_by_ft = {
+				c = { "clang-format" },
+				cpp = { "clang-format" },
+				cuda = { "clang-format" },
 				lua = { "stylua" },
 				python = { "ruff_fix", "ruff_format" },
 				rust = { "rustfmt" },
