@@ -70,14 +70,14 @@ function ff
 
     if count $argv > /dev/null
         set --function pattern $argv[1]
-        set --function results (fd --full-path -tf -tl --hidden --exclude '.git' $pattern)
+        set --function results (fd --full-path -tf -tl --hidden --exclude '.git' --exclude '.venv' $pattern)
         if test (count $results) -eq 1
             set --function choice $results[1]
         else
-            set --function choice (fd -tf -tl --hidden --exclude '.git' | __fzfselectorexit --query=$pattern)
+            set --function choice (fd -tf -tl --hidden --exclude '.git' --exclude '.venv' | __fzfselectorexit --query=$pattern)
         end
     else
-        set --function choice (fd -tf -tl --hidden --exclude '.git/' | __fzfselectorexit)
+        set --function choice (fd -tf -tl --hidden --exclude '.git/' --exclude '.venv' | __fzfselectorexit)
     end
     functions -e fd
     echo -n $choice
