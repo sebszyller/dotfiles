@@ -8,7 +8,68 @@ return {
 	config = function()
 		local builtin = require("telescope.builtin")
 		local telescope = require("telescope")
+		require("telescope.pickers.layout_strategies").horizontal_merged = function(
+			picker,
+			max_columns,
+			max_lines,
+			layout_config
+		)
+			local layout =
+				require("telescope.pickers.layout_strategies").horizontal(picker, max_columns, max_lines, layout_config)
+
+			layout.prompt.title = ""
+			layout.prompt.borderchars = { "─", "│", "─", "│", "┌", "┬", "┤", "├" }
+
+			layout.results.title = ""
+			layout.results.borderchars = { "─", "│", "─", "│", "├", "┤", "┴", "└" }
+			layout.results.line = layout.results.line - 1
+			layout.results.height = layout.results.height + 1
+
+			layout.preview.title = ""
+			layout.preview.borderchars = { "─", "│", "─", " ", "─", "┐", "┘", "─" }
+
+			return layout
+		end
+		require("telescope.pickers.layout_strategies").vertical_merged = function(
+			picker,
+			max_columns,
+			max_lines,
+			layout_config
+		)
+			local layout =
+				require("telescope.pickers.layout_strategies").vertical(picker, max_columns, max_lines, layout_config)
+
+			layout.prompt.title = ""
+			layout.prompt.borderchars = { "─", "│", "─", "│", "┌", "┐", "┤", "├" }
+
+			layout.results.title = ""
+			layout.results.borderchars = { "─", "│", "─", "│", "├", "┤", "┘", "└" }
+			layout.results.line = layout.results.line - 1
+			layout.results.height = layout.results.height + 1
+
+			return layout
+		end
 		telescope.setup({
+			defaults = {
+				layout_strategy = "horizontal_merged",
+				layout_config = {
+					horizontal = {
+						prompt_position = "top",
+						preview_width = 0.6,
+						height = 0.8,
+					},
+				},
+				sorting_strategy = "ascending",
+			},
+			pickers = {
+				command_history = {
+					layout_strategy = "vertical_merged",
+					layout_config = {
+						height = 0.5,
+						prompt_position = "top",
+					},
+				},
+			},
 			extensions = {
 				file_browser = {
 					hijack_netrw = true,
