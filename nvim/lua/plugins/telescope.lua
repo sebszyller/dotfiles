@@ -51,6 +51,9 @@ return {
 		end
 		telescope.setup({
 			defaults = {
+				get_status_text = function(picker)
+					return ""
+				end,
 				layout_strategy = "horizontal_merged",
 				layout_config = {
 					horizontal = {
