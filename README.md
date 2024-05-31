@@ -15,8 +15,8 @@ This repo contains a set of dotfiles and profile configs.
         - modify `/etc/shells` and point to the fish installation
         - `chsh -s /path/to/fish`
         - symlink `~/.config/fish`
-    - Change screenshot save folder.
-    - Patch the dev font with [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
+    - Change screenshot save folder
+    - Install Pragmata
 - Dev
     - Install python and make sure that correct version is exported
     - `defaults write -g NSWindowShouldDragOnGesture -bool true`
@@ -56,5 +56,4 @@ Apps not included in the `Brewfile`.
 - [Capture One](https://www.captureone.com/en)
 - [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/)
 - [Logitech Options](https://support.logi.com/hc/en-us/articles/360024361233) and Logi+
-<!-- - [Poetry](https://python-poetry.org/docs/) -->
 - [Rust & Stuff](https://www.rust-lang.org/tools/install)
