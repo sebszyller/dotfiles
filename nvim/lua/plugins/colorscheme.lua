@@ -15,9 +15,10 @@ return {
 				["@text.reference.markdown_inline"] = { fg = palette.foam, underline = true },
 				["@text.literal.markdown_inline"] = { link = "Comment" },
 				LspInlayHInt = { link = "Comment" },
+				Visual = { bg = palette.highlight_high },
 			},
 		})
 		vim.o.background = "dark"
-		vim.cmd("colorscheme rose-pine")
+		vim.cmd("colorscheme rose-pine-moon")
 	end,
 }
