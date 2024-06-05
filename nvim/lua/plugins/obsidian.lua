@@ -26,8 +26,10 @@ return {
 		vim.api.nvim_set_hl(0, "ObsidianBullet", { fg = palette.gold })
 
 		local opts = { noremap = false, silent = true }
-		vim.keymap.set("n", "<leader>obl", ":ObsidianBacklinks<CR>", opts)
-		vim.keymap.set("n", "<leader>ofl", ":ObsidianFollowLink<CR>", opts)
-		vim.keymap.set("n", "<leader>onn", ":ObsidianNew<CR>", opts)
+        -- stylua: ignore start
+		vim.keymap.set("n", "<leader>obl", ":ObsidianBacklinks<CR>", { desc = "Backlinks", table.unpack(opts) })
+		vim.keymap.set("n", "<leader>ofl", ":ObsidianFollowLink<CR>", { desc = "Follow link", table.unpack(opts) })
+		vim.keymap.set("n", "<leader>onn", ":ObsidianNew<CR>", { desc = "New note", table.unpack(opts) })
+		-- stylua: ignore end
 	end,
 }

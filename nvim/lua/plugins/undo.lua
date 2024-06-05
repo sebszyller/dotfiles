@@ -4,6 +4,7 @@ return {
 	lazy = true,
 	event = "BufReadPre",
 	config = function()
-		vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+        -- stylua: ignore
+		vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { noremap = true, silent = true, desc = "Undo tree" })
 	end,
 }

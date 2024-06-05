@@ -17,11 +17,7 @@ return {
 				},
 			},
 		})
-		vim.keymap.set(
-			{ "n", "x", "o" },
-			"m",
-			"<cmd>lua require('flash').jump()<CR>",
-			{ noremap = true, silent = true }
-		)
+        -- stylua: ignore
+		vim.keymap.set( { "n", "x", "o" }, "m", "<cmd>lua require('flash').jump()<CR>", { noremap = true, silent = true, desc = "Jump" })
 	end,
 }

@@ -80,9 +80,12 @@ return {
 				},
 			},
 		})
-		vim.keymap.set("n", "<leader>fd", builtin.find_files, {})
-		vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-		vim.keymap.set("n", "<leader>fc", builtin.command_history, {})
-		vim.keymap.set("n", "<leader>fb", telescope.extensions.file_browser.file_browser, {})
+		local opts = { noremap = true, silent = true }
+        -- stylua: ignore start
+		vim.keymap.set("n", "<leader>fd", builtin.find_files, { desc = "Find files", unpack(opts) })
+		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep in files", unpack(opts) })
+		vim.keymap.set("n", "<leader>fc", builtin.command_history, { desc = "Command history", unpack(opts) })
+		vim.keymap.set( "n", "<leader>fb", telescope.extensions.file_browser.file_browser, { desc = "File browser", unpack(opts) })
+		-- stylua: ignore start
 	end,
 }
