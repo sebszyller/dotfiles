@@ -27,7 +27,7 @@ autocmd("LspAttach", {
 		map("n", "<leader>vf", function() vim.diagnostic.open_float() end, { desc = "Float", unpack(opts) })
 		map("n", "<leader>va", function() vim.lsp.buf.code_action() end, { desc = "Code action", unpack(opts) })
 		map("n", "<leader>vr", function() vim.lsp.buf.references() end, { desc = "References", unpack(opts) })
-		map("n", "<leader>vr", function() vim.lsp.buf.rename() end, { desc = "Rename", unpack(opts) })
+		map("n", "<leader>vn", function() vim.lsp.buf.rename() end, { desc = "Rename", unpack(opts) })
 		map("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { desc = "Show signatures", unpack(opts) })
 		map("n", "H", function() toggle_inlay_hints() end, { desc = "Toggle hints", unpack(opts) })
 		-- stylua: ignore end
