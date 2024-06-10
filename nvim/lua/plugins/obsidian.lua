@@ -27,9 +27,9 @@ return {
 
 		local opts = { noremap = false, silent = true }
         -- stylua: ignore start
-		vim.keymap.set("n", "<leader>obl", ":ObsidianBacklinks<CR>", { desc = "Backlinks", table.unpack(opts) })
-		vim.keymap.set("n", "<leader>ofl", ":ObsidianFollowLink<CR>", { desc = "Follow link", table.unpack(opts) })
-		vim.keymap.set("n", "<leader>onn", ":ObsidianNew<CR>", { desc = "New note", table.unpack(opts) })
+		vim.keymap.set("n", "<leader>obl", ":ObsidianBacklinks<CR>", { desc = "Backlinks", unpack(opts) })
+		vim.keymap.set("n", "<leader>ofl", ":ObsidianFollowLink<CR>", { desc = "Follow link", unpack(opts) })
+		vim.keymap.set("n", "<leader>onn", ":ObsidianNew<CR>", { desc = "New note", unpack(opts) })
 		-- stylua: ignore end
 	end,
 }
