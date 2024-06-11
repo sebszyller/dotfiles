@@ -504,11 +504,11 @@
   },
   "Transparency" : 0.099867021276595705,
   "Background Color" : {
-    "Red Component" : 0.098039217293262482,
+    "Red Component" : 0.092812800983384902,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.14117647707462311,
+    "Blue Component" : 0.121063232421875,
     "Alpha Component" : 1,
-    "Green Component" : 0.090196080505847931
+    "Green Component" : 0.096528603065561103
   },
   "Screen" : -1,
   "Non Ascii Font" : "Monaco 12",
