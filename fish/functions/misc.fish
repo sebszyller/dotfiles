@@ -74,8 +74,6 @@ function ff
         if test (count $results) -eq 1
             set --function choice $results[1]
         else
-            echo (count $results)
-            echo $results
             set --function choice (fd -tf -tl --hidden --exclude '.git' --exclude '.venv' | __fzfselectorexit --query=$pattern)
         end
     else
