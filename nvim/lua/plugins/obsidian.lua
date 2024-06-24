@@ -1,6 +1,6 @@
 return {
 	"epwalsh/obsidian.nvim",
-	tag = "v3.7.12",
+	tag = "v3.7.14",
 	lazy = true,
 	event = {
 		"BufReadPre " .. vim.fn.expand("~") .. "/obsidian/**.md",
@@ -18,6 +18,7 @@ return {
 				reference_text = {},
 				external_link_icon = { char = "" },
 			},
+			wiki_link_func = "use_path_only",
 			-- hl_groups = {
 			--     ObsidianBullet = { bold = true, fg = palette.faded_orange },
 			-- }
