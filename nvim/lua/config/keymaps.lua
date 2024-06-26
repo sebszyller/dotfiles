@@ -18,7 +18,6 @@ map("v", ">", ">gv", opts)
 
 -- Visual magic
 map("v", "p", "pgvy", opts)
-map("v", "M", ":norm! @m<CR>")
 
 -- Pasting and deleting
 map("i", "<Del>", "_x", opts)
