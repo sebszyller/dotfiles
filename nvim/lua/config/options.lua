@@ -5,6 +5,7 @@ vo.termguicolors = true
 vo.signcolumn = "yes"
 vo.showcmd = false
 vo.cmdheight = 0
+vo.report = 10
 
 vo.updatetime = 50
 vo.timeout = true
