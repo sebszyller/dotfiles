@@ -1,6 +1,6 @@
 return {
 	"sebszyller/todo-comments.nvim",
-	-- version = "1.1.0",
+	commit = "d08a7d5b779fd799dcc563772e1b794b1b0f5018",
 	lazy = true,
 	event = "BufReadPre",
 	config = function()
