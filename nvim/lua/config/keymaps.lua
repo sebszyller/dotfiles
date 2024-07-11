@@ -44,8 +44,8 @@ map("n", "N", "Nzz", opts)
 map("n", "J", "mzJ`z", opts)
 
 -- Pane navigation
-map("n", "<leader>sv", ":vsplit<CR>", opts)
-map("n", "<leader>sh", ":split<CR>", opts)
+map("n", "<leader>sv", ":vsplit<CR>", { desc = "Split V", unpack(opts) })
+map("n", "<leader>sh", ":split<CR>", { desc = "Split H", unpack(opts) })
 
 -- Pane resize
 map("n", "<S-Up>", ":resize -2<CR>", opts)
@@ -54,8 +54,10 @@ map("n", "<S-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
 -- Misc. leader
-map("n", "<leader>q", ":q<CR>", opts)
-map("n", "<leader>Q", ":q!<CR>", opts)
-map("n", "<leader>wq", ":wq<CR>", opts)
-map("n", "<leader>w", ":w<CR>", opts)
-map("n", "<leader>W", ":set wrap!<CR>", opts)
+map("n", "<leader>q", ":q<CR>", { desc = "Quit", unpack(opts) })
+map("n", "<leader>Q", ":q!<CR>", { desc = "Quit (abort)", unpack(opts) })
+map("n", "<leader>wq", ":wq<CR>", { desc = "Write & quit", unpack(opts) })
+map("n", "<leader>w", ":w<CR>", { desc = "Write", unpack(opts) })
+map("n", "<leader>W", ":set wrap!<CR>", { desc = "Wrap", unpack(opts) })
+map("n", "<leader>Do", ":DiffviewOpen<CR>", { desc = "Diff open", unpack(opts) })
+map("n", "<leader>Dc", ":DiffviewClose<CR>", { desc = "Diff close", unpack(opts) })
