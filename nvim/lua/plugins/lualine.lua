@@ -4,12 +4,22 @@ return {
 	lazy = false,
 	config = function()
 		local muted_gray = "Delimiter"
+
+		local auto = require("lualine.themes.auto")
+		local lualine_modes = { "insert", "normal", "visual", "command", "replace", "inactive", "terminal" }
+		for _, field in ipairs(lualine_modes) do
+			if auto[field] and auto[field].c then
+				auto[field].c.bg = "NONE"
+			end
+		end
+
+		local opts = {}
+		opts.theme = auto
+		opts.component_separators = ""
+		opts.ection_separators = ""
+
 		require("lualine").setup({
-			options = {
-				theme = "rose-pine",
-				component_separators = "",
-				section_separators = "",
-			},
+			options = opts,
 			sections = {
 				lualine_a = {},
 				lualine_b = {},
