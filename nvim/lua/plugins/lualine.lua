@@ -3,7 +3,7 @@ return {
 	commit = "b5e8bb642138f787a2c1c5aedc2a78cb2cebbd67",
 	lazy = false,
 	config = function()
-		local muted_gray = "Delimiter"
+		local muted_gray = "Identifier"
 
 		local auto = require("lualine.themes.auto")
 		local lualine_modes = { "insert", "normal", "visual", "command", "replace", "inactive", "terminal" }

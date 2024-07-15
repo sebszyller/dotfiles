@@ -4,10 +4,10 @@ function fish_prompt
         printf $CONDA_PROMPT_MODIFIER
     end
 
-    set_color brwhite
+    set_color white
     printf "in "
 
-    set_color --bold yellow
+    set_color green
     printf "%s" (prompt_pwd)
     set_color normal
 
@@ -23,7 +23,7 @@ function fish_prompt
         end
     end
 
-    set_color --bold brwhite
+    set_color white
     printf " λ "
     set_color normal
 end

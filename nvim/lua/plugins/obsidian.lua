@@ -7,7 +7,6 @@ return {
 		"BufNewFile " .. vim.fn.expand("~") .. "/obsidian/**.md",
 	},
 	config = function()
-		local palette = require("rose-pine.palette")
 		require("obsidian").setup({
 			workspaces = {
 				{ name = "knowledge-base", path = "~/obsidian" },
@@ -28,13 +27,8 @@ return {
 				end
 				return string.format("[[%s%s]]", opts.id, header_or_block)
 			end,
-			-- hl_groups = {
-			--     ObsidianBullet = { bold = true, fg = palette.faded_orange },
-			-- }
 		})
-		-- need to highlgiht via API because hl_groups overriding is broken in obsidian.nvim right now
-		vim.api.nvim_set_hl(0, "ObsidianBullet", { fg = palette.gold })
-
+		vim.api.nvim_set_hl(0, "ObsidianBullet", { fg = require("zenbones.palette").dark.blossom.hex })
 		local opts = { noremap = false, silent = true }
         -- stylua: ignore start
 		vim.keymap.set("n", "<leader>obl", ":ObsidianBacklinks<CR>", { desc = "Backlinks", unpack(opts) })

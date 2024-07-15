@@ -19,12 +19,13 @@ end
 # Opts and flags
 set -gx EDITOR nvim
 set -Ux FZF_DEFAULT_OPTS "
-	--color=fg:#908caa,hl:#ebbcba
-	--color=fg+:#e0def4,hl+:#ebbcba
-	--color=border:#403d52,header:#31748f,gutter:#191724
-	--color=spinner:#f6c177,info:#9ccfd8,separator:#403d52
-	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
-    --height 40% --no-info --layout=reverse"
+    --color=fg:#b4bdc3,bg:-1,hl:#6099c0
+    --color=fg+:#b4bdc3,bg+:#3d4042,hl+:#61abda
+    --color=info:#b77e64,prompt:#66a5ad,pointer:#b77e64
+    --color=marker:#819b69,spinner:#b279a7,header:#66a5ad
+    --color=separator:-1,border:-1,gutter:-1
+    --height 40% --no-info --no-scrollbar --no-separator
+    --prompt='~ ' --pointer='+ ' --layout=reverse"
 
 # Init agent
 eval (ssh-agent -c) >/dev/null
@@ -33,8 +34,7 @@ eval (ssh-agent -c) >/dev/null
 source $FISH/functions/git.fish
 source $FISH/functions/misc.fish
 source $FISH/functions/hooks.fish
-
-fish_config theme choose "rosepine"
+source $FISH/themes/zenbones.fish
 
 # Init zoxide
 zoxide init fish --hook pwd --cmd j | source
