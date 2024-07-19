@@ -1,6 +1,7 @@
 local vo = vim.opt
 
 vo.clipboard = "unnamedplus"
+vo.completeopt = "menuone,noselect"
 vo.termguicolors = true
 vo.signcolumn = "yes"
 vo.showcmd = false
