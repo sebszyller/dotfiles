@@ -24,10 +24,10 @@ autocmd("LspAttach", {
         -- stylua: ignore start
 		map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Definition", unpack(opts) })
 		map("n", "K", function() vim.lsp.buf.hover() end, { desc = "Hover", unpack(opts) })
-		map("n", "<leader>vf", function() vim.diagnostic.open_float() end, { desc = "Float", unpack(opts) })
-		map("n", "<leader>va", function() vim.lsp.buf.code_action() end, { desc = "Code action", unpack(opts) })
-		map("n", "<leader>vr", function() vim.lsp.buf.references() end, { desc = "References", unpack(opts) })
-		map("n", "<leader>vn", function() vim.lsp.buf.rename() end, { desc = "Rename", unpack(opts) })
+		map("n", "gF", function() vim.diagnostic.open_float() end, { desc = "Float", unpack(opts) })
+		map("n", "ga", function() vim.lsp.buf.code_action() end, { desc = "Code action", unpack(opts) })
+		map("n", "gr", function() vim.lsp.buf.references() end, { desc = "References", unpack(opts) })
+		map("n", "gR", function() vim.lsp.buf.rename() end, { desc = "Rename", unpack(opts) })
 		map("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { desc = "Show signatures", unpack(opts) })
 		map("n", "H", function() toggle_inlay_hints() end, { desc = "Toggle hints", unpack(opts) })
 		-- stylua: ignore end
