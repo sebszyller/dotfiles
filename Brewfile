@@ -7,7 +7,7 @@ tap "homebrew/cask"
 tap "buo/cask-upgrade"
 
 cask "discord"
-cask "iterm2"
+cask "alacritty"
 cask "obs"
 cask "obsidian"
 cask "proxyman"
