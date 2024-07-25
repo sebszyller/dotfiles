@@ -1,7 +1,6 @@
 # OS-specific inits.
 switch (uname)
     case Linux
-        # echo "Initialising aliases for Linux."
         alias open "xdg-open"
         alias here "nautilus . &"
         alias yy "xclip -selection clipboard"
@@ -9,19 +8,18 @@ switch (uname)
         alias wcorgwc "wc"
         alias sedorgsed "sed"
     case Darwin
-        # echo "Initialising aliases for MacOS."
         alias yy "pbcopy"
         alias readlinkorgreadlink "greadlink"
         alias wcorgwc "gwc"
         alias sedorgsed "gsed"
     case '*'
-        echo ">>>>>>>> WARN: Shell initialised on an unexpected OS type: (uname)"
+        echo "WARN: Shell initialised on an unexpected OS type: (uname)" 1>&2
 end
 
 # Check if commands exist
 function cmd_exists
     if not type -q $argv[1]
-        echo "WARN: $argv[1] not found"
+        echo "WARN: $argv[1] not found" 1>&2
     end
 end
 
