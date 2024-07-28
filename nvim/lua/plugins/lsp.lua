@@ -39,7 +39,6 @@ return {
 				-- svelte-language-server,
 				-- typescript-language-server,
 				-- prettier,
-				-- prettierd,
 				-- texlab,
 			},
 			handlers = {
@@ -118,7 +117,11 @@ return {
 		vim.lsp.handlers["textDocument/signatureHelp"] =
 			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
-		require("conform").setup({
+		local conform = require("conform")
+		conform.formatters.prettier = {
+			prepend_args = { "--tab-width", "4" },
+		}
+		conform.setup({
 			formatters_by_ft = {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
@@ -126,15 +129,10 @@ return {
 				lua = { "stylua" },
 				python = { "ruff_fix", "ruff_format" },
 				rust = { "rustfmt" },
-				javascript = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
+				javascript = { { "prettier" } },
+				typescript = { { "prettier" } },
+				html = { { "prettier" } },
 			},
-		})
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			pattern = "*",
-			callback = function(args)
-				require("conform").format({ bufnr = args.buf })
-			end,
 		})
 	end,
 }
