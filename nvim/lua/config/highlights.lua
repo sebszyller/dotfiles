@@ -9,14 +9,10 @@ hl(0, "Type", { fg = green })
 hl(0, "Constant", { fg = blue, italic = true })
 
 -- Markdown
-hl(0, "@text.quote.markdown", { link = "Comment" })
-hl(0, "@text.reference.markdown_inline", { fg = blue, underline = true })
-hl(0, "@text.emphasis.markdown_inline", { italic = true })
-hl(0, "@text.strong.markdown_inline", { bold = true })
-hl(0, "@text.literal.markdown_inline", { link = "Comment" })
+hl(0, "@markup.link.label.markdown_inline", { fg = blue, underline = true })
+hl(0, "@markup.raw.markdown_inline", { link = "Comment" })
 for i = 1, 6 do
-	hl(0, "@text.title." .. i .. ".markdown", { fg = green })
-	hl(0, "@text.title." .. i .. ".marker.markdown", { fg = green })
+	hl(0, "@markup.heading." .. i .. ".markdown", { fg = green })
 end
 
 -- UI
