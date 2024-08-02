@@ -12,7 +12,7 @@ hl(0, "Constant", { fg = blue, italic = true })
 hl(0, "@markup.link.label.markdown_inline", { fg = blue, underline = true })
 hl(0, "@markup.raw.markdown_inline", { link = "Comment" })
 for i = 1, 6 do
-	hl(0, "@markup.heading." .. i .. ".markdown", { fg = green })
+	hl(0, "@markup.heading." .. i .. ".markdown", { fg = green, bold = true })
 end
 
 -- UI
