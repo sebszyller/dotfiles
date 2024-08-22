@@ -17,7 +17,7 @@ return {
 		})
 		local opts = { noremap = true, silent = true }
 		-- stylua: ignore start
-		vim.keymap.set("n", ";q", ":bd<CR>", { desc = "Close buffer", unpack(opts) })
+		vim.keymap.set("n", ";q", ":bp|bd #<CR>", { desc = "Close buffer", unpack(opts) })
 		vim.keymap.set( "n", ";1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", { desc = "Buffer 1", unpack(opts) })
 		vim.keymap.set( "n", ";2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", { desc = "Buffer 2", unpack(opts) })
 		vim.keymap.set( "n", ";3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", { desc = "Buffer 3", unpack(opts) })

@@ -31,6 +31,7 @@ map("i", "<C-b>", "<Left>", opts)
 -- Quickfix list
 map("n", "[p", ":cprev<CR>zz", opts)
 map("n", "]p", ":cnext<CR>zz", opts)
+map("n", ";c", ":cclose<CR>", opts)
 
 -- Convenience for navigation
 map("n", "<C-h>", "<C-w>h", opts)
