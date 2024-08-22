@@ -21,5 +21,6 @@ blur = true
 decorations = "Buttonless"
 dynamic_padding = false
 opacity = 0.9
+option_as_alt = "OnlyLeft"
 padding = { x = 5, y = 2 }
 
