@@ -34,6 +34,7 @@ if type -q eza
 end
 
 alias bat "bat --theme=ansi"
+alias cl "clear"
 alias cp "cp -v"
 alias g "rg --color=always -i"
 alias l "ls"

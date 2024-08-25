@@ -27,6 +27,8 @@ set -Ux FZF_DEFAULT_OPTS "
     --height 40% --no-info --no-scrollbar --no-separator
     --prompt='~ ' --pointer='+ ' --layout=reverse"
 
+bind \cx "clear-screen"
+
 # Init agent
 eval (ssh-agent -c) >/dev/null
 
