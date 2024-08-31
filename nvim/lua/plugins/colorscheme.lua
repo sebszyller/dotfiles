@@ -1,6 +1,6 @@
 return {
 	"zenbones-theme/zenbones.nvim",
-	commit = "e9ba8305f65524f9355515cdd8704b2c6ba2def6",
+	commit = "006f15ad3437d85884ad50347bcbc60c9a377640",
 	dependencies = { "rktjmp/lush.nvim" },
 	lazy = false,
 	priority = 1000,
