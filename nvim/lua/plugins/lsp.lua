@@ -79,11 +79,11 @@ return {
 				["<C-space>"] = cmp.mapping.complete(),
 			}),
 			sources = cmp.config.sources({
-				{ name = "nvim_lua" },
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- For luasnip users.
+				{ name = "nvim_lua", keyword_length = 2 },
+				{ name = "nvim_lsp", keyword_length = 2 },
+				{ name = "luasnip", keyword_length = 2 },
 			}, {
-				{ name = "buffer", keyword_length = 5 },
+				{ name = "buffer", max_item_count = 2, keyword_length = 3 },
 			}),
 			formatting = {
 				format = lspkind.cmp_format({
@@ -122,7 +122,6 @@ return {
 			prepend_args = {
 				"--tab-width",
 				"4",
-				"--bracket-same-line",
 			},
 		}
 		conform.setup({
