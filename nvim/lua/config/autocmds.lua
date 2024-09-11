@@ -1,6 +1,5 @@
-local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
-local default_group = augroup("DefaultGroup", {})
+local default_group = vim.api.nvim_create_augroup("DefaultGroup", {})
 
 local map = vim.keymap.set
 
