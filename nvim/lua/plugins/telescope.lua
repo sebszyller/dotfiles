@@ -1,9 +1,8 @@
 return {
-	"nvim-telescope/telescope-file-browser.nvim",
-	commit = "3bece973c5d80e7da447157822d5b0e73558d361",
+	"nvim-telescope/telescope.nvim",
+	tag = "0.1.7",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
-		{ "nvim-telescope/telescope.nvim", tag = "0.1.7" },
 	},
 	config = function()
 		local builtin = require("telescope.builtin")
@@ -73,19 +72,12 @@ return {
 					},
 				},
 			},
-			extensions = {
-				file_browser = {
-					hijack_netrw = true,
-					grouped = true,
-				},
-			},
 		})
 		local opts = { noremap = true, silent = true }
         -- stylua: ignore start
 		vim.keymap.set("n", "<leader>fd", builtin.find_files, { desc = "Find files", unpack(opts) })
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep in files", unpack(opts) })
 		vim.keymap.set("n", "<leader>fc", builtin.command_history, { desc = "Command history", unpack(opts) })
-		vim.keymap.set( "n", "<leader>fb", telescope.extensions.file_browser.file_browser, { desc = "File browser", unpack(opts) })
 		-- stylua: ignore start
 	end,
 }

@@ -1,6 +1,6 @@
 local opts = {
-	noremap = true, -- non-recursive
-	silent = true, -- do not show message
+	noremap = true,
+	silent = true,
 }
 local map = vim.keymap.set
 
@@ -31,7 +31,7 @@ map("i", "<C-b>", "<Left>", opts)
 -- Quickfix list
 map("n", "[p", ":cprev<CR>zz", opts)
 map("n", "]p", ":cnext<CR>zz", opts)
-map("n", ";x", ":cclose<CR>", opts)
+map("n", ";c", ":cclose<CR>", opts)
 
 -- Convenience for navigation
 map("n", "<C-d>", "<C-d>zz", opts)
@@ -39,6 +39,7 @@ map("n", "<C-u>", "<C-u>zz", opts)
 map("n", "n", "nzz", opts)
 map("n", "N", "Nzz", opts)
 map("n", "J", "mzJ`z", opts)
+map("n", ";s", "<C-w>q", opts)
 
 -- Pane navigation
 map("n", "<leader>sv", ":vsplit<CR>", { desc = "Split V", unpack(opts) })

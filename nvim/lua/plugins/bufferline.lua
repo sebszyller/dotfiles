@@ -27,7 +27,7 @@ return {
 		vim.keymap.set( "n", ";7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", { desc = "Buffer 7", unpack(opts) })
 		vim.keymap.set( "n", ";8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", { desc = "Buffer 8", unpack(opts) })
 		vim.keymap.set( "n", ";9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", { desc = "Buffer 9", unpack(opts) })
-		vim.keymap.set("n", "T", ":BufferLineCloseOthers<CR>", { desc = "Close other buffers", unpack(opts) })
+		vim.keymap.set("n", ";t", ":BufferLineCloseOthers<CR>", { desc = "Close other buffers", unpack(opts) })
 		-- stylua: ignore end
 	end,
 }
