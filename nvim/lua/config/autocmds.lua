@@ -33,10 +33,39 @@ autocmd("LspAttach", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
+autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
 		require("conform").format({ bufnr = args.buf })
+	end,
+})
+
+local function get_cwd()
+	local path = require("oil").get_current_dir()
+	if path == "/" then
+		return path
+	else
+		local result = {}
+		for part in string.gmatch(path, "[^/]+") do
+			table.insert(result, part)
+		end
+		return result[#result]
+	end
+end
+
+autocmd({ "User" }, {
+	pattern = { "OilEnter" },
+	callback = function()
+		local ns_id = vim.api.nvim_create_namespace("cwd")
+
+		local opts = {
+			id = 1,
+			virt_text = { { get_cwd(), "Directory" } },
+			virt_text_pos = "overlay", -- eol has a space after ../
+		}
+
+		vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1)
+		vim.api.nvim_buf_set_extmark(0, ns_id, 0, 13, opts) -- magic number 13 (first empty column after ../)
 	end,
 })
 

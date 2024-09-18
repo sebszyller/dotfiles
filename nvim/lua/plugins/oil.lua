@@ -25,6 +25,7 @@ return {
 				signcolumn = "yes",
 			},
 		})
+
 		local function toggle_netrw()
 			if vim.bo.filetype == "netrw" then
 				vim.cmd("Rex")
