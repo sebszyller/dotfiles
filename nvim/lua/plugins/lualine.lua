@@ -39,7 +39,21 @@ return {
 				},
 				lualine_x = {
 					{ "diagnostics", icons_enabled = false, color = muted_gray },
-					{ "encoding", icons_enabled = false, color = muted_gray },
+					{
+						function()
+							local clients = vim.lsp.buf_get_clients()
+							if next(clients) == nil then
+								return "no lsp"
+							end
+
+							local c = {}
+							for _, client in pairs(clients) do
+								table.insert(c, client.name)
+							end
+							return table.concat(c, "|")
+						end,
+						color = muted_gray,
+					},
 				},
 				lualine_y = {},
 				lualine_z = {},
