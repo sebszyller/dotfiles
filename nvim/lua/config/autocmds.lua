@@ -9,6 +9,25 @@ autocmd({ "BufWritePre" }, {
 	command = [[%s/\s\+$//e]],
 })
 
+autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf })
+	end,
+})
+
+autocmd({ "FileType" }, {
+	group = default_group,
+	pattern = "help",
+	command = [[wincmd L]],
+})
+
+autocmd({ "FileType" }, {
+	group = default_group,
+	pattern = "markdown",
+	command = [[set conceallevel=2]],
+})
+
 autocmd("LspAttach", {
 	group = default_group,
 	callback = function(e)
@@ -33,11 +52,10 @@ autocmd("LspAttach", {
 	end,
 })
 
-autocmd("BufWritePre", {
+autocmd({ "TextYankPost" }, {
+	group = default_group,
 	pattern = "*",
-	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
-	end,
+	command = [[silent! lua vim.highlight.on_yank {higroup=(vim.fn["hlexists"]("HighlightedyankRegion") > 0 and "HighlightedyankRegion" or "IncSearch"), timeout=500}]],
 })
 
 local function get_cwd()
@@ -67,24 +85,6 @@ autocmd({ "User" }, {
 		vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1)
 		vim.api.nvim_buf_set_extmark(0, ns_id, 0, 13, opts) -- magic number 13 (first empty column after ../)
 	end,
-})
-
-autocmd({ "TextYankPost" }, {
-	group = default_group,
-	pattern = "*",
-	command = [[silent! lua vim.highlight.on_yank {higroup=(vim.fn["hlexists"]("HighlightedyankRegion") > 0 and "HighlightedyankRegion" or "IncSearch"), timeout=500}]],
-})
-
-autocmd({ "FileType" }, {
-	group = default_group,
-	pattern = "markdown",
-	command = [[set conceallevel=2]],
-})
-
-autocmd({ "FileType" }, {
-	group = default_group,
-	pattern = "help",
-	command = [[wincmd L]],
 })
 
 autocmd({ "VimLeavePre" }, {
