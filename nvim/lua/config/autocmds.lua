@@ -86,3 +86,9 @@ autocmd({ "FileType" }, {
 	pattern = "help",
 	command = [[wincmd L]],
 })
+
+autocmd({ "VimLeavePre" }, {
+	group = default_group,
+	pattern = "*",
+	command = [[mksession! .session.vim]],
+})

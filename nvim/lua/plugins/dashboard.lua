@@ -16,19 +16,25 @@ return {
 				shortcut = {
 					{
 						desc = "Files",
-						group = "DiagnosticHint",
+						group = "DiagnosticError",
 						action = "Telescope find_files",
 						key = "f",
 					},
 					{
 						desc = "Browser",
 						group = "DiagnosticOk",
-						action = "Telescope file_browser",
+						action = "Ex",
 						key = "b",
 					},
 					{
-						desc = "Lazy",
+						desc = "Session",
 						group = "DiagnosticInfo",
+						action = "source .session.vim",
+						key = "s",
+					},
+					{
+						desc = "Lazy",
+						group = "DiagnosticHint",
 						action = "Lazy",
 						key = "l",
 					},
