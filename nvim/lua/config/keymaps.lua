@@ -31,7 +31,7 @@ map("i", "<C-b>", "<Left>", opts)
 -- Quickfix list
 map("n", "[p", ":cprev<CR>zz", opts)
 map("n", "]p", ":cnext<CR>zz", opts)
-map("n", ";c", ":cclose<CR>", opts)
+map("n", ";c", ":cclose<CR>", { desc = "Close quickfix", unpack(opts) })
 
 -- Convenience for navigation
 map("n", "<C-d>", "<C-d>zz", opts)
@@ -39,7 +39,7 @@ map("n", "<C-u>", "<C-u>zz", opts)
 map("n", "n", "nzz", opts)
 map("n", "N", "Nzz", opts)
 map("n", "J", "mzJ`z", opts)
-map("n", ";s", "<C-w>q", opts)
+map("n", ";s", "<C-w>q", { desc = "Close split", unpack(opts) })
 
 -- Pane navigation
 map("n", "<leader>sv", ":vsplit<CR>", { desc = "Split V", unpack(opts) })
