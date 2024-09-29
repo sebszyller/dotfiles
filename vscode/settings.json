@@ -12,8 +12,8 @@
   "editor.cursorStyle": "block",
   "editor.formatOnSave": false,
   "editor.fontFamily": "'PragmataPro Mono', Monaco",
-  "editor.fontSize": 15,
-  "editor.lineHeight": 22,
+  "editor.fontSize": 16,
+  "editor.lineHeight": 23,
   "editor.largeFileOptimizations": false,
   "editor.inlayHints.enabled": "offUnlessPressed",
   "editor.lineNumbers": "relative",
@@ -120,8 +120,6 @@
     { "before": ["<leader>", "w"], "commands": ["workbench.action.files.save"] },
     { "before": ["<leader>", "q"], "commands": ["workbench.action.closeActiveEditor"] },
     { "before": ["<leader>", "w", "q"], "commands": ["workbench.action.files.save", "workbench.action.closeActiveEditor"] },
-    { "before": ["<leader>", "v", "a"], "commands": ["editor.action.quickFix"]},
-    { "before": ["<leader>", "v", "r"], "commands": ["editor.action.referenceSearch.trigger"]},
     { "before":["<Esc>"], "after":["<Esc>"], "commands": [ ":nohl" ] }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -141,5 +139,5 @@
   "workbench.activityBar.location": "bottom",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.sideBar.location": "right",
-  "workbench.colorTheme": "Rosé Pine",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
 }
