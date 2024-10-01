@@ -52,7 +52,6 @@ alias v "nvim"
 alias vv "nvim ."
 alias xx "xargs"
 alias vac ". .venv/bin/activate.fish"
-alias poetry ".venv/bin/poetry"
 
 # Scripts & functions
 
