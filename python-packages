@@ -1,1 +1,0 @@
-poetry add jupyter matplotlib pandas numpy scipy scikit-learn torch torchvision tqdm hydra-core
