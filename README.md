@@ -10,6 +10,7 @@ This repo contains a set of dotfiles and profile configs.
 
 - `defaults write com.apple.dock autohide-time-modifier -float 0.5; killall Dock`
 - `defaults write com.apple.Dock autohide-delay -float 0.0; killall Dock`
+- disable Ctrl+Space in Settings
 - Add keychain key loading
 - Modify ssh config
 - Change the shell to fish:

@@ -53,6 +53,7 @@ return {
 						capabilities = capabilities,
 						settings = {
 							Lua = {
+								runtime = { version = "Lua 5.1" },
 								diagnostics = {
 									globals = { "vim", "it", "describe", "before_each", "after_each" },
 								},
@@ -64,45 +65,46 @@ return {
 		})
 
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
 		cmp.setup({
 			snippet = {
 				expand = function(args)
 					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 				end,
 			},
+			completion = {
+				completeopt = "menu,menuone,noselect",
+			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 				["<C-e>"] = cmp.mapping.abort(),
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
-				["<C-space>"] = cmp.mapping.complete(),
+				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 			sources = cmp.config.sources({
-				{ name = "nvim_lua", keyword_length = 2 },
-				{ name = "nvim_lsp", keyword_length = 2 },
-				{ name = "luasnip", keyword_length = 2 },
+				{ name = "nvim_lsp", max_item_count = 10, keyword_length = 2 },
+				{ name = "nvim_lua", max_item_count = 5, keyword_length = 2 },
+				{ name = "luasnip", max_item_count = 1, keyword_length = 2 },
 			}, {
-				{ name = "buffer", max_item_count = 2, keyword_length = 3 },
+				{ name = "buffer", max_item_count = 2, keyword_length = 2 },
+				{ name = "path", max_item_count = 2, keyword_length = 2 },
 			}),
 			formatting = {
 				format = lspkind.cmp_format({
 					with_text = true,
 					menu = {
-						buffer = "[buf]",
+						buffer = "[BUF]",
 						nvim_lsp = "[LSP]",
-						nvim_lua = "[api]",
-						path = "[path]",
-						luasnip = "[snip]",
+						nvim_lua = "[API]",
+						path = "[PATH]",
+						luasnip = "[SNIP]",
 					},
 				}),
 			},
 			experimental = {
-				native_menu = false,
 				ghost_text = false,
 			},
 		})
-
 		vim.diagnostic.config({
 			float = {
 				focusable = false,
