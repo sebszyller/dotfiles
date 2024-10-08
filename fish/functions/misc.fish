@@ -69,23 +69,23 @@ function ff
 
     if count $argv > /dev/null
         set --function pattern $argv[1]
-        set --function results (fd -tf -tl --hidden --exclude '.git' --exclude '.venv' $pattern)
-        if test (count $results) -eq 1
-            set --function choice $results[1]
+        set --function matching_fnames (fd -tf -tl --hidden --exclude '.git' --exclude '.venv' $pattern)
+        if test (count $matching_fnames) -eq 1
+            set --function fname $matching_fnames[1]
         else
-            set --function choice (fd -tf -tl --hidden --exclude '.git' --exclude '.venv' | __fzfselectorexit --query=$pattern)
+            set --function fname (fd -tf -tl --hidden --exclude '.git' --exclude '.venv' | __fzfselectorexit --query=$pattern)
         end
     else
-        set --function choice (fd -tf -tl --hidden --exclude '.git/' --exclude '.venv' | __fzfselectorexit)
+        set --function fname (fd -tf -tl --hidden --exclude '.git/' --exclude '.venv' | __fzfselectorexit)
     end
     functions -e fd
-    echo -n $choice
+    echo -n $fname
 end
 
 # Fuzzy-find history
 function hf
-    set --function choice (history | __fzfselectorexit)
-    echo -n $choice
+    set --function command (history | __fzfselectorexit)
+    echo -n $command
 end
 
 # Lookup hostname and id.
@@ -96,8 +96,8 @@ end
 
 # Fuzzy-find from psf aux
 function psf
-    set --function choice (ps aux | __fzfselectorexit | awk '{ print $2 }')
-    echo -n $choice
+    set --function process (ps aux | __fzfselectorexit | awk '{ print $2 }')
+    echo -n $process
 end
 
 # Fuzzy-find for reconnecting to a tmux session
@@ -105,9 +105,21 @@ function tma
     set --function sessions (tmux ls)
     if test (count $sessions) -eq 1
         tmux attach
-    else
-        tmux attach -t (printf %s\n $sessions | __fzfselectorexit | awk '{ print $1 }' | tr -d ':')
+        exit 0
     end
+
+    if count $argv > /dev/null
+        set --function pattern $argv[1]
+        set --function matching_sessions (printf %s\n $sessions | rg $pattern)
+        if test (count $matching_sessions) -eq 1
+            set --function sname $matching_sessions[1]
+        else
+            set --function sname (printf %s\n $sessions | __fzfselectorexit --query=$pattern)
+        end
+    else
+        set --function sname (printf %s\n $sessions | __fzfselectorexit)
+    end
+    tmux attach -t (printf %s $sname | awk '{ print $1 }' | tr -d ':')
 end
 
 # Create a new named tmux session
@@ -163,11 +175,11 @@ function __fzfselectorexit
     end
 
     read -z -f input
-    set --local choice (printf %s $input | fzf --ansi --query=$query)
+    set --local selected (printf %s $input | fzf --ansi --query=$query)
 
-    if test -z "$choice"
+    if test -z "$selected"
         kill -INT $fish_pid
     else
-        echo $choice
+        echo $selected
     end
 end
