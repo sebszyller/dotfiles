@@ -2,16 +2,15 @@
 switch (uname)
     case Linux
         alias open "xdg-open"
-        alias here "nautilus . &"
-        alias yy "xclip -selection clipboard"
         alias readlinkorgreadlink "readlink"
-        alias wcorgwc "wc"
         alias sedorgsed "sed"
+        alias wcorgwc "wc"
+        alias yy "xclip -selection clipboard"
     case Darwin
-        alias yy "pbcopy"
         alias readlinkorgreadlink "greadlink"
-        alias wcorgwc "gwc"
         alias sedorgsed "gsed"
+        alias wcorgwc "gwc"
+        alias yy "pbcopy"
     case '*'
         echo "WARN: Shell initialised on an unexpected OS type: (uname)" 1>&2
 end
@@ -23,7 +22,7 @@ function cmd_exists
     end
 end
 
-set --local cmds bat delta eza fd fzf jc jq npm nvim pdflatex rg zoxide
+set --local cmds bat delta eza fd fzf npm nvim pdflatex ranger rg tmux zoxide
 for c in $cmds
     cmd_exists $c
 end
