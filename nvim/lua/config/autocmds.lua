@@ -16,18 +16,6 @@ autocmd("BufWritePre", {
 	end,
 })
 
-autocmd({ "FileType" }, {
-	group = default_group,
-	pattern = "help",
-	command = [[wincmd L]],
-})
-
-autocmd({ "FileType" }, {
-	group = default_group,
-	pattern = "markdown",
-	command = [[set conceallevel=2]],
-})
-
 autocmd("LspAttach", {
 	group = default_group,
 	callback = function(e)
