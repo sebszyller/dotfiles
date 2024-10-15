@@ -13,7 +13,6 @@ return {
 		"hrsh7th/nvim-cmp",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
-		{ "stevearc/conform.nvim", version = "5.7.0" },
 	},
 	config = function()
 		local lspkind = require("lspkind")
@@ -29,17 +28,14 @@ return {
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
-				-- stylua,
-				-- lua-language-server,
-				-- clangd,
-				-- clang-format,
-				-- rust-analyzer,
-				-- basedpyright,
-				-- ruff,
-				-- svelte-language-server,
-				-- typescript-language-server,
-				-- prettier,
-				-- texlab,
+				-- stylua: ignore start
+				-- "stylua", "lua-language-server",
+				-- "clangd", "clang-format",
+				-- "rust-analyzer",
+				-- "basedpyright", "ruff",
+				-- "svelte-language-server", "typescript-language-server", "prettier",
+				-- "texlab",
+				-- stylua: ignore end
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
@@ -118,27 +114,5 @@ return {
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 		vim.lsp.handlers["textDocument/signatureHelp"] =
 			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-
-		local conform = require("conform")
-		conform.formatters.prettier = {
-			prepend_args = {
-				"--tab-width",
-				"4",
-			},
-		}
-		conform.setup({
-			formatters_by_ft = {
-				c = { "clang-format" },
-				cpp = { "clang-format" },
-				cuda = { "clang-format" },
-				lua = { "stylua" },
-				python = { "ruff_fix", "ruff_format" },
-				rust = { "rustfmt" },
-				javascript = { { "prettier" } },
-				typescript = { { "prettier" } },
-				svelte = { { "prettier" } },
-				html = { { "prettier" } },
-			},
-		})
 	end,
 }
