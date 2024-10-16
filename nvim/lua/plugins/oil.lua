@@ -37,7 +37,7 @@ return {
 		local opts = { noremap = true, silent = true }
         -- stylua: ignore start
 		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Oil", unpack(opts) })
-		vim.keymap.set("n", "_", function() toggle_netrw() end, { desc = "Netrw", unpack(opts) })
+		vim.keymap.set("n", "<leader>-", function() toggle_netrw() end, { desc = "Netrw", unpack(opts) })
 		-- stylua: ignore end
 		vim.g.netrw_altv = 1
 		vim.g.netrw_banner = 0
