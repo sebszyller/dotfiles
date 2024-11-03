@@ -1,3 +1,7 @@
+# Force locale
+set -x LC_ALL en_GB.UTF-8
+set -x LC_CTYPE en_GB.UTF-8
+
 # Dotfiles
 set -gx DOTFILES ~/dotfiles
 set -gx FISH $DOTFILES/fish
@@ -18,7 +22,7 @@ end
 
 # Opts and flags
 set -gx EDITOR nvim
-set -Ux FZF_DEFAULT_OPTS "
+set -gx FZF_DEFAULT_OPTS "
     --color=fg:#b4bdc3,bg:-1,hl:#6099c0
     --color=fg+:#b4bdc3,bg+:#3d4042,hl+:#61abda
     --color=info:#b77e64,prompt:#66a5ad,pointer:#b77e64
@@ -26,6 +30,7 @@ set -Ux FZF_DEFAULT_OPTS "
     --color=separator:-1,border:-1,gutter:-1
     --height 40% --no-info --no-scrollbar --no-separator
     --prompt='~ ' --pointer='+ ' --layout=reverse"
+set -gx MANPAGER 'sh -c "col -bx | bat -l man --theme=\'Solarized (dark)\' -p"'
 
 bind \cx "clear-screen"
 
