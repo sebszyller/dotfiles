@@ -15,13 +15,13 @@ switch (uname)
         echo "WARN: Shell initialised on an unexpected OS type: (uname)" 1>&2
 end
 
-# Check if commands exist
 function cmd_exists
     if not type -q $argv[1]
         echo "WARN: $argv[1] not found" 1>&2
     end
 end
 
+# Check if commands (in aliases/functions) exist
 set --local cmds bat delta eza fd fzf npm nvim pdflatex ranger rg tmux zoxide
 for c in $cmds
     cmd_exists $c

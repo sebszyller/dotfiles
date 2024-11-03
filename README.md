@@ -31,6 +31,7 @@ This repo contains a set of dotfiles and profile configs.
     - `.gitconfig.`
     - alacritty config to `~/.config/alacritty`
     - neovim config to `~/.config/nvim/`
+    - ranger config to `~/.config/ranger`
     - tmux config to `~/.config/tmux/` or `~/.tmux.conf` on Linux
 - Link vscode settings to `dotfiles`:
     - `ln -s $DOTFILES/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json`
