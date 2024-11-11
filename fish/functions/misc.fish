@@ -48,8 +48,6 @@ alias shrug "echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/
 alias today "date -u +"%Y%m%d""
 alias tmls "tmux ls"
 alias v "nvim"
-alias vv "nvim ."
-alias xx "xargs"
 alias vac ". .venv/bin/activate.fish"
 
 # Scripts & functions
