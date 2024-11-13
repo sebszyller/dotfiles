@@ -62,29 +62,12 @@ return {
 
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 		cmp.setup({
-			snippet = {
-				expand = function(args)
-					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-				end,
-			},
 			completion = {
 				completeopt = "menu,menuone,noselect",
 			},
-			mapping = cmp.mapping.preset.insert({
-				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-				["<C-e>"] = cmp.mapping.abort(),
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
-				["<C-Space>"] = cmp.mapping.complete(),
-			}),
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp", max_item_count = 10, keyword_length = 2 },
-				{ name = "nvim_lua", max_item_count = 5, keyword_length = 2 },
-				{ name = "luasnip", max_item_count = 1, keyword_length = 2 },
-			}, {
-				{ name = "buffer", max_item_count = 2, keyword_length = 2 },
-				{ name = "path", max_item_count = 2, keyword_length = 2 },
-			}),
+			experimental = {
+				ghost_text = false,
+			},
 			formatting = {
 				format = lspkind.cmp_format({
 					with_text = true,
@@ -97,8 +80,29 @@ return {
 					},
 				}),
 			},
-			experimental = {
-				ghost_text = false,
+			mapping = cmp.mapping.preset.insert({
+				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+				["<C-e>"] = cmp.mapping.abort(),
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<C-Space>"] = cmp.mapping.complete(),
+			}),
+			snippet = {
+				expand = function(args)
+					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+				end,
+			},
+			sources = cmp.config.sources({
+				{ name = "nvim_lsp", max_item_count = 10, keyword_length = 2 },
+				{ name = "nvim_lua", max_item_count = 5, keyword_length = 2 },
+				{ name = "luasnip", max_item_count = 1, keyword_length = 2 },
+			}, {
+				{ name = "buffer", max_item_count = 2, keyword_length = 2 },
+				{ name = "path", max_item_count = 2, keyword_length = 2 },
+			}),
+			window = {
+				-- completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
 			},
 		})
 		vim.diagnostic.config({
