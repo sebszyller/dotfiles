@@ -39,11 +39,11 @@ map("n", "<C-u>", "<C-u>zz", opts)
 map("n", "n", "nzz", opts)
 map("n", "N", "Nzz", opts)
 map("n", "J", "mzJ`z", opts)
-map("n", ";s", "<C-w>q", { desc = "Close split", unpack(opts) })
 
 -- Pane navigation
 map("n", "<leader>sv", ":vsplit<CR>", { desc = "Split V", unpack(opts) })
 map("n", "<leader>sh", ":split<CR>", { desc = "Split H", unpack(opts) })
+map("n", ";s", "<C-w>q", { desc = "Close split", unpack(opts) })
 
 -- Pane resize
 map("n", "<S-Up>", ":resize -2<CR>", opts)
