@@ -1,6 +1,6 @@
 return {
 	"sebszyller/todo-comments.nvim",
-	commit = "d08a7d5b779fd799dcc563772e1b794b1b0f5018",
+	commit = "1638949",
 	lazy = true,
 	event = "BufReadPre",
 	config = function()
@@ -10,6 +10,9 @@ return {
 				keyword = "bg",
 				after = "",
 				pattern = [[.*<((KEYWORDS):)]],
+			},
+			default_fg = {
+				dark = "#FFFFFF",
 			},
 		})
         -- stylua: ignore
