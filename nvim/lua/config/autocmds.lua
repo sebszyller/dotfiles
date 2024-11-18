@@ -78,5 +78,7 @@ autocmd({ "User" }, {
 autocmd({ "VimLeavePre" }, {
 	group = default_group,
 	pattern = "*",
-	command = [[mksession! .session.vim]],
+	callback = function()
+		require("sesh").save_sesh(vim.fn.getcwd())
+	end,
 })

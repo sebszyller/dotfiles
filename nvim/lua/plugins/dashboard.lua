@@ -29,7 +29,7 @@ return {
 					{
 						desc = "Session",
 						group = "DiagnosticInfo",
-						action = "source .session.vim",
+						action = "lua require('sesh').load_sesh(vim.fn.getcwd())",
 						key = "s",
 					},
 					{
