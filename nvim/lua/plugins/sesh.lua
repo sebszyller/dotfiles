@@ -1,6 +1,6 @@
 return {
 	"sebszyller/sesh.nvim",
-	commit = "1dc86c60864d18e0c2b474393e590890c81026e6",
+	commit = "ba3306a4318330c360176869ed5fe4b6b7348130",
 	lazy = false,
 	opts = {},
 }
