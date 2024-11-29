@@ -53,7 +53,10 @@ map("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
 -- Misc. leader
 map("n", "<leader>q", ":q<CR>", { desc = "Quit", unpack(opts) })
+map("n", "<leader>Q", ":q!<CR>", { desc = "Quit (discard)", unpack(opts) })
 map("n", "<leader>w", ":w<CR>", { desc = "Write", unpack(opts) })
-map("n", "<leader>W", ":set wrap!<CR>", { desc = "Wrap", unpack(opts) })
+map("n", "<leader>wq", ":wq<CR>", { desc = "Write & quit", unpack(opts) })
 map("n", "<leader>do", ":DiffviewOpen<CR>", { desc = "Diff open", unpack(opts) })
 map("n", "<leader>dc", ":DiffviewClose<CR>", { desc = "Diff close", unpack(opts) })
+
+vim.api.nvim_create_user_command("Wrap", ":set wrap!", {})
