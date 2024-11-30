@@ -9,6 +9,7 @@ vo.termguicolors = true
 vo.cmdheight = 0
 vo.report = 10
 vo.showcmd = false
+vo.showmode = false
 
 vo.timeout = true
 vo.timeoutlen = 500
@@ -26,6 +27,9 @@ vo.tabstop = 4
 
 vo.breakindent = true
 vo.smartindent = true
+
+vo.splitright = true
+vo.splitbelow = true
 
 vo.wrap = false
 
