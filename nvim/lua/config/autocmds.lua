@@ -69,7 +69,7 @@ autocmd({ "User" }, {
 
 		local opts = {
 			id = 1,
-			virt_text = { { get_cwd(), "Directory" } },
+			virt_text = { { get_cwd(), "Comment" } },
 			virt_text_pos = "overlay", -- eol has a space after ../
 		}
 
