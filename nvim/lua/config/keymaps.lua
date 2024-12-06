@@ -42,6 +42,7 @@ map("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 map("i", "<Del>", "_x", opts)
 map("i", "<C-d>", "<Del>", opts)
 map("i", "<C-p>", "<Esc>pa", opts)
+map("n", "yc", "yygccp", { silent = true, remap = true })
 map("v", "p", "pgvy", opts)
 
 -- Power <Esc>
