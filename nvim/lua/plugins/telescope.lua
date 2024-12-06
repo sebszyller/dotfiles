@@ -78,7 +78,6 @@ return {
         vim.keymap.set("n", "<leader>fc", builtin.command_history, { desc = "Command history", unpack(opts) })
 		vim.keymap.set("n", "<leader>fd", builtin.find_files, { desc = "Find files", unpack(opts) })
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep in files", unpack(opts) })
-		vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Find references", unpack(opts) })
 		-- stylua: ignore start
 	end,
 }
