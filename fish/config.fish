@@ -69,7 +69,7 @@ init_ssh_agent
 
 # Source functions
 source $FISH/functions/git.fish
-source $FISH/functions/misc.fish
+source $FISH/functions/fn.fish
 source $FISH/functions/hooks.fish
 source $FISH/themes/zenbones.fish
 
