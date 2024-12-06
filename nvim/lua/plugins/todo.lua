@@ -15,6 +15,6 @@ return {
 			},
 		})
         -- stylua: ignore
-		vim.keymap.set("n", "<leader>td", ":TodoTelescope<CR>", { noremap = true, silent = true, desc = "List TODOs" })
+		_map("n", "<leader>td", ":TodoTelescope<CR>", { noremap = true, silent = true, desc = "List TODOs" })
 	end,
 }

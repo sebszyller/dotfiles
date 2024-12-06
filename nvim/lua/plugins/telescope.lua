@@ -75,9 +75,9 @@ return {
 		})
 		local opts = { noremap = true, silent = true }
         -- stylua: ignore start
-        vim.keymap.set("n", "<leader>fc", builtin.command_history, { desc = "Command history", unpack(opts) })
-		vim.keymap.set("n", "<leader>fd", builtin.find_files, { desc = "Find files", unpack(opts) })
-		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep in files", unpack(opts) })
+        _map("n", "<leader>fc", builtin.command_history, { desc = "Command history", unpack(opts) })
+        _map("n", "<leader>fd", builtin.find_files, { desc = "Find files", unpack(opts) })
+        _map("n", "<leader>fg", builtin.live_grep, { desc = "Grep in files", unpack(opts) })
 		-- stylua: ignore start
 	end,
 }

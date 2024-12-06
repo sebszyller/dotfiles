@@ -30,8 +30,8 @@ return {
 		vim.api.nvim_set_hl(0, "ObsidianBullet", { fg = require("zenbones.palette").dark.blossom.hex })
 		local opts = { noremap = false, silent = true }
         -- stylua: ignore start
-		vim.keymap.set("n", "<leader>ob", ":ObsidianBacklinks<CR>", { desc = "Backlinks", unpack(opts) })
-		vim.keymap.set("n", "<leader>on", ":ObsidianNew<CR>", { desc = "New note", unpack(opts) })
+		_map("n", "<leader>ob", ":ObsidianBacklinks<CR>", { desc = "Backlinks", unpack(opts) })
+		_map("n", "<leader>on", ":ObsidianNew<CR>", { desc = "New note", unpack(opts) })
 		-- stylua: ignore end
 	end,
 }
