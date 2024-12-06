@@ -1,45 +1,52 @@
-local vo = vim.opt
+local set = vim.opt
 
-vo.clipboard = "unnamedplus"
-vo.completeopt = "menu,menuone,noselect"
-vo.scrolloff = 5
-vo.signcolumn = "yes"
-vo.termguicolors = true
+-- Misc.
+set.clipboard = "unnamedplus"
+set.completeopt = "menu,menuone,noselect"
+set.termguicolors = true
 
-vo.cmdheight = 0
-vo.report = 10
-vo.showcmd = false
-vo.showmode = false
+-- CMD
+set.cmdheight = 0
+set.report = 10
+set.ruler = false
+set.showcmd = false
+set.showmode = false
 
-vo.timeout = true
-vo.timeoutlen = 500
-vo.updatetime = 50
+-- Line options
+set.breakindent = true
+set.smartindent = true
+set.cursorline = true
+set.cursorlineopt = "number"
+set.nu = true
+set.relativenumber = true
+set.scrolloff = 5
+set.signcolumn = "yes"
+set.wrap = false
 
-vo.cursorline = true
-vo.cursorlineopt = "number"
-vo.nu = true
-vo.relativenumber = true
+-- Search
+set.hlsearch = true
+set.ignorecase = true
+set.incsearch = true
+set.showmatch = true
+set.smartcase = true
 
-vo.expandtab = true
-vo.shiftwidth = 4
-vo.softtabstop = 4
-vo.tabstop = 4
+-- Splits
+set.splitright = true
+set.splitbelow = true
 
-vo.breakindent = true
-vo.smartindent = true
+-- Tabs
+set.expandtab = true
+set.shiftwidth = 4
+set.softtabstop = 4
+set.tabstop = 4
 
-vo.splitright = true
-vo.splitbelow = true
+-- Timeout
+set.timeout = true
+set.timeoutlen = 500
+set.updatetime = 50
 
-vo.wrap = false
-
-vo.backup = false
-vo.swapfile = false
-vo.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vo.undofile = true
-
-vo.hlsearch = true
-vo.ignorecase = true
-vo.incsearch = true
-vo.showmatch = true
-vo.smartcase = true
+-- Undo
+set.backup = false
+set.swapfile = false
+set.undodir = os.getenv("HOME") .. "/.vim/undodir"
+set.undofile = true

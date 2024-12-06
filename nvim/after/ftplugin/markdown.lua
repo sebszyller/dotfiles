@@ -1,3 +1,3 @@
-local vo = vim.opt_local
+local set = vim.opt_local
 
-vo.conceallevel = 2
+set.conceallevel = 2

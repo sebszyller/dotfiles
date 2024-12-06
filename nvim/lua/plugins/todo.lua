@@ -1,7 +1,6 @@
 return {
 	"sebszyller/todo-comments.nvim",
 	commit = "1638949",
-	lazy = true,
 	event = "BufReadPre",
 	config = function()
 		require("todo-comments").setup({
