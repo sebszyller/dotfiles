@@ -41,7 +41,8 @@ _map("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 _map("i", "<Del>", "_x", opts)
 _map("i", "<C-d>", "<Del>", opts)
 _map("i", "<C-p>", "<Esc>pa", opts)
-_map("n", "yc", "yygccp", { silent = true, remap = true })
+_map("n", "gy", "yygccp", { desc = "Comment & paste", silent = true, remap = true })
+_map("v", "gy", "ygvgc'>+1P", { desc = "Comment & paste", silent = true, remap = true })
 _map("v", "p", "pgvy", opts)
 
 -- Power <Esc>
