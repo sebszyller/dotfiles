@@ -64,18 +64,18 @@ local function get_cwd()
 end
 
 autocmd({ "User" }, {
-	pattern = { "OilEnter" },
+	pattern = { "OilEnter", "OilMutationComplete" },
 	callback = function()
 		local ns_id = vim.api.nvim_create_namespace("cwd")
 
 		local opts = {
 			id = 1,
 			virt_text = { { get_cwd(), "Comment" } },
-			virt_text_pos = "overlay", -- eol has a space after ../
+			virt_text_pos = "eol",
 		}
 
 		vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1)
-		vim.api.nvim_buf_set_extmark(0, ns_id, 0, 13, opts) -- magic number 13 (first empty column after ../)
+		vim.api.nvim_buf_set_extmark(0, ns_id, 0, 0, opts)
 	end,
 })
 
