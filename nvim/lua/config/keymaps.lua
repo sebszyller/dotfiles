@@ -50,8 +50,8 @@ _map("n", "<Esc>", "<Esc>:nohl<CR>", opts)
 _map({ "i", "v" }, "<C-c>", "<Esc>", opts)
 
 -- Quickfix list
-_map("n", "[p", ":cprev<CR>zz", { desc = "Previous", unpack(opts) })
-_map("n", "]p", ":cnext<CR>zz", { desc = "Next", unpack(opts) })
+_map("n", "<M-j>", ":cnext<CR>zz", { desc = "Next", unpack(opts) })
+_map("n", "<M-k>", ":cprev<CR>zz", { desc = "Previous", unpack(opts) })
 _map("n", ";c", ":cclose<CR>", { desc = "Close quickfix", unpack(opts) })
 
 -- TMUX fix
