@@ -1,7 +1,7 @@
 local autocmd = vim.api.nvim_create_autocmd
 local default_group = vim.api.nvim_create_augroup("DefaultGroup", {})
 
-autocmd({ "BufWritePre" }, {
+autocmd("BufWritePre", {
 	group = default_group,
 	pattern = "*",
 	command = [[%s/\s\+$//e]],
@@ -44,7 +44,7 @@ autocmd("LspAttach", {
 	end,
 })
 
-autocmd({ "TextYankPost" }, {
+autocmd("TextYankPost", {
 	group = default_group,
 	pattern = "*",
 	command = [[silent! lua vim.highlight.on_yank {higroup=(vim.fn["hlexists"]("HighlightedyankRegion") > 0 and "HighlightedyankRegion" or "IncSearch"), timeout=500}]],
@@ -63,7 +63,7 @@ local function get_cwd()
 	end
 end
 
-autocmd({ "User" }, {
+autocmd("User", {
 	pattern = { "OilEnter", "OilMutationComplete" },
 	callback = function()
 		local ns_id = vim.api.nvim_create_namespace("cwd")
@@ -79,7 +79,7 @@ autocmd({ "User" }, {
 	end,
 })
 
-autocmd({ "VimLeavePre" }, {
+autocmd("VimLeavePre", {
 	group = default_group,
 	pattern = "*",
 	callback = function()
