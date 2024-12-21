@@ -1,4 +1,4 @@
-set --local fmt '--pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
+set --global __gitfmt '--pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
 
 alias ga "git add"
 alias gb "git branch"
@@ -6,10 +6,8 @@ alias gc "git checkout"
 alias gcm "git commit"
 alias gdf "git diff"
 alias gdfc "git diff --cached"
-alias gl "clear; git log --oneline $fmt"
-alias glg "clear; git log --graph $fmt"
-alias glp "clear; git log -p $fmt"
-alias gls "clear; git log --stat $fmt"
+alias glp "clear; git log -p $__gitfmt"
+alias gls "clear; git log --stat $__gitfmt"
 alias gpull "git pull"
 alias gpush "git push"
 alias pchaj "git push"
@@ -22,13 +20,13 @@ alias gst "git stash"
 alias gsta "git stash apply"
 alias gti "git"
 
-function gsh
+function gl
     clear
-    set --local sha (eval "git log --oneline $fmt --color=always" | fzf --ansi --no-sort | awk '{print $1}')
+    set --local sha (eval "git log --oneline $__gitfmt --color=always" | fzf --ansi --no-sort --height=80% --preview="git show --color=always $__gitfmt --stat {1}" | awk '{print $1}')
 
     if test -z "$sha"
         kill -INT $fish_pid
     else
-        git show $fmt --color=always --decorate $sha
+        git show $__gitfmt --color=always --decorate $sha
     end
 end
