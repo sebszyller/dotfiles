@@ -21,10 +21,10 @@ return {
 						key = "f",
 					},
 					{
-						desc = "Browser",
+						desc = "Grep",
 						group = "DiagnosticOk",
-						action = "Ex",
-						key = "b",
+						action = "Telescope live_grep",
+						key = "g",
 					},
 					{
 						desc = "Session",
