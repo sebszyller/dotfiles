@@ -7,11 +7,11 @@ return {
 	},
 	config = function()
 		require("obsidian").setup({
-			workspaces = {
-				{ name = "knowledge-base", path = "~/obsidian" },
-			},
-			log_level = vim.log.levels.WARN,
 			disable_frontmatter = true,
+			log_level = vim.log.levels.WARN,
+			workspaces = {
+				{ name = "knowledge-base", path = vim.fn.expand("~") .. "/obsidian" },
+			},
 			ui = {
 				reference_text = {},
 				external_link_icon = { char = "" },
