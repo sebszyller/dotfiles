@@ -1,6 +1,7 @@
 set --global __gitfmt '--pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
 
 alias ga "git add"
+alias gap "git add -p"
 alias gb "git branch"
 alias gc "git checkout"
 alias gcm "git commit"
