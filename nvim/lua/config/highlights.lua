@@ -1,7 +1,9 @@
 local hl = vim.api.nvim_set_hl
 local palette = require("zenbones.palette")
-local green = palette.dark.leaf.hex
 local blue = palette.dark.water.hex
+local bg = palette.dark.bg.hex
+local green = palette.dark.leaf.hex
+local cyan = palette.dark.sky.hex
 
 -- LSP
 hl(0, "LspInlayHint", { link = "Comment" })
@@ -23,6 +25,12 @@ hl(0, "FloatBorder", { bg = "none" })
 hl(0, "FloatTitle", { bg = "none" })
 hl(0, "TelescopeBorder", { bg = "none" })
 
+-- CMP
 hl(0, "Pmenu", { bg = "none" })
 hl(0, "PmenuSbar", { bg = "none" })
+hl(0, "PmenuSel", { fg = cyan, bg = bg })
+
 hl(0, "PmenuThumb", { bg = "none" })
+hl(0, "BlinkCmpLabel", { link = "Identifier" })
+hl(0, "BlinkCmpLabelDetail", { link = "Comment" })
+hl(0, "BlinkCmpLabelDescription", { link = "Comment" })
