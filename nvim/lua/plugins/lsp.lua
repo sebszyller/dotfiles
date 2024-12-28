@@ -1,29 +1,46 @@
 return {
 	"neovim/nvim-lspconfig",
-	version = "0.1.8",
+	version = "1.2.0",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
+		{ "saghen/blink.cmp", version = "0.9.2" },
+		"saghen/blink.compat",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"onsails/lspkind.nvim",
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
-		"hrsh7th/nvim-cmp",
-		"L3MON4D3/LuaSnip",
-		"saadparwaiz1/cmp_luasnip",
 	},
 	config = function()
-		local lspkind = require("lspkind")
-		local cmp = require("cmp")
-		local cmp_lsp = require("cmp_nvim_lsp")
-		local capabilities = vim.tbl_deep_extend(
-			"force",
-			{},
-			vim.lsp.protocol.make_client_capabilities(),
-			cmp_lsp.default_capabilities()
-		)
+		require("blink.compat").setup()
+		local blink_cmp = require("blink.cmp")
+		local lspconfig = require("lspconfig")
+
+		local default_sources = { "lsp", "path", "snippets", "buffer" }
+		blink_cmp.setup({
+			completion = {
+				list = { selection = "manual" },
+				menu = {
+					draw = { columns = { { "kind_icon", "label", "label_description", gap = 1 } } },
+					auto_show = function(ctx)
+						-- NOTE: don't show in cmd or search
+						return not (ctx.mode == "cmdline" or vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype()))
+					end,
+				},
+			},
+			keymap = {
+				preset = "super-tab",
+				cmdline = { preset = "super-tab" },
+			},
+			sources = {
+				default = { "obsidian", unpack(default_sources) },
+				providers = {
+					obsidian = { name = "obsidian", module = "blink.compat.source" },
+				},
+			},
+		})
+
+		local capabilities = blink_cmp.get_lsp_capabilities({
+			textDocument = { completion = { completionItem = { snippetSupport = false } } },
+		})
+		local capabilities_with_snippets = blink_cmp.get_lsp_capabilities()
 
 		require("mason").setup()
 		require("mason-lspconfig").setup({
@@ -38,76 +55,28 @@ return {
 				-- stylua: ignore end
 			},
 			handlers = {
-				function(server_name) -- default handler (optional)
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
-					})
+				function(server_name)
+					lspconfig[server_name].setup({ capabilities = capabilities })
 				end,
 				["lua_ls"] = function()
-					local lspconfig = require("lspconfig")
 					lspconfig.lua_ls.setup({
 						capabilities = capabilities,
 						settings = {
 							Lua = {
 								runtime = { version = "Lua 5.1" },
-								diagnostics = {
-									globals = { "vim", "it", "describe", "before_each", "after_each" },
-								},
+								diagnostics = { globals = { "vim", "it", "describe", "before_each", "after_each" } },
 							},
 						},
 					})
 				end,
+				["texlab"] = function()
+					lspconfig.texlab.setup({ capabilities = capabilities_with_snippets })
+				end,
 			},
 		})
 
-		local cmp_select = { behavior = cmp.SelectBehavior.Select }
-		cmp.setup({
-			completion = {
-				completeopt = "menu,menuone,noselect",
-			},
-			experimental = {
-				ghost_text = false,
-			},
-			formatting = {
-				format = lspkind.cmp_format({
-					with_text = true,
-					menu = {
-						buffer = "[BUF]",
-						nvim_lsp = "[LSP]",
-						nvim_lua = "[API]",
-						path = "[PATH]",
-						luasnip = "[SNIP]",
-					},
-				}),
-			},
-			mapping = cmp.mapping.preset.insert({
-				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-				["<C-e>"] = cmp.mapping.abort(),
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
-				["<C-Space>"] = cmp.mapping.complete(),
-			}),
-			snippet = {
-				expand = function(args)
-					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-				end,
-			},
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp", max_item_count = 10, keyword_length = 2 },
-				{ name = "nvim_lua", max_item_count = 5, keyword_length = 2 },
-				{ name = "luasnip", max_item_count = 1, keyword_length = 2 },
-			}, {
-				{ name = "buffer", max_item_count = 2, keyword_length = 2 },
-				{ name = "path", max_item_count = 2, keyword_length = 2 },
-			}),
-			window = {
-				-- completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
-			},
-		})
 		vim.diagnostic.config({
 			float = {
-				focusable = false,
 				style = "minimal",
 				border = "rounded",
 				source = "always",
