@@ -2,7 +2,6 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	commit = "2d5133f67429f82547ea5fad33a0b1e7d4f78a1c",
 	dependencies = {
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "nvim-treesitter/nvim-treesitter-textobjects", commit = "fd41b7ccc5490a3a99c734d1ee418b68d06c48a9" },
 	},
 	lazy = false,
