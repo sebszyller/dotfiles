@@ -1,12 +1,12 @@
 return {
 	"neovim/nvim-lspconfig",
-	version = "1.2.0",
+	version = "1.3.0",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		{ "saghen/blink.cmp", version = "0.9.2" },
-		"saghen/blink.compat",
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		{ "saghen/blink.compat", version = "2.2.0" },
+		{ "williamboman/mason.nvim", version = "1.10.0" },
+		{ "williamboman/mason-lspconfig.nvim", version = "1.31.0" },
 	},
 	config = function()
 		require("blink.compat").setup()

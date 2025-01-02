@@ -1,6 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	version = "5.7.0",
+	version = "8.3.0",
 	config = function()
 		local conform = require("conform")
 		conform.formatters.prettier = {
@@ -21,7 +21,6 @@ return {
 				typescript = { { "prettier" } },
 				svelte = { { "prettier" } },
 				html = { { "prettier" } },
-				zig = { "zig fmt" },
 			},
 		})
 	end,

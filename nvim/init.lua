@@ -11,6 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"--single-branch",
+		"--branch stable",
 		"https://github.com/folke/lazy.nvim.git",
 		lazypath,
 	})
@@ -19,7 +20,10 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup("plugins", {
-	defaults = { lazy = true },
+	defaults = {
+		version = "*",
+		lazy = true,
+	},
 	change_detection = { notify = false },
 })
 

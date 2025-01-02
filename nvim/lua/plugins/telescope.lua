@@ -1,8 +1,13 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.7",
+	tag = "0.1.8",
 	dependencies = {
-		{ "nvim-lua/plenary.nvim" },
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			commit = "dae2eac9d91464448b584c7949a31df8faefec56",
+			build = "make",
+		},
+		{ "nvim-lua/plenary.nvim", commit = "2d9b06177a975543726ce5c73fca176cedbffe9d" },
 	},
 	config = function()
 		local builtin = require("telescope.builtin")
