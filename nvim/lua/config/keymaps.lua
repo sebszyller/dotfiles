@@ -13,6 +13,9 @@ _map("n", "<leader>wq", ":wq<CR>", { desc = "Write & quit", unpack(opts) })
 _map("n", "<leader>do", ":DiffviewOpen<CR>", { desc = "Diff open", unpack(opts) })
 _map("n", "<leader>dc", ":DiffviewClose<CR>", { desc = "Diff close", unpack(opts) })
 
+-- Clear highlights
+_map("n", "gh", ":nohl<CR>", { desc = "Clear highlights", unpack(opts) })
+
 -- Move blocks around
 _map("v", "J", ":m '>+1<CR>gv=gv", opts)
 _map("v", "K", ":m '<-2<CR>gv=gv", opts)
@@ -44,10 +47,6 @@ _map("i", "<C-p>", "<Esc>pa", opts)
 _map("n", "gy", "yygccp", { desc = "Comment & paste", silent = true, remap = true })
 _map("v", "gy", "ygvgc'>+1P", { desc = "Comment & paste", silent = true, remap = true })
 _map("v", "p", "pgvy", opts)
-
--- Power <Esc>
-_map("n", "<Esc>", "<Esc>:nohl<CR>", opts)
-_map({ "i", "v" }, "<C-c>", "<Esc>", opts)
 
 -- Quickfix list
 _map("n", "<M-j>", ":cnext<CR>zz", { desc = "Next", unpack(opts) })
