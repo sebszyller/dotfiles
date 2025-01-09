@@ -16,6 +16,10 @@ _map("n", "<leader>dc", ":DiffviewClose<CR>", { desc = "Diff close", unpack(opts
 -- Clear highlights
 _map("n", "gh", ":nohl<CR>", { desc = "Clear highlights", unpack(opts) })
 
+-- Line text-objects
+_map({ "o", "x" }, "il", ":<C-u>normal! $v^<CR>", { desc = "Select inside line", unpack(opts) })
+_map({ "o", "x" }, "al", ":<C-u>normal! $v0<CR>", { desc = "Select around line", unpack(opts) })
+
 -- Move blocks around
 _map("v", "J", ":m '>+1<CR>gv=gv", opts)
 _map("v", "K", ":m '<-2<CR>gv=gv", opts)
