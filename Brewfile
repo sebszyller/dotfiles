@@ -8,6 +8,7 @@ tap "buo/cask-upgrade"
 
 cask "discord"
 cask "alacritty"
+cask "ghostty"
 cask "obs"
 cask "obsidian"
 cask "proxyman"
