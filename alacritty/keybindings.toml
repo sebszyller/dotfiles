@@ -5,8 +5,4 @@ bindings = [
     { key = "3", mods = "Command|Super", chars = "\u0001\u0033" },
     { key = "4", mods = "Command|Super", chars = "\u0001\u0034" },
     { key = "5", mods = "Command|Super", chars = "\u0001\u0035" },
-    { key = "6", mods = "Command|Super", chars = "\u0001\u0035" },
-    { key = "7", mods = "Command|Super", chars = "\u0001\u0035" },
-    { key = "8", mods = "Command|Super", chars = "\u0001\u0035" },
-    { key = "9", mods = "Command|Super", chars = "\u0001\u0035" },
 ]
