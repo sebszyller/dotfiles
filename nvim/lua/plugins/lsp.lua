@@ -3,7 +3,7 @@ return {
 	version = "1.3.0",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		{ "saghen/blink.cmp", version = "0.9.2" },
+		{ "saghen/blink.cmp", version = "0.10.0" },
 		{ "saghen/blink.compat", version = "2.2.0" },
 		{ "williamboman/mason.nvim", version = "1.10.0" },
 		{ "williamboman/mason-lspconfig.nvim", version = "1.31.0" },
@@ -16,7 +16,7 @@ return {
 		local default_sources = { "lsp", "path", "snippets", "buffer" }
 		blink_cmp.setup({
 			completion = {
-				list = { selection = "manual" },
+				list = { selection = { preselect = false, auto_insert = false } },
 				menu = {
 					draw = { columns = { { "kind_icon", "label", "label_description", gap = 1 } } },
 					auto_show = function(ctx)
