@@ -1,9 +1,11 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e51f2b142d88bb666dcaa77d93a07f4b419aca70" },
+  "blink-cmp-copilot": { "branch": "main", "commit": "c5c5cbce5748d21073f1d5348a92ebe6ce63f387" },
   "blink.cmp": { "branch": "main", "commit": "1cc3b1a908fbcfd15451c4772759549724f38524" },
   "blink.compat": { "branch": "main", "commit": "5ca8848c8cc32abdc980e5db4f0eb7bb8fbf84dc" },
   "bufferline.nvim": { "branch": "main", "commit": "eba37af2699143efe7a8b1ffc57bf31756b73100" },
   "conform.nvim": { "branch": "master", "commit": "339b3e4519ec49312d34fcfa275aa15bfaa67025" },
+  "copilot.lua": { "branch": "master", "commit": "886ee73b6d464b2b3e3e6a7ff55ce87feac423a9" },
   "dashboard-nvim": { "branch": "master", "commit": "e86e73afdd8d01e964e5c4028a1f243afd64b77b" },
   "diffview": { "branch": "main", "commit": "84164f7d5c022b4b90b1fb51e8fb66bc441e0966" },
   "flash.nvim": { "branch": "main", "commit": "7bb4a9c75d1e20cd24185afedeaa11681829ba23" },

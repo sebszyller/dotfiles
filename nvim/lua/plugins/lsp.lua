@@ -31,9 +31,15 @@ return {
 				["<C-l>"] = { "select_and_accept" },
 			},
 			sources = {
-				default = { "obsidian", unpack(default_sources) },
+				default = { "copilot", "obsidian", unpack(default_sources) },
 				providers = {
 					obsidian = { name = "obsidian", module = "blink.compat.source" },
+					copilot = {
+						name = "copilot",
+						module = "blink-cmp-copilot",
+						score_offset = 100,
+						async = true,
+					},
 				},
 			},
 		})
