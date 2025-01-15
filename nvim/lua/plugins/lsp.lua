@@ -18,7 +18,7 @@ return {
 			completion = {
 				list = { selection = { preselect = false, auto_insert = false } },
 				menu = {
-					draw = { columns = { { "kind_icon", "label", "label_description", gap = 1 } } },
+					draw = { columns = { { "kind_icon", "label", "source_name", gap = 1 } } },
 					auto_show = function(ctx)
 						-- NOTE: don't show in cmd or search
 						return not (ctx.mode == "cmdline" or vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype()))
@@ -26,8 +26,9 @@ return {
 				},
 			},
 			keymap = {
-				preset = "super-tab",
-				cmdline = { preset = "super-tab" },
+				preset = "default",
+				cmdline = { preset = "default" },
+				["<C-l>"] = { "select_and_accept" },
 			},
 			sources = {
 				default = { "obsidian", unpack(default_sources) },
