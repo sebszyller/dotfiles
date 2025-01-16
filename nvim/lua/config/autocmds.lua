@@ -1,5 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
-local default_group = vim.api.nvim_create_augroup("DefaultGroup", {})
+local default_group = vim.api.nvim_create_augroup("DefaultGroup", { clear = true })
+local copilot_group = vim.api.nvim_create_augroup("CopilotFocus", { clear = true })
 
 autocmd("BufWritePre", {
 	group = default_group,
@@ -11,6 +12,20 @@ autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
 		require("conform").format({ bufnr = args.buf })
+	end,
+})
+
+vim.api.nvim_create_autocmd("FocusLost", {
+	group = copilot_group,
+	callback = function()
+		vim.cmd("silent! Copilot disable")
+	end,
+})
+
+vim.api.nvim_create_autocmd("FocusGained", {
+	group = copilot_group,
+	callback = function()
+		vim.cmd("silent! Copilot enable")
 	end,
 })
 
