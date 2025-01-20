@@ -37,6 +37,7 @@ _map("n", "J", "mzJ`z", opts)
 _map("n", "<leader>sv", ":vsplit<CR>", { desc = "Split V", unpack(opts) })
 _map("n", "<leader>sh", ":split<CR>", { desc = "Split H", unpack(opts) })
 _map("n", ";s", "<C-w>q", { desc = "Close split", unpack(opts) })
+_map("n", ";S", "<C-w>o", { desc = "Close other splits", unpack(opts) })
 
 -- Pane resize
 _map("n", "<S-Up>", ":resize -2<CR>", opts)
