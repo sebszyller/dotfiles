@@ -1,5 +1,5 @@
 config-file = keybindings
-config-file = colours
+theme = zenbones_dark
 
 # Cursor
 cursor-style = block
