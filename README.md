@@ -10,7 +10,7 @@ This repo contains a set of dotfiles and profile configs.
 
 - `defaults write com.apple.dock autohide-time-modifier -float 0.5; killall Dock`
 - `defaults write com.apple.Dock autohide-delay -float 0.0; killall Dock`
-- disable Ctrl+Space in Settings
+- disable `Ctrl+Space` in Settings
 - Add keychain key loading
 - Modify ssh config
 - Change the shell to fish:
@@ -27,9 +27,11 @@ This repo contains a set of dotfiles and profile configs.
 - `defaults write - InitialkeyRepeat -int 13`
 - `defaults write -g KeyRepeat -int 1`
 - `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
+- create `$HOME/.env.fish` and export w/e you need
 - Symlink configs if they don't require changes:
     - `.gitconfig.`
     - alacritty config to `~/.config/alacritty`
+    - ghostty config to `~/.config/ghostty`
     - neovim config to `~/.config/nvim/`
     - ranger config to `~/.config/ranger`
     - tmux config to `~/.config/tmux/` or `~/.tmux.conf` on Linux
@@ -48,7 +50,7 @@ Remember to install the grammars.
 
 See `Brewfile`. Install everything with `brew bundle --file=~/dotfiles/Brewfile`.
 
-Apps not included in the `Brewfile`.
+Apps not included in the `Brewfile`:
 
 ### App Store
 

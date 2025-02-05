@@ -6,6 +6,9 @@ set -x LC_CTYPE en_GB.UTF-8
 set -gx DOTFILES ~/dotfiles
 set -gx FISH $DOTFILES/fish
 
+# Env
+source $HOME/.env.fish
+
 # Dev-specific
 set -gx PYTHON_INSTALLS /Library/Frameworks/Python.framework/Versions
 set -gx PIP_REQUIRE_VIRTUALENV true
@@ -21,6 +24,7 @@ switch (uname)
 end
 
 # Opts and flags
+set -U fish_greeting ""
 set -gx EDITOR nvim
 set -gx FZF_DEFAULT_OPTS "
     --color=fg:#b4bdc3,bg:-1,hl:#6099c0
