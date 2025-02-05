@@ -63,3 +63,4 @@ _map("i", "<C-f>", "<Right>", opts)
 _map("i", "<C-b>", "<Left>", opts)
 
 vim.api.nvim_create_user_command("Wrap", ":set wrap!", {})
+vim.api.nvim_create_user_command("Spell", ":set spell!", {})

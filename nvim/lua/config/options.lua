@@ -3,6 +3,7 @@ local set = vim.opt
 -- Misc.
 set.clipboard = "unnamedplus"
 set.completeopt = "menu,menuone,noselect"
+set.spelllang = "en_gb"
 set.termguicolors = true
 
 -- CMD
