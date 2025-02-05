@@ -9,6 +9,11 @@
     "command": "workbench.action.quickOpenNavigatePreviousInViewPicker",
     "when": "inQuickOpen"
   },
+  {
+    "key": "ctrl+l",
+    "command": "acceptSelectedSuggestion",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
   { "key": "shift+left", "command": "workbench.action.decreaseViewSize" },
   { "key": "shift+right", "command": "workbench.action.increaseViewSize" },
   { "key": "cmd+1", "command": "workbench.action.openEditorAtIndex1" },
