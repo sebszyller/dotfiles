@@ -10,6 +10,9 @@ return {
 		require("copilot").setup({
 			panel = { enabled = false },
 			suggestion = { enabled = false },
+			filetypes = {
+				tex = false,
+			},
 		})
 	end,
 }
