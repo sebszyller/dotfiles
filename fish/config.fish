@@ -24,16 +24,13 @@ switch (uname)
 end
 
 # Opts and flags
-set -U fish_greeting ""
 set -gx EDITOR nvim
-set -gx FZF_DEFAULT_OPTS "
-    --color=fg:#b4bdc3,bg:-1,hl:#6099c0
-    --color=fg+:#b4bdc3,bg+:#3d4042,hl+:#61abda
-    --color=info:#b77e64,prompt:#66a5ad,pointer:#b77e64
-    --color=marker:#819b69,spinner:#b279a7,header:#66a5ad
-    --color=separator:-1,border:-1,gutter:-1
-    --height 40% --no-info --no-scrollbar --no-separator
-    --prompt='~ ' --pointer='+ ' --layout=reverse"
+set -gx SUDO_EDITOR $EDITOR
+set -gx VISUAL $EDITOR
+
+set -gx fish_greeting ""
+set -gx LESS -rF
+set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx MANPAGER 'sh -c "col -bx | bat -l man --theme=\'Solarized (dark)\' -p"'
 
 bind \cx "clear-screen"
@@ -74,9 +71,10 @@ init_ssh_agent
 # Source functions
 source $FISH/functions/git.fish
 source $FISH/functions/fn.fish
+source $FISH/functions/fzf.fish
 source $FISH/functions/hooks.fish
 source $FISH/themes/zenbones.fish
 
-# Init zoxide
+fzf --fish | source
 zoxide init fish --hook pwd --cmd j | source
 

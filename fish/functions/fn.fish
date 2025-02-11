@@ -29,7 +29,7 @@ end
 
 # # Aliases
 if type -q eza
-    alias ls eza
+    alias ls "eza --group-directories-first"
 end
 
 alias bat "bat --theme=ansi"
@@ -77,12 +77,6 @@ function ff
     end
     functions -e fd
     echo -n $fname
-end
-
-# Fuzzy-find history
-function hf
-    set --function command (history | __fzfselectorexit)
-    echo -n $command
 end
 
 # Lookup hostname and id.
