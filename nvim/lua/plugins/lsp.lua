@@ -3,7 +3,7 @@ return {
 	version = "1.3.0",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		{ "saghen/blink.cmp", version = "0.10.0" },
+		{ "saghen/blink.cmp", version = "0.12.4" },
 		{ "saghen/blink.compat", version = "2.2.0" },
 		{ "williamboman/mason.nvim", version = "1.10.0" },
 		{ "williamboman/mason-lspconfig.nvim", version = "1.31.0" },
@@ -25,9 +25,9 @@ return {
 					end,
 				},
 			},
+			fuzzy = { sorts = { "exact", "score", "sort_text" } },
 			keymap = {
 				preset = "default",
-				cmdline = { preset = "default" },
 				["<C-l>"] = { "select_and_accept" },
 			},
 			sources = {
