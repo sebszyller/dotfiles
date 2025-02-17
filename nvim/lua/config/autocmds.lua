@@ -31,12 +31,14 @@ vim.api.nvim_create_autocmd("FocusGained", {
 
 autocmd("LspAttach", {
 	group = default_group,
-	callback = function(e)
+	callback = function(args)
 		local opts = {
-			buffer = e.buf,
+			buffer = args.buf,
 			noremap = true,
 			silent = true,
 		}
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		client.server_capabilities.semanticTokensProvider = nil
 
 		local function toggle_inlay_hints()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
