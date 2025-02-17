@@ -1,24 +1,27 @@
-[user]
-    name = Sebastian Szyller
-    email = github@sebszyller.com
-
 [core]
     pager = delta
     editor = nvim
-
-[interactive]
-    diffFilter = delta --color-only
 
 [delta]
     syntax-theme = ansi
     navigate = true  # use n and N to move between diff sections
     side-by-side = true
 
-[merge]
-    conflictstyle = diff3
-
 [diff]
     colorMoved = default
 
+[interactive]
+    diffFilter = delta --color-only
+
+[merge]
+    conflictstyle = diff3
+
+[pull]
+	rebase = true
+
 [rerere]
 	enabled = true
+
+[user]
+    name = Sebastian Szyller
+    email = contact@sebszyller.com
