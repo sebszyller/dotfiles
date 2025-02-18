@@ -46,7 +46,7 @@ alias ttt "eza --tree -L 3"
 alias r "ranger"
 alias shrug "echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/¯\" | yy"
 alias today "date -u +"%Y%m%d""
-alias tmls "tmux ls"
+alias tmls "tmux ls | awk '{ print \$1 }' | tr -d ':'"
 alias v "nvim"
 alias vac ". .venv/bin/activate.fish"
 
@@ -93,7 +93,7 @@ end
 
 # Fuzzy-find for reconnecting to a tmux session
 function tma
-    set --function sessions (tmux ls)
+    set --function sessions (tmux ls | awk '{ print $1 }' | tr -d ':')
     if test (count $sessions) -eq 1
         tmux attach
         exit 0
@@ -110,7 +110,7 @@ function tma
     else
         set --function sname (printf %s\n $sessions | __fzfselectorexit)
     end
-    tmux attach -t (printf %s $sname | awk '{ print $1 }' | tr -d ':')
+    tmux attach -t (printf %s $sname)
 end
 
 # Create a new named tmux session
@@ -125,7 +125,7 @@ end
 
 # Fuzzy-find for killing a tmux session
 function tmx
-    set --function sname (tmux ls | __fzfselectorexit | awk '{ print $1 }' | tr -d ':')
+    set --function sname (tmux ls | awk '{ print $1 }' | tr -d ':' | __fzfselectorexit)
     tmux kill-session -t $sname
     echo Killed session $sname
 end
