@@ -1,6 +1,6 @@
 **Requires pipx**
 
-Install system-wide `poetry`:
+Install system-wide `poetry` (see `pipx.lock`):
 
 `pipx install poetry`
 `poetry config virtualenvs.create false`

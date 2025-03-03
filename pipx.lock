@@ -1,0 +1,4 @@
+#!/usr/bin/env fish
+# pipx list --short
+pipx install gita==0.16.7.2
+pipx install poetry==1.8.3
