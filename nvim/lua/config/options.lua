@@ -8,6 +8,7 @@ set.termguicolors = true
 
 -- CMD
 set.cmdheight = 0
+set.laststatus = 3
 set.report = 10
 set.ruler = false
 set.showcmd = false
