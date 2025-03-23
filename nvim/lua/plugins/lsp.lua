@@ -3,7 +3,7 @@ return {
     version = "1.3.0",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        { "saghen/blink.cmp", version = "0.12.4" },
+        { "saghen/blink.cmp", version = "0.14.1" },
         { "saghen/blink.compat", version = "2.2.0" },
         { "williamboman/mason.nvim", version = "1.10.0" },
         { "williamboman/mason-lspconfig.nvim", version = "1.31.0" },
@@ -15,21 +15,28 @@ return {
 
         local default_sources = { "lsp", "path", "snippets", "buffer" }
         blink_cmp.setup({
-            completion = {
-                list = { selection = { preselect = false, auto_insert = false } },
-                menu = {
-                    draw = { columns = { { "kind_icon", "label", "source_name", gap = 1 } } },
-                    auto_show = function(ctx)
-                        -- NOTE: don't show in cmd or search
-                        return not (ctx.mode == "cmdline" or vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype()))
-                    end,
-                },
-            },
-            fuzzy = { sorts = { "exact", "score", "sort_text" } },
             keymap = {
                 preset = "default",
                 ["<C-l>"] = { "select_and_accept" },
             },
+
+            completion = {
+                list = { selection = { auto_insert = false } },
+                menu = { draw = { columns = { { "kind_icon", "label", "source_name", gap = 1 } } } },
+            },
+            cmdline = {
+                keymap = { preset = "inherit" },
+                completion = {
+                    list = { selection = { auto_insert = false } },
+                    menu = {
+                        auto_show = function(ctx)
+                            return not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype()) -- NOTE: don't show in search
+                        end,
+                    },
+                },
+            },
+
+            fuzzy = { sorts = { "exact", "score", "sort_text" } },
             sources = {
                 default = { "copilot", "obsidian", unpack(default_sources) },
                 providers = {
