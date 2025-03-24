@@ -23,7 +23,7 @@ alias gti "git"
 
 function gl
     clear
-    set --local sha (eval "git log --oneline $__gitfmt --color=always" | fzf --ansi --no-sort --height=80% --preview="git show --color=always $__gitfmt --stat {1}" | awk '{print $1}')
+    set --local sha (eval "git log --oneline $__gitfmt --color=always" $argv[1] | fzf --ansi --no-sort --height=80% --preview="git show --color=always $__gitfmt --stat {1}" | awk '{print $1}')
 
     if test -z "$sha"
         kill -INT $fish_pid
