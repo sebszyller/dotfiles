@@ -1,12 +1,12 @@
 return {
     "neovim/nvim-lspconfig",
-    version = "1.3.0",
+    version = "1.7.0",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        { "saghen/blink.cmp", version = "0.14.1" },
-        { "saghen/blink.compat", version = "2.2.0" },
-        { "williamboman/mason.nvim", version = "1.10.0" },
-        { "williamboman/mason-lspconfig.nvim", version = "1.31.0" },
+        { "saghen/blink.cmp", version = "1.1.1" },
+        { "saghen/blink.compat", version = "2.5.0" },
+        { "williamboman/mason.nvim", version = "1.11.0" },
+        { "williamboman/mason-lspconfig.nvim", version = "1.32.0" },
     },
     config = function()
         require("blink.compat").setup()
@@ -17,7 +17,7 @@ return {
         blink_cmp.setup({
             keymap = {
                 preset = "default",
-                ["<C-l>"] = { "select_and_accept" },
+                ["<C-l>"] = { "select_and_accept", "fallback" },
             },
 
             completion = {
@@ -39,6 +39,7 @@ return {
             fuzzy = { sorts = { "exact", "score", "sort_text" } },
             sources = {
                 default = { "copilot", "obsidian", unpack(default_sources) },
+                min_keyword_length = 3,
                 providers = {
                     obsidian = { name = "obsidian", module = "blink.compat.source" },
                     copilot = {
