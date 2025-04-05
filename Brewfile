@@ -14,8 +14,6 @@ cask "obsidian"
 cask "proxyman"
 cask "rectangle"
 cask "signal"
-cask "skype"
-cask "vagrant"
 cask "visual-studio-code"
 cask "vlc"
 
