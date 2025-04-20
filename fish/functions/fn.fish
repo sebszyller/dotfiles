@@ -22,7 +22,7 @@ function cmd_exists
 end
 
 # Check if commands (in aliases/functions) exist
-set --local cmds bat delta eza fd fzf npm nvim pdflatex ranger rg tmux zoxide
+set --local cmds bat delta eza fd fzf npm nvim pdflatex python3 ranger rg tmux zoxide
 for c in $cmds
     cmd_exists $c
 end
@@ -91,36 +91,86 @@ function psf
     echo -n $process
 end
 
+# Maybe restore if tmux not running
+function __maybe_restore
+    # EXIT CODES:
+    # 0 -- restore
+    # 1 -- don't restore
+    # 2 -- TMUX running
+    if not tmux ls &>/dev/null
+        set --local STATE_FILE "$HOME/.tmux_state.json"
+        if test -f $STATE_FILE
+            set --local save_time (jq -r ".save_time" $STATE_FILE)
+            set --local sessions_num (jq ".sessions | length" $STATE_FILE)
+            set --local session_statuses (jq -r ".sessions | keys | .[]" $STATE_FILE)
+
+            printf "%sTMUX is not running%s\n" (set_color --bold brred) (set_color normal)
+            printf "Last saved state: %s%s %scontaining (%s%s%s) sessions:\n" (set_color --bold blue) $save_time (set_color normal) (set_color --bold blue) $sessions_num (set_color normal)
+            printf "%s\n"  $session_statuses
+
+            while true
+                read -l -P  "Load sessions instead? [y]es/[n]o: " response
+
+                switch (string lower $response)
+                    case "y" "yes"
+                        python3 $DOTFILES/tmux/recreate_state.py
+                        return 0
+                    case "n" "no"
+                        return 1
+                end
+            end
+        end
+    end
+    return 2
+end
+
 # Fuzzy-find for reconnecting to a tmux session
 function tma
-    set --function sessions (tmux ls | awk '{ print $1 }' | tr -d ':')
-    if test (count $sessions) -eq 1
-        tmux attach
-        exit 0
-    end
+    __maybe_restore
 
-    if count $argv > /dev/null
-        set --function pattern $argv[1]
-        set --function matching_sessions (printf %s\n $sessions | rg $pattern)
-        if test (count $matching_sessions) -eq 1
-            set --function sname $matching_sessions[1]
-        else
-            set --function sname (printf %s\n $sessions | __fzfselectorexit --query=$pattern)
+    if test $status -eq 0 -o $status -eq 2
+        set --function sessions (tmux ls | awk '{ print $1 }' | tr -d ':')
+        if test (count $sessions) -eq 1
+            tmux attach
+            return 0
         end
+
+        if count $argv > /dev/null
+            set --function pattern $argv[1]
+            set --function matching_sessions (printf %s\n $sessions | rg $pattern)
+            if test (count $matching_sessions) -eq 1
+                set --function sname $matching_sessions[1]
+            else
+                set --function sname (printf %s\n $sessions | __fzfselectorexit --query=$pattern)
+            end
+        else
+            set --function sname (printf %s\n $sessions | __fzfselectorexit)
+        end
+        tmux attach -t (printf %s $sname)
     else
-        set --function sname (printf %s\n $sessions | __fzfselectorexit)
+        printf "%sNothing to attach%s\n" (set_color --bold red) (set_color normal)
     end
-    tmux attach -t (printf %s $sname)
 end
 
 # Create a new named tmux session
 function tmnew
-    if count $argv > /dev/null
-        set --function sname $argv[1]
+    __maybe_restore
+
+    if test $status -eq 0
+        tma
     else
-        read --prompt-str="Session name: " -f sname
+        if count $argv > /dev/null
+            set --function sname $argv[1]
+        else
+            read --prompt-str="New session name: " -f sname
+        end
+        if string length -q -- $TMUX
+            tmux new-session -d -s $sname
+            tmux switch -t $sname
+        else
+            tmux new -A -s $sname
+        end
     end
-    tmux new -s $sname
 end
 
 # Fuzzy-find for killing a tmux session
