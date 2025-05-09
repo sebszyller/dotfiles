@@ -33,7 +33,12 @@ set -gx LESS -rF
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx MANPAGER 'sh -c "col -bx | bat -l man --theme=\'Solarized (dark)\' -p"'
 
-bind \cx "clear-screen"
+# Custom bindings
+function bind_fish_keys
+    bind \cw "forward-word"
+    bind \cx "clear-screen"
+end
+bind_fish_keys
 
 # Init agent
 function init_ssh_agent

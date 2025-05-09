@@ -3,7 +3,7 @@ return {
     version = "1.7.0",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        { "saghen/blink.cmp", version = "1.1.1" },
+        { "saghen/blink.cmp", version = "1.2.0" },
         { "saghen/blink.compat", version = "2.5.0" },
         { "williamboman/mason.nvim", version = "1.11.0" },
         { "williamboman/mason-lspconfig.nvim", version = "1.32.0" },
@@ -16,8 +16,7 @@ return {
         local default_sources = { "lsp", "path", "snippets", "buffer" }
         blink_cmp.setup({
             keymap = {
-                preset = "default",
-                ["<C-l>"] = { "select_and_accept", "fallback" },
+                preset = "super-tab",
             },
 
             completion = {
