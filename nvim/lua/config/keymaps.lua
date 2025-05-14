@@ -1,6 +1,6 @@
 local opts = {
-	noremap = true,
-	silent = true,
+    noremap = true,
+    silent = true,
 }
 
 vim.g.mapleader = " "
@@ -58,6 +58,18 @@ _map("n", "<M-j>", ":cnext<CR>zz", { desc = "Next", unpack(opts) })
 _map("n", "<M-k>", ":cprev<CR>zz", { desc = "Previous", unpack(opts) })
 _map("n", ";c", ":cclose<CR>", { desc = "Close quickfix", unpack(opts) })
 
+-- Searching
+_map("n", "<leader>gc", ":silent vimgrep //g %<CR>:copen<CR>", { desc = "Search to quickfix", unpack(opts) })
+-- stylua: ignore start
+_map("n", "<leader>gt",
+    function ()
+        vim.cmd("normal! gny")
+        local search_text = vim.fn.getreg('"')
+        require("telescope.builtin").live_grep({ default_text = search_text })
+    end,
+    { desc = "Search to telescope", unpack(opts) })
+-- stylua: ignore start
+--
 -- TMUX fix
 _map("i", "<C-f>", "<Right>", opts)
 _map("i", "<C-b>", "<Left>", opts)
