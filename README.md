@@ -17,7 +17,6 @@ This repo contains a set of dotfiles and profile configs.
 - Change the shell to fish:
     - modify `/etc/shells` and point to the fish installation
     - `chsh -s /path/to/fish`
-    - symlink `~/.config/fish`
 - Change screenshot save folder
 - Install Pragmata
 
@@ -31,11 +30,7 @@ This repo contains a set of dotfiles and profile configs.
 - create `$HOME/.env.fish` and export w/e you need
 - Symlink configs if they don't require changes:
     - `.gitconfig.`
-    - alacritty config to `~/.config/alacritty`
-    - ghostty config to `~/.config/ghostty`
-    - neovim config to `~/.config/nvim/`
-    - ranger config to `~/.config/ranger`
-    - tmux config to `~/.config/tmux/` or `~/.tmux.conf` on Linux
+    - run `stow stow` in `$DOTFILES`
 - Link vscode settings to `dotfiles`:
     - `ln -s $DOTFILES/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json`
     - `ln -s $DOTFILES/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json`
@@ -49,7 +44,7 @@ Remember to install the grammars.
 
 ### Homebrew
 
-See `Brewfile`. Install everything with `brew bundle --file=~/dotfiles/Brewfile`.
+See `Brewfile`. Install everything with `brew bundle --file=$DOTFILES/Brewfile`.
 
 Apps not included in the `Brewfile`:
 

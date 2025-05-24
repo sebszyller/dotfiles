@@ -3,8 +3,9 @@ set -x LC_ALL en_GB.UTF-8
 set -x LC_CTYPE en_GB.UTF-8
 
 # Dotfiles
+set -gx XDG_CONFIG_HOME ~/.config
 set -gx DOTFILES ~/dotfiles
-set -gx FISH $DOTFILES/fish
+set -gx FISH $XDG_CONFIG_HOME/fish
 
 # Env
 source $HOME/.env.fish

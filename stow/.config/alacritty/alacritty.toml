@@ -1,8 +1,8 @@
 # live_config_reload = true
 
-import = [
-    "~/dotfiles/alacritty/zenbones.toml",
-    "~/dotfiles/alacritty/keybindings.toml"
+general.import = [
+    "zenbones.toml",
+    "keybindings.toml"
 ]
 
 [env]
