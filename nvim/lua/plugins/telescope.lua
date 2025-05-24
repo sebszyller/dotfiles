@@ -81,9 +81,9 @@ return {
         })
         local opts = { noremap = true, silent = true }
         -- stylua: ignore start
-        _map("n", "<leader>fc", builtin.command_history, { desc = "Command history", unpack(opts) })
-        _map("n", "<leader>fd", builtin.find_files, { desc = "Find files", unpack(opts) })
-        _map("n", "<leader>fg", builtin.live_grep, { desc = "Grep in files", unpack(opts) })
+        _map("n", "<leader>fc", builtin.command_history, _add_opts(opts, { desc = "Command history" }))
+        _map("n", "<leader>fd", builtin.find_files,      _add_opts(opts, { desc = "Find files" }))
+        _map("n", "<leader>fg", builtin.live_grep,       _add_opts(opts, { desc = "Grep in files" }))
         -- stylua: ignore start
     end,
 }

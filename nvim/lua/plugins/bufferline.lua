@@ -16,18 +16,18 @@ return {
         })
         local opts = { noremap = true, silent = true }
 		-- stylua: ignore start
-		_map("n", ";q", ":bp|bd #<CR>", { desc = "Close buffer", unpack(opts) })
-		_map("n", ";Q", ":bp|bd! #<CR>", { desc = "Close buffer (discard)", unpack(opts) })
-		_map("n", ";1", "<CMD>lua require('bufferline').go_to_buffer(1, true)<CR>", { desc = "Buffer 1", unpack(opts) })
-		_map("n", ";2", "<CMD>lua require('bufferline').go_to_buffer(2, true)<CR>", { desc = "Buffer 2", unpack(opts) })
-		_map("n", ";3", "<CMD>lua require('bufferline').go_to_buffer(3, true)<CR>", { desc = "Buffer 3", unpack(opts) })
-		_map("n", ";4", "<CMD>lua require('bufferline').go_to_buffer(4, true)<CR>", { desc = "Buffer 4", unpack(opts) })
-		_map("n", ";5", "<CMD>lua require('bufferline').go_to_buffer(5, true)<CR>", { desc = "Buffer 5", unpack(opts) })
-		_map("n", ";6", "<CMD>lua require('bufferline').go_to_buffer(6, true)<CR>", { desc = "Buffer 6", unpack(opts) })
-		_map("n", ";7", "<CMD>lua require('bufferline').go_to_buffer(7, true)<CR>", { desc = "Buffer 7", unpack(opts) })
-		_map("n", ";8", "<CMD>lua require('bufferline').go_to_buffer(8, true)<CR>", { desc = "Buffer 8", unpack(opts) })
-		_map("n", ";9", "<CMD>lua require('bufferline').go_to_buffer(9, true)<CR>", { desc = "Buffer 9", unpack(opts) })
-		_map("n", ";o", ":BufferLineCloseOthers<CR>", { desc = "Close other buffers", unpack(opts) })
+		_map("n", ";q", ":bp|bd #<CR>",                                             _add_opts(opts, { desc = "Close buffer" }))
+		_map("n", ";Q", ":bp|bd! #<CR>",                                            _add_opts(opts, { desc = "Close buffer (discard)" }))
+		_map("n", ";1", "<CMD>lua require('bufferline').go_to_buffer(1, true)<CR>", _add_opts(opts, { desc = "Buffer 1" }))
+		_map("n", ";2", "<CMD>lua require('bufferline').go_to_buffer(2, true)<CR>", _add_opts(opts, { desc = "Buffer 2" }))
+		_map("n", ";3", "<CMD>lua require('bufferline').go_to_buffer(3, true)<CR>", _add_opts(opts, { desc = "Buffer 3" }))
+		_map("n", ";4", "<CMD>lua require('bufferline').go_to_buffer(4, true)<CR>", _add_opts(opts, { desc = "Buffer 4" }))
+		_map("n", ";5", "<CMD>lua require('bufferline').go_to_buffer(5, true)<CR>", _add_opts(opts, { desc = "Buffer 5" }))
+		_map("n", ";6", "<CMD>lua require('bufferline').go_to_buffer(6, true)<CR>", _add_opts(opts, { desc = "Buffer 6" }))
+		_map("n", ";7", "<CMD>lua require('bufferline').go_to_buffer(7, true)<CR>", _add_opts(opts, { desc = "Buffer 7" }))
+		_map("n", ";8", "<CMD>lua require('bufferline').go_to_buffer(8, true)<CR>", _add_opts(opts, { desc = "Buffer 8" }))
+		_map("n", ";9", "<CMD>lua require('bufferline').go_to_buffer(9, true)<CR>", _add_opts(opts, { desc = "Buffer 9" }))
+		_map("n", ";o", ":BufferLineCloseOthers<CR>",                               _add_opts(opts, { desc = "Close other buffers" }))
         -- stylua: ignore end
     end,
 }

@@ -3,7 +3,7 @@ return {
     version = "1.7.0",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        { "saghen/blink.cmp", version = "1.3.0" },
+        { "saghen/blink.cmp", version = "1.3.1" },
         { "williamboman/mason.nvim", version = "1.11.0" },
         { "williamboman/mason-lspconfig.nvim", version = "1.32.0" },
     },
@@ -11,10 +11,10 @@ return {
         local blink_cmp = require("blink.cmp")
         local lspconfig = require("lspconfig")
 
-        local default_sources = { "lsp", "path", "snippets", "buffer" }
         blink_cmp.setup({
             keymap = {
                 preset = "super-tab",
+                ["<C-h>"] = { "show_signature", "hide_signature", "fallback" },
             },
             completion = {
                 list = { selection = { auto_insert = false } },
@@ -32,8 +32,17 @@ return {
                 },
             },
             fuzzy = { sorts = { "exact", "score", "sort_text" } },
+            signature = {
+                enabled = true,
+                trigger = {
+                    enabled = true,
+                    show_on_trigger_character = false,
+                    show_on_insert_on_trigger_character = false,
+                },
+                window = { border = "rounded" },
+            },
             sources = {
-                default = { "copilot", unpack(default_sources) },
+                default = { "lsp", "path", "copilot", "snippets", "buffer" },
                 min_keyword_length = 3,
                 providers = {
                     copilot = {
@@ -85,6 +94,7 @@ return {
         })
 
         vim.diagnostic.config({
+            virtual_text = true,
             float = {
                 style = "minimal",
                 border = "rounded",
@@ -93,8 +103,5 @@ return {
                 prefix = "",
             },
         })
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-        vim.lsp.handlers["textDocument/signatureHelp"] =
-            vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
     end,
 }

@@ -38,3 +38,6 @@ hl(0, "PmenuThumb", { bg = "none" })
 hl(0, "BlinkCmpLabel", { link = "Identifier" })
 hl(0, "BlinkCmpLabelDetail", { link = "Comment" })
 hl(0, "BlinkCmpLabelDescription", { link = "Comment" })
+
+hl(0, "StatusLine", { reverse = false })
+hl(0, "StatusLineNC", { reverse = false })

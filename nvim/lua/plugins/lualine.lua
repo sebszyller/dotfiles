@@ -42,7 +42,7 @@ end
 
 return {
     "nvim-lualine/lualine.nvim",
-    commit = "482ae358c67aec2a4939d68a1a4fe4c8064ccd16",
+    commit = "0c6cca9f2c63dadeb9225c45bc92bb95a151d4af",
     lazy = false,
     config = function()
         local muted_gray = "Identifier"

@@ -70,6 +70,7 @@ return {
             callbacks = { enter_note = show_virtual_backlinks },
             completion = { nvim_cmp = false, blink = true },
             disable_frontmatter = true,
+            tits = false,
             log_level = vim.log.levels.WARN,
             mappings = {
                 ["gd"] = {
@@ -96,8 +97,8 @@ return {
 
         local opts = { noremap = false, silent = true }
         -- stylua: ignore start
-		_map("n", "<leader>ob", ":Obsidian backlinks<CR>", { desc = "Backlinks", unpack(opts) })
-		_map("n", "<leader>on", ":Obsidian new<CR>", { desc = "New note", unpack(opts) })
+		_map("n", "<leader>ob", ":Obsidian backlinks<CR>", _add_opts(opts, { desc = "Backlinks" }))
+		_map("n", "<leader>on", ":Obsidian new<CR>",       _add_opts(opts, { desc = "New note" }))
         -- stylua: ignore end
     end,
 }

@@ -4,6 +4,20 @@ vim.g.maplocalleader = [[,]]
 
 _map = vim.keymap.set
 
+function _add_opts(base_table, new_options)
+    local result_table = {}
+
+    for k, v in pairs(base_table) do
+        result_table[k] = v
+    end
+
+    for k, v in pairs(new_options) do
+        result_table[k] = v
+    end
+
+    return result_table
+end
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({

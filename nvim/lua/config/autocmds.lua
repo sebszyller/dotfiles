@@ -44,17 +44,15 @@ autocmd("LspAttach", {
 
         local builtin = require("telescope.builtin")
         local lsp = vim.lsp.buf
-
         -- stylua: ignore start
-        _map("n", "gr",                    builtin.lsp_references,                            { desc = "Find references", unpack(opts) })
-        _map("n", "gD",         function() builtin.lsp_definitions({jump_type="vsplit"}) end, { desc = "Goto definition (split)", unpack(opts) })
-        _map("n", "gd",         function() lsp.definition() end,                              { desc = "Goto definition", unpack(opts) })
-        _map("n", "gF",         function() vim.diagnostic.open_float() end,                   { desc = "Float", unpack(opts) })
-        _map("n", "ga",         function() lsp.code_action() end,                             { desc = "Code action", unpack(opts) })
-        _map("n", "gR",         function() lsp.rename() end,                                  { desc = "Rename", unpack(opts) })
-        _map("n", "H",          function() toggle_inlay_hints() end,                          { desc = "Toggle hints", unpack(opts) })
-        _map("n", "K",          function() lsp.hover() end,                                   { desc = "Hover", unpack(opts) })
-        _map("i", "<C-h>",      function() lsp.signature_help() end,                          { desc = "Show signatures", unpack(opts) })
+        _map("n", "gr",                    builtin.lsp_references,                            _add_opts(opts, { desc = "Find references" }))
+        _map("n", "gD",         function() builtin.lsp_definitions({jump_type="vsplit"}) end, _add_opts(opts, { desc = "Goto definition (split)" }))
+        _map("n", "gd",         function() lsp.definition() end,                              _add_opts(opts, { desc = "Goto definition" }))
+        _map("n", "gF",         function() vim.diagnostic.open_float() end,                   _add_opts(opts, { desc = "Float" }))
+        _map("n", "ga",         function() lsp.code_action() end,                             _add_opts(opts, { desc = "Code action" }))
+        _map("n", "gR",         function() lsp.rename() end,                                  _add_opts(opts, { desc = "Rename" }))
+        _map("n", "H",          function() toggle_inlay_hints() end,                          _add_opts(opts, { desc = "Toggle hints" }))
+        _map("n", "K",          function() lsp.hover({border = "rounded"}) end,               _add_opts(opts, { desc = "Hover" }))
         -- stylua: ignore end
     end,
 })
