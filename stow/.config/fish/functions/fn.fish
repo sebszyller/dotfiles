@@ -113,7 +113,7 @@ function __maybe_restore
 
                 switch (string lower $response)
                     case "y" "yes"
-                        python3 $DOTFILES/tmux/recreate_state.py
+                        python3 $XDG_CONFIG_HOME/tmux/recreate_state.py
                         return 0
                     case "n" "no"
                         return 1
