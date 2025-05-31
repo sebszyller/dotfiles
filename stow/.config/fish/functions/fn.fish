@@ -22,7 +22,7 @@ function cmd_exists
 end
 
 # Check if commands (in aliases/functions) exist
-set --local cmds bat delta eza fd fzf npm nvim pdflatex python3 ranger rg tmux zoxide
+set --local cmds bat delta eza fd fzf npm nvim pdflatex python3 rg tmux yazi zoxide
 for c in $cmds
     cmd_exists $c
 end
@@ -43,12 +43,12 @@ alias ll "ls -al"
 alias t "eza --tree -L 1"
 alias tt "eza --tree -L 2"
 alias ttt "eza --tree -L 3"
-alias r "ranger"
 alias shrug "echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/¯\" | yy"
 alias today "date -u +"%Y%m%d""
 alias tmls "tmux ls | awk '{ print \$1 }' | tr -d ':'"
 alias v "nvim"
 alias vac ". .venv/bin/activate.fish"
+alias fm "yazi"
 
 # Scripts & functions
 
