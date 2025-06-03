@@ -26,6 +26,6 @@ return {
         })
 
         -- stylua: ignore
-        _map("n", "-", "<CMD>Oil<CR>", { desc = "Oil", noremap = true, silent = true })
+        Globals.map("n", "-", "<CMD>Oil<CR>", { desc = "Oil", noremap = true, silent = true })
     end,
 }

@@ -32,7 +32,7 @@ return {
                 signs = false,
             })
             -- stylua: ignore
-            _map("n", "<leader>td", ":TodoTelescope<CR>", { noremap = true, silent = true, desc = "List TODOs" })
+            Globals.map("n", "<leader>td", ":TodoTelescope<CR>", { noremap = true, silent = true, desc = "List TODOs" })
         end,
     },
 }

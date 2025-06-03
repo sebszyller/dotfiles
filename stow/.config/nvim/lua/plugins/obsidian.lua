@@ -97,8 +97,8 @@ return {
 
         local opts = { noremap = false, silent = true }
         -- stylua: ignore start
-		_map("n", "<leader>ob", ":Obsidian backlinks<CR>", _add_opts(opts, { desc = "Backlinks" }))
-		_map("n", "<leader>on", ":Obsidian new<CR>",       _add_opts(opts, { desc = "New note" }))
+		Globals.map("n", "<leader>ob", ":Obsidian backlinks<CR>", Globals.extend(opts, { desc = "Backlinks" }))
+		Globals.map("n", "<leader>on", ":Obsidian new<CR>",       Globals.extend(opts, { desc = "New note" }))
         -- stylua: ignore end
     end,
 }

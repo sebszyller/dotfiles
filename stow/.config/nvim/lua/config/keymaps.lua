@@ -6,73 +6,73 @@ local opts = {
 vim.g.mapleader = " "
 
 -- Misc. leader
-_map("n", "<leader>q", ":q<CR>", _add_opts(opts, { desc = "Quit" }))
-_map("n", "<leader>Q", ":q!<CR>", _add_opts(opts, { desc = "Quit (discard)" }))
-_map("n", "<leader>w", ":w<CR>", _add_opts(opts, { desc = "Write" }))
-_map("n", "<leader>wq", ":wq<CR>", _add_opts(opts, { desc = "Write & quit" }))
-_map("n", "<leader>do", ":DiffviewOpen<CR>", _add_opts(opts, { desc = "Diff open" }))
-_map("n", "<leader>dc", ":DiffviewClose<CR>", _add_opts(opts, { desc = "Diff close" }))
+Globals.map("n", "<leader>q", ":q<CR>", Globals.extend(opts, { desc = "Quit" }))
+Globals.map("n", "<leader>Q", ":q!<CR>", Globals.extend(opts, { desc = "Quit (discard)" }))
+Globals.map("n", "<leader>w", ":w<CR>", Globals.extend(opts, { desc = "Write" }))
+Globals.map("n", "<leader>wq", ":wq<CR>", Globals.extend(opts, { desc = "Write & quit" }))
+Globals.map("n", "<leader>do", ":DiffviewOpen<CR>", Globals.extend(opts, { desc = "Diff open" }))
+Globals.map("n", "<leader>dc", ":DiffviewClose<CR>", Globals.extend(opts, { desc = "Diff close" }))
 
 -- Clear highlights
-_map("n", "gh", ":nohl<CR>", _add_opts(opts, { desc = "Clear highlights" }))
+Globals.map("n", "gh", ":nohl<CR>", Globals.extend(opts, { desc = "Clear highlights" }))
 
 -- Line text-objects
-_map({ "o", "x" }, "il", ":<C-u>normal! $v^<CR>", _add_opts(opts, { desc = "Select inside line" }))
-_map({ "o", "x" }, "al", ":<C-u>normal! $v0<CR>", _add_opts(opts, { desc = "Select around line" }))
+Globals.map({ "o", "x" }, "il", ":<C-u>normal! $v^<CR>", Globals.extend(opts, { desc = "Select inside line" }))
+Globals.map({ "o", "x" }, "al", ":<C-u>normal! $v0<CR>", Globals.extend(opts, { desc = "Select around line" }))
 
 -- Move blocks around
-_map("v", "J", ":m '>+1<CR>gv=gv", opts)
-_map("v", "K", ":m '<-2<CR>gv=gv", opts)
-_map("v", "<", "<gv", opts)
-_map("v", ">", ">gv", opts)
+Globals.map("v", "J", ":m '>+1<CR>gv=gv", opts)
+Globals.map("v", "K", ":m '<-2<CR>gv=gv", opts)
+Globals.map("v", "<", "<gv", opts)
+Globals.map("v", ">", ">gv", opts)
 
 -- Navigation
-_map("n", "<C-d>", "<C-d>zz", opts)
-_map("n", "<C-u>", "<C-u>zz", opts)
-_map("n", "n", "nzz", opts)
-_map("n", "N", "Nzz", opts)
-_map("n", "J", "mzJ`z", opts)
+Globals.map("n", "<C-d>", "<C-d>zz", opts)
+Globals.map("n", "<C-u>", "<C-u>zz", opts)
+Globals.map("n", "n", "nzz", opts)
+Globals.map("n", "N", "Nzz", opts)
+Globals.map("n", "J", "mzJ`z", opts)
 
 -- Pane navigation
-_map("n", "<leader>sv", ":vsplit<CR>", _add_opts(opts, { desc = "Split V" }))
-_map("n", "<leader>sh", ":split<CR>", _add_opts(opts, { desc = "Split H" }))
-_map("n", ";s", "<C-w>q", _add_opts(opts, { desc = "Close split" }))
-_map("n", ";S", "<C-w>o", _add_opts(opts, { desc = "Close other splits" }))
+Globals.map("n", "<leader>sv", ":vsplit<CR>", Globals.extend(opts, { desc = "Split V" }))
+Globals.map("n", "<leader>sh", ":split<CR>", Globals.extend(opts, { desc = "Split H" }))
+Globals.map("n", ";s", "<C-w>q", Globals.extend(opts, { desc = "Close split" }))
+Globals.map("n", ";S", "<C-w>o", Globals.extend(opts, { desc = "Close other splits" }))
 
 -- Pane resize
-_map("n", "<S-Up>", ":resize -2<CR>", opts)
-_map("n", "<S-Down>", ":resize +2<CR>", opts)
-_map("n", "<S-Left>", ":vertical resize -2<CR>", opts)
-_map("n", "<S-Right>", ":vertical resize +2<CR>", opts)
+Globals.map("n", "<S-Up>", ":resize -2<CR>", opts)
+Globals.map("n", "<S-Down>", ":resize +2<CR>", opts)
+Globals.map("n", "<S-Left>", ":vertical resize -2<CR>", opts)
+Globals.map("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
 -- Pasting and deleting
-_map("i", "<Del>", "_x", opts)
-_map("i", "<C-d>", "<Del>", opts)
-_map("i", "<C-p>", "<Esc>pa", opts)
-_map("n", "gy", "yygccp", { desc = "Comment & paste", remap = true, silent = true })
-_map("v", "gy", "ygvgc'>+1P", { desc = "Comment & paste", remap = true, silent = true })
-_map("v", "p", "pgvy", opts)
+Globals.map("i", "<Del>", "_x", opts)
+Globals.map("i", "<C-d>", "<Del>", opts)
+Globals.map("i", "<C-p>", "<Esc>pa", opts)
+Globals.map("n", "gy", "yygccp", { desc = "Comment & paste", remap = true, silent = true })
+Globals.map("v", "gy", "ygvgc'>+1P", { desc = "Comment & paste", remap = true, silent = true })
+Globals.map("v", "p", "pgvy", opts)
 
 -- Quickfix list
-_map("n", "<M-j>", ":cnext<CR>zz", _add_opts(opts, { desc = "Next" }))
-_map("n", "<M-k>", ":cprev<CR>zz", _add_opts(opts, { desc = "Previous" }))
-_map("n", ";c", ":cclose<CR>", _add_opts(opts, { desc = "Close quickfix" }))
+Globals.map("n", "<M-j>", ":cnext<CR>zz", Globals.extend(opts, { desc = "Next" }))
+Globals.map("n", "<M-k>", ":cprev<CR>zz", Globals.extend(opts, { desc = "Previous" }))
+Globals.map("n", ";c", ":cclose<CR>", Globals.extend(opts, { desc = "Close quickfix" }))
 
 -- Searching
-_map("n", "<leader>gc", ":silent vimgrep //g %<CR>:copen<CR>", _add_opts(opts, { desc = "Search to quickfix" }))
+Globals.map("n", "<leader>gc", ":silent vimgrep //g %<CR>:copen<CR>", Globals.extend(opts, { desc = "Search to quickfix" }))
 -- stylua: ignore start
-_map("n", "<leader>gt",
+Globals.map("n", "<leader>gt",
     function ()
         vim.cmd("normal! gny")
         local search_text = vim.fn.getreg('"')
         require("telescope.builtin").live_grep({ default_text = search_text })
     end,
-    _add_opts(opts, { desc = "Search to telescope" }))
+    Globals.extend(opts, { desc = "Search to telescope" }))
 -- stylua: ignore start
 
 -- TMUX fix
-_map("i", "<C-f>", "<Right>", opts)
-_map("i", "<C-b>", "<Left>", opts)
+Globals.map("i", "<C-f>", "<Right>", opts)
+Globals.map("i", "<C-b>", "<Left>", opts)
 
 vim.api.nvim_create_user_command("Wrap", ":set wrap!", {})
 vim.api.nvim_create_user_command("Spell", ":set spell!", {})

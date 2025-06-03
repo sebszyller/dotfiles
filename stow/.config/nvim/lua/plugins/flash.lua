@@ -15,6 +15,6 @@ return {
             },
         })
         -- stylua: ignore
-		_map( { "n", "x", "o" }, "m", "<CMD>lua require('flash').jump()<CR>", { noremap = true, silent = true, desc = "Jump" })
+		Globals.map( { "n", "x", "o" }, "m", "<CMD>lua require('flash').jump()<CR>", { noremap = true, silent = true, desc = "Jump" })
     end,
 }
