@@ -208,15 +208,8 @@ function vf
 end
 
 function __fzfselectorexit
-    argparse "q/query=" -- $argv
-    if set -q _flag_query
-        set --function query $_flag_query
-    else
-        set --function query
-    end
-
     read -z -f input
-    set --local selected (printf %s $input | fzf --ansi --query=$query)
+    set --local selected (printf %s $input | fzf --ansi $argv)
 
     if test -z "$selected"
         kill -INT $fish_pid
