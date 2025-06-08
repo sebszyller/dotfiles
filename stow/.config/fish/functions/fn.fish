@@ -45,7 +45,6 @@ alias tt "eza --tree -L 2"
 alias ttt "eza --tree -L 3"
 alias shrug "echo \"¯\_(ツ)_/¯ copied to clipboard\" && echo -n \"¯\_(ツ)_/¯\" | yy"
 alias today "date -u +"%Y%m%d""
-alias tmls "tmux ls | awk '{ print \$1 }' | tr -d ':'"
 alias v "nvim"
 alias vac ". .venv/bin/activate.fish"
 alias fm "yazi"
@@ -92,7 +91,7 @@ function psf
 end
 
 # Maybe restore if tmux not running
-function __maybe_restore
+function __tmux_maybe_restore
     # EXIT CODES:
     # 0 -- restore
     # 1 -- don't restore
@@ -124,12 +123,20 @@ function __maybe_restore
     return 2
 end
 
-# Fuzzy-find for reconnecting to a tmux session
-function tma
-    __maybe_restore
+function __tmux_sessions
+    tmux ls | awk '{ print $1 }' | tr -d ':'
+end
+
+function __tmux_kill_or_name
+    printf %s\n $argv | __fzfselectorexit --header "<CR>: attach | <C-x>: kill | <C-c>: abort" --bind "ctrl-x:execute-silent(tmux kill-session -t {})+clear-query+reload(__tmux_sessions)"
+end
+
+# Fuzzy-find for attaching / killing sessions
+function tm
+    __tmux_maybe_restore
 
     if test $status -eq 0 -o $status -eq 2
-        set --function sessions (tmux ls | awk '{ print $1 }' | tr -d ':')
+        set --function sessions (__tmux_sessions)
         if test (count $sessions) -eq 1
             tmux attach
             return 0
@@ -144,9 +151,14 @@ function tma
                 set --function sname (printf %s\n $sessions | __fzfselectorexit --query=$pattern)
             end
         else
-            set --function sname (printf %s\n $sessions | __fzfselectorexit)
+            set --function sname (__tmux_kill_or_name $sessions)
         end
-        tmux attach -t (printf %s $sname)
+
+        if tmux list-sessions 2>/dev/null | rg -q "(attached)"
+            tmux switch -t $sname
+        else
+            tmux attach -t $sname
+        end
     else
         printf "%sNothing to attach%s\n" (set_color --bold red) (set_color normal)
     end
@@ -154,10 +166,10 @@ end
 
 # Create a new named tmux session
 function tmnew
-    __maybe_restore
+    __tmux_maybe_restore
 
     if test $status -eq 0
-        tma
+        tm
     else
         if count $argv > /dev/null
             set --function sname $argv[1]
@@ -171,13 +183,6 @@ function tmnew
             tmux new -A -s $sname
         end
     end
-end
-
-# Fuzzy-find for killing a tmux session
-function tmx
-    set --function sname (tmux ls | awk '{ print $1 }' | tr -d ':' | __fzfselectorexit)
-    tmux kill-session -t $sname
-    echo Killed session $sname
 end
 
 function take
