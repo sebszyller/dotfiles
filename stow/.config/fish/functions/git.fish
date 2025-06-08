@@ -23,6 +23,8 @@ alias gst "git stash"
 alias gsta "git stash apply"
 alias gti "git"
 
+alias wt "git worktree"
+
 function gl
     clear
     set --local sha (eval "git log --oneline $__gitfmt --color=always" $argv[1] | fzf --ansi --no-sort --height=80% --preview="git show --show-signature --color=always $__gitfmt --stat {1}" | awk '{print $1}')
@@ -31,5 +33,17 @@ function gl
         kill -INT $fish_pid
     else
         git show --show-signature $__gitfmt --show-signature --color=always --decorate $sha
+    end
+end
+
+function wtl
+    # List and kill with <C-x>
+    set --local tree_branch (git worktree list | __fzfselectorexit --header "<CR>: select | <C-x>: remove | <C-c>: abort" --bind "ctrl-x:execute-silent(echo {} | awk '{print \$1}' | xargs git worktree remove)+clear-query+reload(git worktree list)")
+    set --local just_path (echo $tree_branch | awk '{print $1}')
+
+    if test (pwd) = $just_path
+        printf "%sAlready in target directory%s\n" (set_color --bold brred) (set_color normal)
+    else
+        cd $just_path
     end
 end
