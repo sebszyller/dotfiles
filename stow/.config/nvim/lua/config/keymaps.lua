@@ -57,10 +57,11 @@ Globals.map("v", "p", "pgvy", opts)
 Globals.map("n", "<M-j>", ":cnext<CR>zz", Globals.extend(opts, { desc = "Next" }))
 Globals.map("n", "<M-k>", ":cprev<CR>zz", Globals.extend(opts, { desc = "Previous" }))
 Globals.map("n", ";c", ":cclose<CR>", Globals.extend(opts, { desc = "Close quickfix" }))
+Globals.map("n", ";C", ":copen<CR>", Globals.extend(opts, { desc = "Open quickfix" }))
 
 -- Searching
-Globals.map("n", "<leader>gc", ":silent vimgrep //g %<CR>:copen<CR>", Globals.extend(opts, { desc = "Search to quickfix" }))
 -- stylua: ignore start
+Globals.map("n", "<leader>gc", ":silent vimgrep //g %<CR>:copen<CR>", Globals.extend(opts, { desc = "Search to quickfix" }))
 Globals.map("n", "<leader>gt",
     function ()
         vim.cmd("normal! gny")
@@ -68,7 +69,7 @@ Globals.map("n", "<leader>gt",
         require("telescope.builtin").live_grep({ default_text = search_text })
     end,
     Globals.extend(opts, { desc = "Search to telescope" }))
--- stylua: ignore start
+-- stylua: ignore end
 
 -- TMUX fix
 Globals.map("i", "<C-f>", "<Right>", opts)
