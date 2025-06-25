@@ -22,15 +22,13 @@ return {
                 require("telescope.pickers.layout_strategies").horizontal(picker, max_columns, max_lines, layout_config)
 
             layout.prompt.title = ""
-            layout.prompt.borderchars = { "─", "│", "─", "│", "┌", "┬", "┤", "├" }
-
+            layout.prompt.borderchars = { "─", "│", "─", "│", "╭", "┬", "┤", "├" }
             layout.results.title = ""
-            layout.results.borderchars = { "─", "│", "─", "│", "├", "┤", "┴", "└" }
+            layout.results.borderchars = { "─", "│", "─", "│", "├", "┤", "┴", "╰" }
             layout.results.line = layout.results.line - 1
             layout.results.height = layout.results.height + 1
-
             layout.preview.title = ""
-            layout.preview.borderchars = { "─", "│", "─", " ", "─", "┐", "┘", "─" }
+            layout.preview.borderchars = { "─", "│", "─", " ", "─", "╮", "╯", "─" }
 
             return layout
         end
