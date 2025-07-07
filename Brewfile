@@ -5,6 +5,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 # tap "homebrew/cask-drivers"
 tap "buo/cask-upgrade"
+tap "sst/tap/opencode"
 
 cask "discord"
 cask "alacritty"
