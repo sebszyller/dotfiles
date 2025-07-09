@@ -3,3 +3,8 @@ keybind = cmd+2=text:\x01\x32
 keybind = cmd+3=text:\x01\x33
 keybind = cmd+4=text:\x01\x34
 keybind = cmd+5=text:\x01\x35
+
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+keybind = alt+up=unbind
+keybind = alt+down=unbind

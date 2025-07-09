@@ -9,6 +9,8 @@ mouse-hide-while-typing = true
 # Font
 font-family = "PragmataPro Mono"
 font-size = 16
+font-thicken = true
+font-thicken-strength = 64
 
 # System
 confirm-close-surface = false
