@@ -8,7 +8,7 @@
 [delta]
     syntax-theme = ansi
     navigate = true  # use n and N to move between diff sections
-    side-by-side = true
+    side-by-side = false
 
 [diff]
     colorMoved = default

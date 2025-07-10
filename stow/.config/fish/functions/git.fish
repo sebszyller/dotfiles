@@ -23,6 +23,7 @@ alias gst "git stash"
 alias gsta "git stash apply"
 alias gti "git"
 
+alias lg "lazygit"
 alias wt "git worktree"
 
 function gl
