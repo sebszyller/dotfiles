@@ -69,10 +69,10 @@ function ff
         if test (count $matching_fnames) -eq 1
             set --function fname $matching_fnames[1]
         else
-            set --function fname (fd -tf -tl --hidden --exclude '.git' --exclude '.venv' | __fzfselectorexit --query=$pattern)
+            set --function fname (fd -tf -tl --hidden --exclude '.git' --exclude '.venv' | __fzfselectorexit --header "<CR>: select | <C-c>: abort" --query=$pattern)
         end
     else
-        set --function fname (fd -tf -tl --hidden --exclude '.git/' --exclude '.venv' | __fzfselectorexit)
+        set --function fname (fd -tf -tl --hidden --exclude '.git/' --exclude '.venv' | __fzfselectorexit --header "<CR>: select | <C-c>: abort")
     end
     functions -e fd
     echo -n $fname
@@ -86,7 +86,7 @@ end
 
 # Fuzzy-find from psf aux
 function psf
-    set --function process (ps aux | __fzfselectorexit | awk '{ print $2 }')
+    set --function process (ps aux | __fzfselectorexit --header "<CR>: select | <C-c>: abort" | awk '{ print $2 }')
     echo -n $process
 end
 
@@ -148,7 +148,7 @@ function tm
             if test (count $matching_sessions) -eq 1
                 set --function sname $matching_sessions[1]
             else
-                set --function sname (printf %s\n $sessions | __fzfselectorexit --query=$pattern)
+                set --function sname (printf %s\n $sessions | __fzfselectorexit --header "<CR>: select | <C-c>: abort" --query=$pattern)
             end
         else
             set --function sname (__tmux_kill_or_name $sessions)
