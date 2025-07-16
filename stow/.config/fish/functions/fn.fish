@@ -129,15 +129,32 @@ function __tmux_sessions
 end
 
 function __tmux_kill_or_name
-    printf %s\n $argv | __fzfselectorexit --header "<CR>: attach | <C-x>: kill | <C-c>: abort" --bind "ctrl-x:execute-silent(tmux kill-session -t {})+clear-query+reload(__tmux_sessions)"
+    argparse 'p/pop' 'q/query=' -- $argv
+
+    if set -q _flag_pop
+        alias __whichfzf "fzf-tmux -p"
+    else
+        alias __whichfzf  "__fzfselectorexit"
+    end
+
+    set --local cmd '__whichfzf --header "<CR>: attach | <C-s>: new | <C-x>: kill | <C-c>: abort" --bind "ctrl-x:execute-silent(tmux kill-session -t {})+clear-query+reload(__tmux_sessions)" --bind "ctrl-s:execute-silent(tmux new-session -d -s {q})+print-query"'
+
+    if set -q _flag_query
+        set -a cmd '--query=$_flag_query'
+    end
+
+    printf %s\n $argv[1..] | eval $cmd
+    functions -e __whichfzf
 end
 
 # Fuzzy-find for attaching / killing sessions
 function tm
+    # If saved session, try to restore it
     __tmux_maybe_restore
 
     if test $status -eq 0 -o $status -eq 2
         set --function sessions (__tmux_sessions)
+        # Attach if only one session
         if test (count $sessions) -eq 1
             tmux attach
             return 0
@@ -149,12 +166,13 @@ function tm
             if test (count $matching_sessions) -eq 1
                 set --function sname $matching_sessions[1]
             else
-                set --function sname (printf %s\n $sessions | __fzfselectorexit --header "<CR>: select | <C-c>: abort" --query=$pattern)
+                set --function sname (__tmux_kill_or_name --query=$pattern $sessions)
             end
         else
             set --function sname (__tmux_kill_or_name $sessions)
         end
 
+        # Switch if attached elsewhere
         if tmux list-sessions 2>/dev/null | rg -q "(attached)"
             tmux switch -t $sname
         else
@@ -175,7 +193,7 @@ function tmnew
         if count $argv > /dev/null
             set --function sname $argv[1]
         else
-            read --prompt-str="New session name: " -f sname
+            read --prompt-str="Session name: " -f sname
         end
         if string length -q -- $TMUX
             tmux new-session -d -s $sname
