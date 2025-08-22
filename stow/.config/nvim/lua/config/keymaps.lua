@@ -32,6 +32,7 @@ Globals.map("n", "<C-u>", "<C-u>zz", opts)
 Globals.map("n", "n", "nzz", opts)
 Globals.map("n", "N", "Nzz", opts)
 Globals.map("n", "J", "mzJ`z", opts)
+Globals.map("n", "gi", "gi<Esc>zzi", Globals.extend(opts, { desc = "Goto Insert location" }))
 
 -- Pane navigation
 Globals.map("n", "<leader>sv", ":vsplit<CR>", Globals.extend(opts, { desc = "Split V" }))
@@ -51,6 +52,7 @@ Globals.map("i", "<C-d>", "<Del>", opts)
 Globals.map("i", "<C-p>", "<Esc>pa", opts)
 Globals.map("n", "gy", "yygccp", { desc = "Comment & paste", remap = true, silent = true })
 Globals.map("v", "gy", "ygvgc'>+1P", { desc = "Comment & paste", remap = true, silent = true })
+Globals.map("n", "vA", "$Gvgg0", Globals.extend(opts, { desc = "Highlight all" }))
 Globals.map("v", "p", "pgvy", opts)
 
 -- Quickfix list
