@@ -1,22 +1,6 @@
 cask_args appdir: "/Applications"
 
-tap "homebrew/core"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-# tap "homebrew/cask-drivers"
 tap "buo/cask-upgrade"
-tap "sst/tap/opencode"
-
-cask "discord"
-cask "alacritty"
-cask "ghostty"
-cask "obs"
-cask "obsidian"
-cask "proxyman"
-cask "rectangle"
-cask "signal"
-cask "visual-studio-code"
-cask "vlc"
 
 brew "bat"
 brew "btop"
@@ -27,22 +11,44 @@ brew "fd"
 brew "ffmpeg"
 brew "fish"
 brew "fzf"
-brew "gh"
-brew "gimp"
 brew "git-delta"
 brew "gnu-sed"
-berw "hexyl"
+brew "hexyl"
 brew "hyperfine"
 brew "imagemagick"
 brew "jc"
 brew "jq"
 brew "lazygit"
+brew "neovim"
 brew "node"
 brew "pandoc"
 brew "parallel"
 brew "pipx"
 brew "ripgrep"
-brew "neovim"
+brew "stow"
+brew "sst/tap/opencode"
+brew "tmux"
 brew "wget"
 brew "yazi", args: ["--HEAD"]
 brew "zoxide"
+
+cask "alacritty"
+cask "discord"
+cask "ghostty"
+cask "gimp"
+cask "obs"
+cask "obsidian"
+cask "rectangle"
+cask "signal"
+cask "slack"
+cask "visual-studio-code"
+cask "vlc"
+
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "SnippetsLab", id: 1006087419
+mas "Telegram", id: 747648890
+mas "Things", id: 904280696
+mas "Xcode", id: 497799835
+
