@@ -8,7 +8,7 @@ return {
         disable_move = true,
         config = {
             footer = {},
-            mru = { enable = false },
+            mru = { enable = true, cwd_only = true, limit = 5 },
             packages = { enable = true },
             project = { enable = false },
             week_header = { enable = true },
