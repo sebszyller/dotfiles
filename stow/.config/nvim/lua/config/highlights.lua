@@ -16,6 +16,10 @@ for i = 1, 6 do
     hl(0, "@markup.heading." .. i .. ".markdown", { fg = green, bold = true })
 end
 
+hl(0, "typescriptTemplate", { link = "@string" })
+hl(0, "typescriptString", { link = "@string" })
+hl(0, "tsxString", { link = "@string" })
+
 hl(0, "@module.latex", { fg = green })
 hl(0, "ObsidianBullet", { fg = green })
 hl(0, "@string", { fg = blue, italic = true })
