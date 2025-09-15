@@ -23,7 +23,7 @@ window-save-state = always
 # UI
 adjust-cell-height = 6
 background-blur-radius = 40
-background-opacity = 0.90
+background-opacity = 0.95
 macos-titlebar-style = hidden
 macos-window-shadow = false
 window-padding-x = 5
