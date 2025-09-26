@@ -2,14 +2,18 @@ return {
     "stevearc/conform.nvim",
     version = "9.0.0",
     config = function()
-        local conform = require("conform")
-        conform.formatters.prettier = {
-            prepend_args = {
-                "--tab-width",
-                "4",
+        require("conform").setup({
+            formatters = {
+                ["latexindent"] = {
+                    prepend_args = { "-y", "defaultIndent: '    '" },
+                },
+                ["prettier"] = {
+                    prepend_args = {
+                        "--tab-width",
+                        "4",
+                    },
+                },
             },
-        }
-        conform.setup({
             formatters_by_ft = {
                 c = { "clang-format" },
                 cpp = { "clang-format" },
@@ -25,6 +29,7 @@ return {
                 css = { "prettier" },
                 svelte = { "prettier" },
                 html = { "prettier" },
+                tex = { "latexindent" },
             },
         })
     end,

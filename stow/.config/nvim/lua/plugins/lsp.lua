@@ -69,7 +69,7 @@ return {
                 -- "rust-analyzer",
                 -- "basedpyright", "ruff",
                 -- "svelte-language-server", "typescript-language-server", "prettier",
-                -- "texlab",
+                -- "texlab", "latexindent",
                 -- stylua: ignore end
             },
             handlers = {
