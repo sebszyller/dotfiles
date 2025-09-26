@@ -1,6 +1,7 @@
 cask_args appdir: "/Applications"
 
 tap "buo/cask-upgrade"
+brew "sst/tap"
 
 brew "bat"
 brew "btop"
@@ -9,7 +10,6 @@ brew "curl"
 brew "eza"
 brew "fd"
 brew "ffmpeg"
-brew "fish"
 brew "fzf"
 brew "git-delta"
 brew "gnu-sed"
@@ -29,18 +29,16 @@ brew "stow"
 brew "sst/tap/opencode"
 brew "tmux"
 brew "wget"
-brew "yazi", args: ["--HEAD"]
+brew "yazi", args: ["HEAD"]
 brew "zoxide"
 
 cask "alacritty"
-cask "discord"
 cask "ghostty"
 cask "gimp"
 cask "obs"
 cask "obsidian"
 cask "rectangle"
 cask "signal"
-cask "slack"
 cask "visual-studio-code"
 cask "vlc"
 
