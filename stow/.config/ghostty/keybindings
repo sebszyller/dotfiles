@@ -1,8 +1,8 @@
-keybind = cmd+1=text:\x01\x31
-keybind = cmd+2=text:\x01\x32
-keybind = cmd+3=text:\x01\x33
-keybind = cmd+4=text:\x01\x34
-keybind = cmd+5=text:\x01\x35
+keybind = cmd+digit1=text:\x01\x31
+keybind = cmd+digit2=text:\x01\x32
+keybind = cmd+digit3=text:\x01\x33
+keybind = cmd+digit4=text:\x01\x34
+keybind = cmd+digit5=text:\x01\x35
 
 keybind = alt+left=unbind
 keybind = alt+right=unbind
