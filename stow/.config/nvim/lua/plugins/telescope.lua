@@ -92,6 +92,7 @@ return {
         Globals.map("n", "<leader>fc", builtin.command_history, Globals.extend(opts, { desc = "Command history" }))
         Globals.map("n", "<leader>fd", builtin.find_files,      Globals.extend(opts, { desc = "Find files" }))
         Globals.map("n", "<leader>fg", builtin.live_grep,       Globals.extend(opts, { desc = "Grep in files" }))
+        Globals.map("n", "<leader>fr", builtin.resume,          Globals.extend(opts, { desc = "Resume last" }))
         -- stylua: ignore start
     end,
 }
