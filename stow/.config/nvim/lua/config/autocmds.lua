@@ -9,6 +9,7 @@ autocmd("BufWritePre", {
 })
 
 autocmd("BufWritePre", {
+    group = default_group,
     pattern = "*",
     callback = function(args)
         require("conform").format({ bufnr = args.buf })
@@ -77,6 +78,7 @@ local function get_cwd()
 end
 
 autocmd("User", {
+    group = default_group,
     pattern = { "OilEnter", "OilMutationComplete" },
     callback = function()
         local ns_id = vim.api.nvim_create_namespace("cwd")
