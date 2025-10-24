@@ -1,14 +1,14 @@
 local hl = vim.api.nvim_set_hl
 local palette = require("zenbones.palette")
 local bg = palette.dark.bg.hex
-local blue = "#7788aa"
-local green = "#789978"
+local blue = palette.dark.water.hex
+local green = palette.dark.leaf.hex
+local magenta = palette.dark.blossom.hex
 local yellow = "#a1938c"
 
 -- LSP
 hl(0, "LspInlayHint", { link = "Comment" })
 hl(0, "Type", { fg = green })
-hl(0, "Constant", { italic = true })
 
 hl(0, "@markup.link.label.markdown_inline", { fg = blue, underline = true })
 hl(0, "@markup.raw.markdown_inline", { link = "Comment" })
@@ -20,9 +20,11 @@ hl(0, "typescriptTemplate", { link = "@string" })
 hl(0, "typescriptString", { link = "@string" })
 hl(0, "tsxString", { link = "@string" })
 
-hl(0, "@module.latex", { fg = green })
+hl(0, "@module.latex", { fg = green, bold = true })
+hl(0, "plaintexControlSequence", { fg = magenta })
+hl(0, "@function.latex", { fg = magenta })
 hl(0, "ObsidianBullet", { fg = green })
-hl(0, "@string", { fg = blue, italic = true })
+hl(0, "@string", { fg = blue })
 
 -- UI
 hl(0, "TelescopeSelection", { fg = yellow, bg = bg })
