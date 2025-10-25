@@ -1,6 +1,6 @@
 return {
     "stevearc/conform.nvim",
-    version = "9.0.0",
+    version = "9.1.0",
     config = function()
         require("conform").setup({
             formatters = {
