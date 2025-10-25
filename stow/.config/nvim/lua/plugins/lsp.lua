@@ -3,7 +3,7 @@ return {
     version = "1.7.0",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        { "saghen/blink.cmp", version = "1.3.1" },
+        { "saghen/blink.cmp", version = "1.7.0" },
         { "williamboman/mason.nvim", version = "1.11.0" },
         { "williamboman/mason-lspconfig.nvim", version = "1.32.0" },
     },
