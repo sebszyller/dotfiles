@@ -1,7 +1,6 @@
 cask_args appdir: "/Applications"
 
 tap "buo/cask-upgrade"
-brew "sst/tap"
 
 brew "bat"
 brew "btop"
@@ -26,7 +25,7 @@ brew "parallel"
 brew "pipx"
 brew "ripgrep"
 brew "stow"
-brew "sst/tap/opencode"
+brew "opencode"
 brew "tmux"
 brew "wget"
 brew "yazi", args: ["HEAD"]
