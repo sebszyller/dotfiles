@@ -11,7 +11,7 @@ def recreate(js: dict) -> None:
     for session_name, windows in js["sessions"].items():
         for window_index, pane_path in windows.items():
             if tmux_has_session(session_name):
-                tmux_new_window(session_name)
+                tmux_new_window(session_name, window_index)
             else:
                 tmux_new_session(session_name)
 
@@ -29,8 +29,8 @@ def tmux_has_session(name: str) -> bool:
     return res.returncode == 0
 
 
-def tmux_new_window(session_name: str) -> None:
-    _ = check_output(["tmux", "new-window", "-t", session_name])
+def tmux_new_window(session_name: str, index: str) -> None:
+    _ = check_output(["tmux", "new-window", "-t", f"{session_name}:{index}"])
 
 
 def tmux_new_session(name: str) -> None:
