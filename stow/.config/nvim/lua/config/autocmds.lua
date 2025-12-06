@@ -1,6 +1,8 @@
 local autocmd = vim.api.nvim_create_autocmd
 local default_group = vim.api.nvim_create_augroup("DefaultGroup", { clear = true })
 local copilot_group = vim.api.nvim_create_augroup("CopilotFocus", { clear = true })
+local lsp_group = vim.api.nvim_create_augroup("LspGroup", { clear = true })
+local oil_group = vim.api.nvim_create_augroup("OilGroup", { clear = true })
 
 autocmd("BufWritePre", {
     group = default_group,
@@ -31,7 +33,7 @@ autocmd("FocusGained", {
 })
 
 autocmd("LspAttach", {
-    group = default_group,
+    group = lsp_group,
     callback = function(args)
         local opts = {
             buffer = args.buf,
@@ -78,7 +80,7 @@ local function get_cwd()
 end
 
 autocmd("User", {
-    group = default_group,
+    group = oil_group,
     pattern = { "OilEnter", "OilMutationComplete" },
     callback = function()
         local ns_id = vim.api.nvim_create_namespace("cwd")
