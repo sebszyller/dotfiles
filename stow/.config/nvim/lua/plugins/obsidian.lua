@@ -9,16 +9,16 @@ local function show_path_only(opts)
     return string.format("[[%s%s]]", opts.id, header_or_block)
 end
 
----@param client obsidian.Client
 ---@param note obsidian.Note
 ---@return string[]
-local function unique_backlinks(client, note)
-    local backlinks = client:find_backlinks(note)
+local function unique_backlinks(note)
+    local Note = require("obsidian.note")
+    local backlinks = note:backlinks()
     local titles = {}
     local seen = {}
 
     for _, file_table in ipairs(backlinks) do
-        local t = file_table.note.title
+        local t = Note.from_file(file_table.path.filename).title
         if not seen[t] then
             titles[#titles + 1] = t
             seen[t] = true
@@ -28,10 +28,9 @@ local function unique_backlinks(client, note)
     return titles
 end
 
----@param client obsidian.Client
 ---@param note obsidian.Note
 ---@return nil
-local function show_virtual_backlinks(client, note)
+local function show_virtual_backlinks(note)
     local bufnr = vim.api.nvim_get_current_buf()
     local hl = "Comment"
     local line_count = vim.api.nvim_buf_line_count(bufnr)
@@ -40,7 +39,7 @@ local function show_virtual_backlinks(client, note)
     vim.api.nvim_buf_clear_namespace(bufnr, ns_id, 0, -1)
 
     local virt_lines = {}
-    local backlinks = unique_backlinks(client, note)
+    local backlinks = unique_backlinks(note)
     if next(backlinks) == nil then
         table.insert(virt_lines, { { "[No backlinks]", hl } })
     else
@@ -59,7 +58,7 @@ end
 
 return {
     "obsidian-nvim/obsidian.nvim",
-    commit = "a35108c1397b6fa90b6b9600d62897bc30f17ed9",
+    version = "3.14.6",
     event = {
         "BufReadPre " .. vim.fn.expand("~") .. "/obsidian/**.md",
         "BufNewFile " .. vim.fn.expand("~") .. "/obsidian/**.md",
@@ -67,24 +66,23 @@ return {
     config = function()
         require("obsidian").setup({
             backlinks = { parse_headers = false },
-            callbacks = { enter_note = show_virtual_backlinks },
-            completion = { nvim_cmp = false, blink = true },
-            disable_frontmatter = true,
-            tits = false,
-            log_level = vim.log.levels.WARN,
-            mappings = {
-                ["gd"] = {
-                    -- stylua: ignore
-                    action = function() return "<cmd>ObsidianFollowLink<CR>" end,
-                    opts = { noremap = false, expr = true, buffer = true },
-                },
-                ["gD"] = {
-                    -- stylua: ignore
-                    action = function() return "<cmd>ObsidianFollowLink vsplit<CR>" end,
-                    opts = { noremap = false, expr = true, buffer = true },
-                },
+            callbacks = {
+                enter_note = function(note)
+                    local opts = { buffer = note.bufnr, noremap = false, silent = true }
+                    -- stylua: ignore start
+                    Globals.map("n", "gd", ":Obsidian follow_link<CR>", Globals.extend(opts, { desc = "Follow link" }))
+                    Globals.map("n", "gD", ":Obsidian follow_link vsplit<CR>", Globals.extend(opts, { desc = "Follow link (split)" }))
+                    Globals.map("n", "<leader>ob", ":Obsidian backlinks<CR>", Globals.extend(opts, { desc = "Backlinks" }))
+                    Globals.map("n", "<leader>on", ":Obsidian new<CR>",       Globals.extend(opts, { desc = "New note" }))
+                    -- stylua: ignore end
+                    show_virtual_backlinks(note)
+                end,
             },
+            frontmatter = { enabled = false },
+            footer = { enabled = false },
+            log_level = vim.log.levels.WARN,
             parse_headers = false,
+            status_line = { enabled = false },
             ui = {
                 reference_text = {},
                 external_link_icon = { char = "" },
@@ -94,11 +92,5 @@ return {
                 { name = "knowledge-base", path = vim.fn.expand("~") .. "/obsidian" },
             },
         })
-
-        local opts = { noremap = false, silent = true }
-        -- stylua: ignore start
-		Globals.map("n", "<leader>ob", ":Obsidian backlinks<CR>", Globals.extend(opts, { desc = "Backlinks" }))
-		Globals.map("n", "<leader>on", ":Obsidian new<CR>",       Globals.extend(opts, { desc = "New note" }))
-        -- stylua: ignore end
     end,
 }
