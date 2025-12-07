@@ -49,14 +49,14 @@ autocmd("LspAttach", {
         local builtin = require("telescope.builtin")
         local lsp = vim.lsp.buf
         -- stylua: ignore start
-        Globals.map("n", "gr",                    builtin.lsp_references,                            Globals.extend(opts, { desc = "Find references" }))
-        Globals.map("n", "gD",         function() builtin.lsp_definitions({jump_type="vsplit"}) end, Globals.extend(opts, { desc = "Goto definition (split)" }))
-        Globals.map("n", "gd",         function() lsp.definition() end,                              Globals.extend(opts, { desc = "Goto definition" }))
-        Globals.map("n", "gF",         function() vim.diagnostic.open_float() end,                   Globals.extend(opts, { desc = "Float" }))
-        Globals.map("n", "ga",         function() lsp.code_action() end,                             Globals.extend(opts, { desc = "Code action" }))
-        Globals.map("n", "gR",         function() lsp.rename() end,                                  Globals.extend(opts, { desc = "Rename" }))
-        Globals.map("n", "H",          function() toggle_inlay_hints() end,                          Globals.extend(opts, { desc = "Toggle hints" }))
-        Globals.map("n", "K",          function() lsp.hover({border = "rounded"}) end,               Globals.extend(opts, { desc = "Hover" }))
+        Globals.map("n", "gr",            builtin.lsp_references,                            Globals.extend(opts, { desc = "Find references" }))
+        Globals.map("n", "gD", function() builtin.lsp_definitions({jump_type="vsplit"}) end, Globals.extend(opts, { desc = "Goto definition (split)" }))
+        Globals.map("n", "gd",            lsp.definition,                                    Globals.extend(opts, { desc = "Goto definition" }))
+        Globals.map("n", "gF",            vim.diagnostic.open_float,                         Globals.extend(opts, { desc = "Float" }))
+        Globals.map("n", "ga",            lsp.code_action,                                   Globals.extend(opts, { desc = "Code action" }))
+        Globals.map("n", "gR",            lsp.rename,                                        Globals.extend(opts, { desc = "Rename" }))
+        Globals.map("n", "H",             toggle_inlay_hints,                                Globals.extend(opts, { desc = "Toggle hints" }))
+        Globals.map("n", "K",  function() lsp.hover({border = "rounded"}) end,               Globals.extend(opts, { desc = "Hover" }))
         -- stylua: ignore end
     end,
 })
@@ -121,7 +121,7 @@ autocmd("User", {
     pattern = { "ObsidianNoteEnter", "ObsidianNoteWritePost" },
     callback = function(args)
         local bufnr = args.buf
-        local note = require("obsidian.note").from_buffer(bufr)
+        local note = require("obsidian.note").from_buffer(bufnr)
         local hl = "Comment"
         local line_count = vim.api.nvim_buf_line_count(bufnr)
         local ns_id = vim.api.nvim_create_namespace("ObsidianVirtualBacklinks")
