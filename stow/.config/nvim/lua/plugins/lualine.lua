@@ -28,11 +28,11 @@ local function show_search_count()
 end
 
 local function lsps_exist()
-    return next(vim.lsp.buf_get_clients()) ~= nil
+    return next(vim.lsp.get_clients()) ~= nil
 end
 
 local function show_lsp_info()
-    local clients = vim.lsp.buf_get_clients()
+    local clients = vim.lsp.get_clients()
     local c = {}
     for _, client in pairs(clients) do
         table.insert(c, client.name)
@@ -42,7 +42,7 @@ end
 
 return {
     "nvim-lualine/lualine.nvim",
-    commit = "0c6cca9f2c63dadeb9225c45bc92bb95a151d4af",
+    commit = "47f91c416daef12db467145e16bed5bbfe00add8",
     lazy = false,
     config = function()
         local muted_gray = "Identifier"
@@ -55,10 +55,11 @@ return {
             end
         end
 
-        local opts = {}
-        opts.theme = auto
-        opts.component_separators = ""
-        opts.ection_separators = ""
+        local opts = {
+            theme = auto,
+            component_separators = "",
+            ection_separators = "",
+        }
 
         require("lualine").setup({
             options = opts,
