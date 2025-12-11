@@ -51,7 +51,7 @@ Globals.map("i", "<Del>", "_x", opts)
 Globals.map("i", "<C-d>", "<Del>", opts)
 Globals.map("i", "<C-p>", "<Esc>pa", opts)
 Globals.map("n", "gy", "yygccp", { desc = "Comment & paste", remap = true, silent = true })
-Globals.map("v", "gy", "ygvgc'>+1P", { desc = "Comment & paste", remap = true, silent = true })
+Globals.map("v", "gy", "ygvgc'>]p", { desc = "Comment & paste", remap = true, silent = true })
 Globals.map("n", "vA", "$Gvgg0", Globals.extend(opts, { desc = "Highlight all" }))
 Globals.map("v", "p", "pgvy", opts)
 
