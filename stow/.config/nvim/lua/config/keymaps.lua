@@ -4,6 +4,7 @@ local opts = {
 }
 
 vim.g.mapleader = " "
+Globals.map("i", "<C-c>", "<Esc>")
 
 -- Misc. leader
 Globals.map("n", "<leader>q", ":q<CR>", Globals.extend(opts, { desc = "Quit" }))
