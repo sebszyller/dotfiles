@@ -43,7 +43,7 @@ return {
             })
         end
         require("copilot").setup({
-            copilot_model = "gpt-4o-copilot",
+            copilot_model = "claude-sonnet-4-5",
             panel = { enabled = false },
             suggestion = { enabled = false },
             filetypes = {
