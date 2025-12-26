@@ -88,7 +88,17 @@ return {
                     })
                 end,
                 ["texlab"] = function()
-                    lspconfig.texlab.setup({ capabilities = capabilities_with_snippets })
+                    lspconfig.texlab.setup({
+                        capabilities = capabilities_with_snippets,
+                        settings = {
+                            texlab = {
+                                forwardSearch = {
+                                    executable = "/Applications/Skim.app/Contents/SharedSupport/displayline",
+                                    args = { "-g", "%l", "%p", "%f" },
+                                },
+                            },
+                        },
+                    })
                 end,
             },
         })

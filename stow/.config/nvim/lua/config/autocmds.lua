@@ -61,6 +61,21 @@ autocmd("LspAttach", {
     end,
 })
 
+autocmd("FileType", {
+    group = lsp_group,
+    pattern = { "tex", "latex" },
+    callback = function(args)
+        local opts = {
+            buffer = args.buf,
+            noremap = true,
+            silent = true,
+        }
+
+        -- stylua: ignore
+        Globals.map("n", "<leader>lf", ":TexlabForward<CR>", Globals.extend(opts, {  desc = "Forward search" }))
+    end,
+})
+
 autocmd("TextYankPost", {
     group = default_group,
     pattern = "*",

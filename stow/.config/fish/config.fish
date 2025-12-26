@@ -11,6 +11,7 @@ set -gx FISH $XDG_CONFIG_HOME/fish
 source $HOME/.env.fish
 
 # Dev-specific
+set -gx MASON_BINS ~/.local/share/nvim/mason/bin
 set -gx PYTHON_INSTALLS /Library/Frameworks/Python.framework/Versions
 set -gx PIP_REQUIRE_VIRTUALENV true
 fish_add_path $PYTHON_INSTALLS/3.11/bin

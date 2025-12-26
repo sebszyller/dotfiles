@@ -51,12 +51,13 @@ defaults write - InitialkeyRepeat -int 13
 defaults write -g KeyRepeat -int 1
 defaults write -g NSWindowShouldDragOnGesture -bool true
 ```
-
-- Link vscode settings if using on that machine:
+5. Link vscode settings if using on that machine:
 ```sh
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 ln -s $DOTFILES/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 ln -s $DOTFILES/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ```
-
+6. Set up inverse search in Skim:
+    - make sure that `texlab is linked`
+    - set command to `texlab` and args to `inverse-search --input '%file' --line %line`
 Remember to install **neovim grammars**.
