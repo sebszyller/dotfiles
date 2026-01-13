@@ -28,11 +28,11 @@ local function show_search_count()
 end
 
 local function lsps_exist()
-    return next(vim.lsp.get_clients()) ~= nil
+    return next(vim.lsp.get_clients({ bufnr = 0 })) ~= nil
 end
 
 local function show_lsp_info()
-    local clients = vim.lsp.get_clients()
+    local clients = vim.lsp.get_clients({ bufnr = 0 })
     local c = {}
     for _, client in pairs(clients) do
         table.insert(c, client.name)
