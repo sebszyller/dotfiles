@@ -6,6 +6,7 @@ return {
         { "fang2hou/blink-copilot", commit = "7ad8209b2f880a2840c94cdcd80ab4dc511d4f39" },
         {
             "copilotlsp-nvim/copilot-lsp",
+            commit = "1b6d8273594643f51bb4c0c1d819bdb21b42159d",
             init = function()
                 vim.g.copilot_nes_debounce = 300
             end,
