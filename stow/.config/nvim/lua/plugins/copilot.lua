@@ -49,6 +49,7 @@ return {
             suggestion = { enabled = false },
             filetypes = {
                 tex = false,
+                plaintex = false,
             },
             nes = {
                 enabled = true,
