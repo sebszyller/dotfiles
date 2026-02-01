@@ -6,11 +6,13 @@ brew "bat"
 brew "btop"
 brew "coreutils"
 brew "curl"
+brew "exiftool"
 brew "eza"
 brew "fd"
 brew "ffmpeg"
 brew "fzf"
 brew "git-delta"
+brew "glow"
 brew "gnu-sed"
 brew "hexyl"
 brew "hyperfine"
@@ -48,4 +50,3 @@ mas "SnippetsLab", id: 1006087419
 mas "Telegram", id: 747648890
 mas "Things", id: 904280696
 mas "Xcode", id: 497799835
-
