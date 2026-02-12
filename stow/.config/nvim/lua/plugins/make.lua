@@ -4,5 +4,7 @@ return {
     keys = {
         { "<leader>m", ":QuickMake<CR>", desc = "QuickMake" },
     },
-    opts = {},
+    opts = {
+        skipped = { ".PHONY", "$(BUILD_DIR)" },
+    },
 }

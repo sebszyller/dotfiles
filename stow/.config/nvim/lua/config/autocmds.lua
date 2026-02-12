@@ -63,7 +63,7 @@ autocmd("LspAttach", {
 
 autocmd("FileType", {
     group = lsp_group,
-    pattern = { "tex", "latex" },
+    pattern = { "tex", "latex", "plaintex" },
     callback = function(args)
         local opts = {
             buffer = args.buf,
