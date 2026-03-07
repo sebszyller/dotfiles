@@ -92,9 +92,6 @@ return {
                         capabilities = capabilities_with_snippets,
                         settings = {
                             texlab = {
-                                build = {
-                                    pdfDirectory = "build",
-                                },
                                 forwardSearch = {
                                     executable = "/Applications/Skim.app/Contents/SharedSupport/displayline",
                                     args = { "-g", "%l", "%p", "%f" },

@@ -71,8 +71,31 @@ autocmd("FileType", {
             silent = true,
         }
 
+        local function forward_search()
+            local clients = vim.lsp.get_clients({ bufnr = args.buf, name = "texlab" })
+            if #clients > 0 then
+                local client = clients[1]
+                local root_dir = client.config.root_dir
+                if root_dir then
+                    local pdf_dirs = { "build", "output" }
+                    local detected_dir = "."
+                    for _, dir in ipairs(pdf_dirs) do
+                        local full_path = root_dir .. "/" .. dir
+                        if vim.fn.isdirectory(full_path) == 1 then
+                            detected_dir = dir
+                            break
+                        end
+                    end
+
+                    client.config.settings.texlab.build.pdfDirectory = detected_dir
+                    client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+                end
+            end
+            vim.cmd("TexlabForward")
+        end
+
         -- stylua: ignore
-        Globals.map("n", "<leader>lf", ":TexlabForward<CR>", Globals.extend(opts, {  desc = "Forward search" }))
+        Globals.map("n", "<leader>lf", forward_search, Globals.extend(opts, {  desc = "Forward search" }))
     end,
 })
 
