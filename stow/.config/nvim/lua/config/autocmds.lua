@@ -185,6 +185,23 @@ autocmd("User", {
     end,
 })
 
+local function create_note_from_title()
+    vim.ui.input({ prompt = "Note title: " }, function(title)
+        if not title or title == "" then
+            return
+        end
+
+        local filename =
+            title:lower():gsub("[^%w%s-]", ""):gsub("%s+", "-"):gsub("%-+", "-"):gsub("^%-", ""):gsub("%-$", "")
+
+        vim.cmd("Obsidian new " .. filename .. ".md")
+
+        vim.schedule(function()
+            vim.api.nvim_buf_set_lines(0, 0, 1, false, { "# " .. title })
+        end)
+    end)
+end
+
 autocmd("User", {
     group = obsidian_group,
     pattern = "ObsidianNoteEnter",
@@ -194,7 +211,7 @@ autocmd("User", {
         Globals.map("n", "gd",         ":Obsidian follow_link<CR>",        Globals.extend(opts, { desc = "Follow link" }))
         Globals.map("n", "gD",         ":Obsidian follow_link vsplit<CR>", Globals.extend(opts, { desc = "Follow link (split)" }))
         Globals.map("n", "<leader>ob", ":Obsidian backlinks<CR>",          Globals.extend(opts, { desc = "Backlinks" }))
-        Globals.map("n", "<leader>on", ":Obsidian new<CR>",                Globals.extend(opts, { desc = "New note" }))
+        Globals.map("n", "<leader>on", create_note_from_title,             Globals.extend(opts, { desc = "New note" }))
         -- stylua: ignore end
     end,
 })
