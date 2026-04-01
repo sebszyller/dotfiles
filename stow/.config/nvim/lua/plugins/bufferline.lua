@@ -16,8 +16,10 @@ return {
         })
         local opts = { noremap = true, silent = true }
 		-- stylua: ignore start
+        Globals.map("n", ";f", "<C-^>",                                                    Globals.extend(opts, { desc = "Last buffer" }))
 		Globals.map("n", ";q", ":bp|bd #<CR>",                                             Globals.extend(opts, { desc = "Close buffer" }))
 		Globals.map("n", ";Q", ":bp|bd! #<CR>",                                            Globals.extend(opts, { desc = "Close buffer (discard)" }))
+		Globals.map("n", ";o", ":BufferLineCloseOthers<CR>",                               Globals.extend(opts, { desc = "Close other buffers" }))
 		Globals.map("n", ";1", "<CMD>lua require('bufferline').go_to_buffer(1, true)<CR>", Globals.extend(opts, { desc = "Buffer 1" }))
 		Globals.map("n", ";2", "<CMD>lua require('bufferline').go_to_buffer(2, true)<CR>", Globals.extend(opts, { desc = "Buffer 2" }))
 		Globals.map("n", ";3", "<CMD>lua require('bufferline').go_to_buffer(3, true)<CR>", Globals.extend(opts, { desc = "Buffer 3" }))
@@ -27,7 +29,6 @@ return {
 		Globals.map("n", ";7", "<CMD>lua require('bufferline').go_to_buffer(7, true)<CR>", Globals.extend(opts, { desc = "Buffer 7" }))
 		Globals.map("n", ";8", "<CMD>lua require('bufferline').go_to_buffer(8, true)<CR>", Globals.extend(opts, { desc = "Buffer 8" }))
 		Globals.map("n", ";9", "<CMD>lua require('bufferline').go_to_buffer(9, true)<CR>", Globals.extend(opts, { desc = "Buffer 9" }))
-		Globals.map("n", ";o", ":BufferLineCloseOthers<CR>",                               Globals.extend(opts, { desc = "Close other buffers" }))
         -- stylua: ignore end
     end,
 }
