@@ -1,0 +1,48 @@
+#!/usr/bin/env fish
+
+if test (count $argv) -ne 2
+    echo "usage: git-split <new_branch> <move_count|sha>" >&2
+    exit 1
+end
+
+set -l branch_new $argv[1]
+set -l count_or_sha $argv[2]
+
+if not git diff-index --quiet HEAD --
+    echo "error: dirty worktree. commit or stash changes first." >&2
+    exit 1
+end
+
+if git show-ref --verify --quiet "refs/heads/$branch_new"
+    echo "error: branch '$branch_new' already exists." >&2
+    exit 1
+end
+
+set -l sha_base
+
+if string match -qr '^[0-9]+$' -- $count_or_sha
+    set sha_base (git rev-parse --short "HEAD~"(math $count_or_sha - 1))
+else
+    set sha_base $count_or_sha
+end
+
+if not git rev-parse --verify $sha_base >/dev/null 2>&1
+    echo "error: sha '$sha_base' not found." >&2
+    exit 1
+end
+
+set -l sha_tip (git rev-parse --short $sha_base~1)
+set -l sha_head (git rev-parse --short HEAD)
+set -l branch_starting (git rev-parse --abbrev-ref HEAD)
+
+git branch $branch_new; or exit 1
+git reset --hard $sha_tip >/dev/null 2>&1; or exit 1
+git checkout $branch_new --quiet; or exit 1
+
+set_color green; echo -n "* $branch_new"; set_color normal
+echo ": "$sha_base" .. "$sha_head
+echo "  base: '"(git log -1 --pretty=%s $sha_base)"'"
+
+set_color blue; echo -n "  $branch_starting"; set_color normal
+echo ": "$sha_tip
+echo "  tip: '"(git log -1 --pretty=%s $sha_tip)"'"

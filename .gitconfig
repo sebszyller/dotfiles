@@ -31,6 +31,9 @@
 [rerere]
 	enabled = true
 
+[rebase]
+    autosquash = true
+
 [user]
     name = Sebastian Szyller
     email = contact@sebszyller.com

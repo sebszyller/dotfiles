@@ -28,7 +28,7 @@ alias wt "git worktree"
 
 function gl
     clear
-    set --local sha (eval "git log --oneline $__gitfmt --color=always" $argv[1] | fzf --header "<CR>: select | <C-c>: abort" --ansi --no-sort --height=80% --preview="git show --show-signature --color=always $__gitfmt --stat {1}" | awk '{print $1}')
+    set --local sha (eval "git log --oneline $__gitfmt --color=always" $argv[1] | fzf --header "<CR>: select | <C-c>: abort | <C-y>: yank sha" --bind="ctrl-y:execute-silent(echo -n {1} | yy)+transform-header(echo '<CR>: select | <C-c>: abort | <C-y>: yank sha (last yank: '{1}')')" --ansi --no-sort --height=80% --preview="git show --show-signature --color=always $__gitfmt --stat {1}" | awk '{print $1}')
 
     if test -z "$sha"
         kill -INT $fish_pid
