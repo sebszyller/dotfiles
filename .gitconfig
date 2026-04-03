@@ -1,14 +1,15 @@
 [core]
-    pager = delta
     editor = nvim
+    pager = delta
 
 [commit]
 	gpgsign = true
 
 [delta]
-    syntax-theme = ansi
+    line-numbers = true
     navigate = true  # use n and N to move between diff sections
     side-by-side = false
+    syntax-theme = ansi
 
 [diff]
     colorMoved = default
@@ -23,13 +24,20 @@
     diffFilter = delta --color-only
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 
 [pull]
 	rebase = true
 
+[push]
+    autoSetupRemote = true
+
 [rerere]
 	enabled = true
+
+[rebase]
+    autoStash = true
+    updateRefs = true
 
 [user]
     name = Sebastian Szyller
