@@ -1,9 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     commit = "20a7e40203dab3454686e057adecd805f3d6d334",
-    dependencies = {
-        { "nvim-treesitter/nvim-treesitter-textobjects", commit = "ad8f0a472148c3e0ae9851e26a722ee4e29b1595" },
-    },
     lazy = false,
     build = ":TSUpdate",
     config = function()
@@ -16,20 +13,6 @@ return {
                     init_selection = "<C-s>",
                     node_incremental = "<C-s>",
                     node_decremental = "<BS>",
-                },
-            },
-            textobjects = {
-                select = {
-                    enable = true,
-                    lookahead = true,
-                    keymaps = {
-                        ["if"] = "@function.inner",
-                        ["af"] = "@function.outer",
-                        ["ac"] = "@class.outer",
-                        ["ic"] = "@class.inner",
-                        ["ii"] = "@conditional.inner",
-                        ["ai"] = "@conditional.outer",
-                    },
                 },
             },
             -- stylua: ignore start
