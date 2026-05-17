@@ -56,3 +56,16 @@ function wtl
         cd $just_path
     end
 end
+
+function ccm
+    printf "%s%-10s%s %s\n" (set_color --bold white)   "build:"    (set_color normal) "Changes that affect the build system or external dependencies"
+    printf "%s%-10s%s %s\n" (set_color --bold green)   "ci:"       (set_color normal) "Changes to the CI configuration files and scripts"
+    printf "%s%-10s%s %s\n" (set_color --bold blue)    "docs:"     (set_color normal) "Documentation only changes, READMEs"
+    printf "%s%-10s%s %s\n" (set_color --bold red)     "chore:"    (set_color normal) "All other random stuff that isn't build, ci, docs or code, e.g. tooling, meta"
+    printf "%s%-10s%s %s\n" (set_color --bold green)   "feat:"     (set_color normal) "Code: a new feature"
+    printf "%s%-10s%s %s\n" (set_color --bold magenta) "fix:"      (set_color normal) "Code: a bug fix"
+    printf "%s%-10s%s %s\n" (set_color --bold white)   "perf:"     (set_color normal) "Code: a change that improves performance"
+    printf "%s%-10s%s %s\n" (set_color --bold green)   "refactor:" (set_color normal) "Code: a change that neither fixes a bug nor adds a feature; restructuring, renaming"
+    printf "%s%-10s%s %s\n" (set_color --bold blue)    "style:"    (set_color normal) "Code: a change that does not affect the meaning of the code (formatters)"
+    printf "%s%-10s%s %s\n" (set_color --bold red)     "test:"     (set_color normal) "Code: adding missing tests or correcting existing tests"
+end
