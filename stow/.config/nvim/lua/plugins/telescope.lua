@@ -51,6 +51,13 @@ return {
 
             return layout
         end
+
+        local function yank_selection(prompt_bufnr)
+            local selection = require("telescope.actions.state").get_selected_entry()
+            require("telescope.actions").close(prompt_bufnr)
+            vim.fn.setreg("+", selection.path or selection.value)
+        end
+
         telescope.setup({
             defaults = {
                 get_status_text = function(picker)
@@ -63,6 +70,10 @@ return {
                         preview_width = 0.6,
                         height = 0.8,
                     },
+                },
+                mappings = {
+                    i = { ["<C-y>"] = yank_selection },
+                    n = { ["<C-y>"] = yank_selection },
                 },
                 selection_caret = "❚ ",
                 sorting_strategy = "ascending",
