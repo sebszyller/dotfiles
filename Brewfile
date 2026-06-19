@@ -29,11 +29,11 @@ brew "pipx"
 brew "ripgrep"
 brew "stow"
 brew "tmux"
+brew "uv"
 brew "wget"
 brew "yazi", args: ["HEAD"]
 brew "zoxide"
 
-cask "alacritty"
 cask "claude-code"
 cask "ghostty"
 cask "gimp"
@@ -41,7 +41,6 @@ cask "obs"
 cask "obsidian"
 cask "rectangle"
 cask "signal"
-cask "visual-studio-code"
 cask "vlc"
 
 mas "Keynote", id: 409183694
