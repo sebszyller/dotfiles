@@ -9,6 +9,7 @@ alias gcma "git commit --amend"
 alias gcmax "git commit --amend --no-edit"
 alias gdf "git diff"
 alias gdfc "git diff --cached"
+alias gf "git fetch"
 alias gla "gl --all"
 alias glp "clear; git log -p --show-signature $__gitfmt"
 alias gpull "git pull"
@@ -20,7 +21,6 @@ alias grs "git reset --soft"
 alias grd "git push origin --delete"
 alias grb "git rebase"
 alias grbi "git rebase --interactive"
-alias gru "git remote update"
 alias gs "git status"
 alias gst "git stash"
 alias gsta "git stash apply"
@@ -31,8 +31,9 @@ alias wt "git worktree"
 function gl
     clear
     set --local sha (eval "git log --graph --oneline $__gitfmt --color=always" $argv[1] | fzf \
-        --header "<CR>: select | <C-c>: abort | <C-y>: yank sha" \
-        --bind="ctrl-y:execute-silent(echo {} | rg -o '[a-f0-9]{7,}' | head -n 1 | tr -d '\n' | yy)+transform-header(echo {} | rg -o '[a-f0-9]{7,}' | head -n 1 | xargs -I % echo '<CR>: select | <C-c>: abort | <C-y>: yank sha (last yank: %)')" \
+        --header "<CR>: select | <C-c>: abort | <C-b>: checkout | <C-y>: yank sha" \
+        --bind="ctrl-y:execute-silent(echo {} | rg -o '[a-f0-9]{7,}' | head -n 1 | tr -d '\n' | yy)+transform-header(echo {} | rg -o '[a-f0-9]{7,}' | head -n 1 | xargs -I % echo '<CR>: select | <C-c>: abort | <C-b>: checkout | <C-y>: yank sha (last yank: %)')" \
+        --bind="ctrl-b:execute-silent(echo {} | rg -o '[a-f0-9]{7,}' | head -n 1 | xargs -I% git checkout -b % %)+abort" \
         --ansi --no-sort --height=80% \
         --preview="set -l commit (echo {} | rg -o '[a-f0-9]{7,}' | head -n 1); if test -n \"\$commit\"; git show --show-signature --color=always $__gitfmt --stat \$commit; else; echo 'Select a commit node to preview...'; end" \
         | rg -o '[a-f0-9]{7,}' | head -n 1)

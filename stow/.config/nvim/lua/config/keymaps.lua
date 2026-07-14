@@ -64,8 +64,8 @@ Globals.map("n", ";C", ":copen<CR>", Globals.extend(opts, { desc = "Open quickfi
 
 -- Searching
 -- stylua: ignore start
-Globals.map("n", "<leader>gc", ":silent vimgrep //g %<CR>:copen<CR>", Globals.extend(opts, { desc = "Search to quickfix" }))
-Globals.map("n", "<leader>gt",
+Globals.map("n", "<leader>sc", ":silent vimgrep //g %<CR>:copen<CR>", Globals.extend(opts, { desc = "Search to quickfix" }))
+Globals.map("n", "<leader>st",
     function ()
         vim.cmd("normal! gny")
         local search_text = vim.fn.getreg('"')
