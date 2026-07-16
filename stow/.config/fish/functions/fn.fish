@@ -216,16 +216,17 @@ function texcomp
     pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $argv[1]
 end
 
-# Fuzzy-find for tsp outputs
-function tss
-    ts -c (ts | __fzfselectorexit | awk '{print $1}')
-end
+# Fuzzy-find for tsp
+# TODO: not tested
+function tsf
+    set --local jobid (ts | __fzfselectorexit \
+        --header "<CR>: show output | <C-x>: kill | <C-c>: abort" \
+        --bind "ctrl-x:execute-silent(echo {} | awk '{print \$1}' | xargs ts -k)+clear-query+reload(ts)" \
+        | awk '{print $1}')
 
-# Fuzzy-find for killing tsp jobs
-function tsk
-    set --function jobid (ts | __fzfselectorexit | awk '{print $1}')
-    ts -k $jobid
-    echo Killed job id:$jobid
+    if test -n "$jobid"
+        ts -c $jobid
+    end
 end
 
 # Fuzzy-find file and open with (n)vim
