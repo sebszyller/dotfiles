@@ -49,7 +49,9 @@ complete --command gl --wraps 'git log'
 
 function wtl
     # List and kill with <C-x>
-    set --local tree_branch (git worktree list | __fzfselectorexit --header "<CR>: select | <C-x>: remove | <C-c>: abort" --bind "ctrl-x:execute-silent(echo {} | awk '{print \$1}' | xargs git worktree remove)+clear-query+reload(git worktree list)")
+    set --local tree_branch (git worktree list | __fzfselectorexit \
+        --header "<CR>: select | <C-x>: remove | <C-c>: abort" \
+        --bind "ctrl-x:execute-silent(echo {} | awk '{print \$1}' | xargs git worktree remove)+clear-query+reload(git worktree list)")
     set --local just_path (echo $tree_branch | awk '{print $1}')
 
     if test (pwd) = $just_path

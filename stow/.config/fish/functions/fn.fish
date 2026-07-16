@@ -136,7 +136,10 @@ function __tmux_kill_or_name
         alias __whichfzf  "__fzfselectorexit"
     end
 
-    set --local cmd '__whichfzf --header "<CR>: attach | <C-s>: new | <C-x>: kill | <C-c>: abort" --bind "ctrl-x:execute-silent(tmux kill-session -t {})+clear-query+reload(__tmux_sessions)" --bind "ctrl-s:execute-silent(tmux new-session -d -s {q})+print-query"'
+    set --local cmd '__whichfzf' \
+        '--header "<CR>: attach | <C-s>: new | <C-x>: kill | <C-c>: abort"' \
+        '--bind "ctrl-x:execute-silent(tmux kill-session -t {})+clear-query+reload(__tmux_sessions)"' \
+        '--bind "ctrl-s:execute-silent(tmux new-session -d -s {q})+print-query"'
 
     if set -q _flag_query
         set -a cmd '--query=$_flag_query'
