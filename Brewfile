@@ -46,7 +46,6 @@ cask "vlc"
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "SnippetsLab", id: 1006087419
 mas "Telegram", id: 747648890
 mas "Things", id: 904280696
 mas "Xcode", id: 497799835
