@@ -1,7 +1,5 @@
 cask_args appdir: "/Applications"
 
-tap "buo/cask-upgrade"
-
 brew "bat"
 brew "btop"
 brew "coreutils"
