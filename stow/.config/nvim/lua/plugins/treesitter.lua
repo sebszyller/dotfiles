@@ -1,37 +1,47 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    commit = "20a7e40203dab3454686e057adecd805f3d6d334",
     lazy = false,
+    commit = "a2f694478be07f89c2d03cc17858a8745a400c4b",
     build = ":TSUpdate",
     config = function()
-        local configs = require("nvim-treesitter.configs")
+        local ts = require("nvim-treesitter")
+        -- stylua: ignore start
+        local parsers = {
+            "bash", "fish",
+            "regex",
+            "diff",
+            "git_config", "git_rebase",
+            "c", "cpp", "cuda", "rust",
+            "python",
+            "javascript", "typescript", "html", "svelte", "css", "scss",
+            "json", "yaml", "toml", "csv", "xml",
+            "vim", "vimdoc",
+            "lua",
+            "markdown", "markdown_inline",
+            "latex",
+            "sql",
+        }
+        -- stylua: ignore start
 
-        configs.setup({
-            incremental_selection = {
-                enable = true,
-                keymaps = {
-                    init_selection = "<C-s>",
-                    node_incremental = "<C-s>",
-                    node_decremental = "<BS>",
-                },
-            },
-            -- stylua: ignore start
-			ensure_installed = {
-				"bash", "fish", "regex",
-				"diff", "git_config", "git_rebase",
-				"c", "cpp", "cuda", "rust",
-                "python",
-				"javascript", "typescript", "html", "svelte", "css", "scss",
-				"json", "yaml", "toml", "csv", "xml",
-                "vim", "vimdoc", "lua",
-                "markdown", "markdown_inline", "latex",
-                "sql",
-			},
-            -- stylua: ignore end
-            sync_install = false,
-            auto_install = false,
-            highlight = { enable = true },
-            indent = { enable = true },
+        for _, parser in ipairs(parsers) do
+            ts.install(parser)
+        end
+
+        -- Not every tree-sitter parser is the same as the file type detected
+        -- So the patterns need to be registered more cleverly
+        local patterns = {}
+        for _, parser in ipairs(parsers) do
+            local parser_patterns = vim.treesitter.language.get_filetypes(parser)
+            for _, pp in pairs(parser_patterns) do
+                table.insert(patterns, pp)
+            end
+        end
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = patterns,
+            callback = function()
+                vim.treesitter.start()
+            end,
         })
     end,
 }
