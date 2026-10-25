@@ -1,17 +1,9 @@
 return {
-    "neovim/nvim-lspconfig",
-    version = "1.7.0",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-        { "saghen/blink.cmp", version = "1.7.0" },
-        { "williamboman/mason.nvim", version = "1.11.0" },
-        { "williamboman/mason-lspconfig.nvim", version = "1.32.0" },
-    },
-    config = function()
-        local blink_cmp = require("blink.cmp")
-        local lspconfig = require("lspconfig")
-
-        blink_cmp.setup({
+    {
+        "saghen/blink.cmp",
+        version = "1.10.2",
+        dependencies = { "fang2hou/blink-copilot" },
+        opts = {
             keymap = {
                 preset = "super-tab",
                 ["<C-h>"] = { "show_signature", "hide_signature", "fallback" },
@@ -25,8 +17,8 @@ return {
                 completion = {
                     list = { selection = { auto_insert = false } },
                     menu = {
-                        auto_show = function(ctx)
-                            return not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype()) -- NOTE: don't show in search
+                        auto_show = function()
+                            return not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
                         end,
                     },
                 },
@@ -45,73 +37,70 @@ return {
                 default = { "lsp", "path", "copilot", "snippets", "buffer" },
                 min_keyword_length = 3,
                 providers = {
-                    copilot = {
-                        name = "copilot",
-                        module = "blink-copilot",
-                        score_offset = 100,
-                        async = true,
-                    },
+                    copilot = { name = "copilot", module = "blink-copilot", score_offset = 100, async = true },
                 },
             },
-        })
+        },
+    },
+    {
+        "neovim/nvim-lspconfig",
+        version = "2.12.0",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "saghen/blink.cmp",
+            { "williamboman/mason.nvim", version = "2.3.1", opts = { ui = { border = "rounded" } } },
+        },
+        config = function()
+            local blink = require("blink.cmp")
 
-        local capabilities = blink_cmp.get_lsp_capabilities({
-            textDocument = { completion = { completionItem = { snippetSupport = false } } },
-        })
-        local capabilities_with_snippets = blink_cmp.get_lsp_capabilities()
+            vim.lsp.config("*", {
+                capabilities = blink.get_lsp_capabilities({
+                    textDocument = { completion = { completionItem = { snippetSupport = false } } },
+                }),
+            })
 
-        require("mason").setup({ ui = { border = "rounded" } })
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                -- stylua: ignore start
-                -- "stylua", "lua-language-server",
-                -- "clangd", "clang-format",
-                -- "rust-analyzer",
-                -- "basedpyright", "ruff",
-                -- "svelte-language-server", "typescript-language-server", "prettier",
-                -- "texlab", "latexindent",
-                -- stylua: ignore end
-            },
-            handlers = {
-                function(server_name)
-                    lspconfig[server_name].setup({ capabilities = capabilities })
-                end,
-                ["lua_ls"] = function()
-                    lspconfig.lua_ls.setup({
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-                                runtime = { version = "Lua 5.1" },
-                                diagnostics = { globals = { "vim", "it", "describe", "before_each", "after_each" } },
-                            },
+            vim.lsp.config("lua_ls", {
+                settings = {
+                    Lua = {
+                        runtime = { version = "Lua 5.1" },
+                        diagnostics = { globals = { "vim", "it", "describe", "before_each", "after_each" } },
+                    },
+                },
+            })
+
+            vim.lsp.config("texlab", {
+                capabilities = blink.get_lsp_capabilities(), -- snippets on; deep-merges over "*"
+                settings = {
+                    texlab = {
+                        forwardSearch = {
+                            executable = "/Applications/Skim.app/Contents/SharedSupport/displayline",
+                            args = { "-g", "%l", "%p", "%f" },
                         },
-                    })
-                end,
-                ["texlab"] = function()
-                    lspconfig.texlab.setup({
-                        capabilities = capabilities_with_snippets,
-                        settings = {
-                            texlab = {
-                                forwardSearch = {
-                                    executable = "/Applications/Skim.app/Contents/SharedSupport/displayline",
-                                    args = { "-g", "%l", "%p", "%f" },
-                                },
-                            },
-                        },
-                    })
-                end,
-            },
-        })
+                    },
+                },
+            })
 
-        vim.diagnostic.config({
-            virtual_text = true,
-            float = {
-                style = "minimal",
-                border = "rounded",
-                source = "always",
-                header = "",
-                prefix = "",
-            },
-        })
-    end,
+            -- "stylua", "lua-language-server",
+            -- "clangd", "clang-format",
+            -- "rust-analyzer",
+            -- "basedpyright", "ruff",
+            -- "svelte-language-server", "typescript-language-server", "prettier",
+            -- "texlab", "latexindent",
+            vim.lsp.enable({
+                "lua_ls",
+                "clangd",
+                "rust_analyzer",
+                "basedpyright",
+                "ruff",
+                "svelte",
+                "ts_ls",
+                "texlab",
+            })
+
+            vim.diagnostic.config({
+                virtual_text = true,
+                float = { style = "minimal", border = "rounded", source = true, header = "", prefix = "" },
+            })
+        end,
+    },
 }

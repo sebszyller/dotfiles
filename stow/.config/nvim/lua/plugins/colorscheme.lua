@@ -1,6 +1,6 @@
 return {
     "zenbones-theme/zenbones.nvim",
-    version = "4.10.0",
+    version = "4.12.0",
     dependencies = {
         { "rktjmp/lush.nvim", version = "1b66ab197b177aabc2270a2c9cb8019fa5a367df" },
     },

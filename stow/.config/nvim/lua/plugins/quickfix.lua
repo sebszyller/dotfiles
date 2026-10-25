@@ -1,7 +1,7 @@
 return {
     {
         "stevearc/quicker.nvim",
-        version = "1.4.0",
+        version = "1.5.1",
         event = "FileType qf",
         opts = {},
     },
